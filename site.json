@@ -1,0 +1,15 @@
+{
+  "url": "https://centralpark.co.il",
+  "pages_url": "https://central-park.pages.dev",
+  "nameservers": [
+    "gordon.ns.cloudflare.com",
+    "sureena.ns.cloudflare.com"
+  ],
+  "storage": "https://jetvaults.blob.core.windows.net/central-park/",
+  "private_storage": "https://jetvaults.blob.core.windows.net/central-park-private/",
+  "storage_profile": "standard",
+  "storage_profile_label": "Standard",
+  "storage_account": "jetvaults",
+  "storage_account_url": "https://jetvaults.blob.core.windows.net",
+  "activated": false
+}
