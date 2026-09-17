@@ -50,7 +50,7 @@ def main():
                 page.mouse.wheel(0, 600); y += 600; page.wait_for_timeout(90 if not motion else 160)
             page.evaluate("window.scrollTo(0, document.documentElement.scrollHeight)")
             page.wait_for_load_state("networkidle")
-            page.evaluate("() => Promise.all([...document.images].filter(i=>!i.complete).map(i=>new Promise(r=>{i.onload=i.onerror=r})))")
+            page.evaluate("() => Promise.race([new Promise(r=>setTimeout(r,4000)), Promise.all([...document.images].filter(i=>!i.complete && !i.closest('dialog')).map(i=>new Promise(r=>{i.onload=i.onerror=r})))])")
             if not motion:
                 page.evaluate("document.querySelectorAll('.reveal,.fade,.rings,.disc').forEach(e=>e.classList.add('is-in'))")
             page.wait_for_timeout(1200 if motion else 300)

@@ -637,3 +637,251 @@ body.menu-open {
     height: 1.9rem;
   }
 }
+
+/* ================= review 3 additions ================= */
+
+/* rings at the photo's top-left, behind it (spread 5 composition) */
+.frame--rings-topleft {
+  margin-left: 14%;
+  margin-top: 12%;
+}
+.frame__rings--behind-topleft {
+  left: -30%;
+  top: -34%;
+  width: 78%;
+  translate: none;
+}
+
+/* rose dot peeking from behind the D-shaped photo */
+.arc__dot {
+  position: absolute;
+  left: -6%;
+  top: 22%;
+  width: 34%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--c-rose);
+  z-index: 0;
+  pointer-events: none;
+}
+.arc__clip {
+  position: relative;
+  z-index: 1;
+}
+.js .arc__dot { transform: scale(0); transition: transform 1400ms var(--ease-out); }
+.js .arc__dot.is-in { transform: none; }
+
+/* ring circles: hover */
+.ring-list__circle {
+  transition: background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), transform 600ms var(--ease-out);
+}
+.ring-list__item:hover .ring-list__circle {
+  background: var(--c-gold);
+  border-color: var(--c-gold);
+  transform: translateY(-4px);
+}
+.ring-list__item:hover .ring-list__circle p {
+  color: var(--c-charcoal);
+}
+
+/* centered blocks */
+.centered {
+  text-align: center;
+}
+.centered .h2 {
+  margin-block-end: var(--space-4);
+}
+.prose--wide {
+  max-width: 46rem;
+}
+.btn--inline {
+  margin-block-start: var(--space-4);
+}
+
+/* site plan: full container width with magnifier */
+.map-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-block: var(--space-6) var(--space-3);
+  font-size: var(--fs-small);
+  color: var(--text-soft);
+}
+.map-note svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--c-gold);
+}
+.map {
+  position: relative;
+  cursor: crosshair;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.map .plan {
+  mix-blend-mode: normal;
+  border-radius: 0;
+}
+.map__zoom {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 3;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--c-charcoal);
+  color: var(--c-gold);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.map__zoom:hover { background: var(--c-gold); color: var(--c-charcoal); }
+.map__zoom svg { width: 1.25rem; height: 1.25rem; }
+.map__lens {
+  display: none;
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 2px solid var(--c-gold);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  z-index: 2;
+  background-repeat: no-repeat;
+  background-color: var(--c-cream);
+}
+
+/* modal (site plan + gallery) */
+.modal {
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--c-charcoal);
+  max-width: 94vw;
+  max-height: 92vh;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+}
+.modal::backdrop { background: rgba(20, 20, 20, 0.86); }
+.modal img { display: block; max-width: 94vw; max-height: 90vh; width: auto; height: auto; object-fit: contain; }
+.modal__close {
+  position: absolute;
+  top: 0.5rem;
+  inset-inline-end: 0.75rem;
+  z-index: 2;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--c-paper);
+  background: rgba(44, 44, 44, 0.6);
+  border-radius: 50%;
+}
+.modal__nav {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 2;
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--c-paper);
+  background: rgba(44, 44, 44, 0.6);
+  border-radius: 50%;
+}
+.modal__nav--prev { right: 0.75rem; }
+.modal__nav--next { left: 0.75rem; }
+.modal--gallery img { min-width: min(70vw, 900px); }
+
+/* gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-3);
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+}
+.gallery__item {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--c-charcoal-2);
+  cursor: zoom-in;
+}
+.gallery__item picture,
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gallery__item img {
+  transition: transform 900ms var(--ease-out);
+}
+.gallery__item:hover img { transform: scale(1.04); }
+
+/* contact */
+.contact {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+  max-width: 56rem;
+}
+.contact li {
+  display: grid;
+  gap: 0.35rem;
+  padding-block-start: var(--space-3);
+  border-block-start: 1px solid var(--c-gold);
+}
+.contact__label {
+  font-size: var(--fs-small);
+  color: var(--c-gold);
+  letter-spacing: 0.02em;
+}
+.contact__value {
+  font-weight: var(--fw-medium);
+}
+.contact__value:hover { color: var(--c-gold); }
+
+/* developers rings live entirely inside the section now */
+.section-developers { overflow: visible; overflow-x: clip; }
+.section-developers__rings {
+  inset-block-start: var(--space-4);
+  inset-inline-start: -6%;
+  width: min(34vw, 30rem);
+  opacity: 0.5;
+}
+
+/* footer powered-by */
+.footer__powered {
+  margin-block-start: var(--space-2);
+  font-size: var(--fs-small);
+  color: var(--text-soft);
+}
+.footer__powered a {
+  color: var(--c-gold);
+  border-block-end: 1px solid var(--c-gold-soft);
+}
+
+@media (max-width: 1023px) {
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .frame--rings-topleft { margin-left: 10%; margin-top: 10%; }
+  .frame__rings--behind-topleft { left: -22%; top: -26%; width: 64%; }
+  .nav ul { gap: var(--space-4); }
+}
+@media (max-width: 767px) {
+  .gallery { gap: var(--space-2); }
+  .contact { grid-template-columns: 1fr; gap: var(--space-3); max-width: 20rem; }
+  .map__lens { display: none !important; }
+  .map { cursor: default; }
+  .modal__nav { width: 2.25rem; height: 2.25rem; }
+}
