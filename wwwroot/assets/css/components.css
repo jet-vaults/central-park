@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------------
-   Components: header, nav, hero, rings, tiles, developers, footer
+   Components: header, nav, hero, rings, discs, frames, tiles, developers, footer
    ------------------------------------------------------------------ */
 
 /* skip link */
@@ -12,12 +12,13 @@
   background: var(--c-gold);
   color: var(--c-charcoal);
   font-weight: var(--fw-medium);
+  border-radius: var(--radius);
 }
 .skip:focus {
   inset-block-start: 0.5rem;
 }
 
-/* ---------------- header ---------------- */
+/* ---------------- header: logo (start) · centered nav · button (end) ---------------- */
 .site-header {
   position: fixed;
   inset-block-start: 0;
@@ -25,7 +26,7 @@
   z-index: 50;
   height: var(--header-h);
   color: var(--c-paper);
-  transition: background-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+  transition: background-color var(--dur-fast) var(--ease-out);
 }
 .site-header::after {
   content: "";
@@ -38,7 +39,7 @@
   transition: opacity var(--dur-fast) var(--ease-out);
 }
 .site-header.is-scrolled {
-  background: rgba(44, 44, 44, 0.9);
+  background: rgba(44, 44, 44, 0.92);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
@@ -47,24 +48,31 @@
 }
 .site-header__inner {
   height: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-4);
+  column-gap: var(--space-4);
 }
 .brand {
   display: inline-flex;
   align-items: center;
+  justify-self: start;
   color: var(--c-paper);
 }
 .brand svg {
   height: 2.75rem;
   width: auto;
 }
+.site-header__end {
+  display: flex;
+  align-items: center;
+  justify-self: end;
+  gap: var(--space-3);
+}
 
 .nav ul {
   display: flex;
-  gap: var(--space-4);
+  gap: var(--space-5);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -75,6 +83,7 @@
   padding-block: 0.4rem;
   font-size: var(--fs-small);
   font-weight: var(--fw-regular);
+  letter-spacing: 0.01em;
   color: var(--c-paper);
 }
 .nav a::after {
@@ -94,6 +103,27 @@
   transform: scaleX(1);
 }
 
+/* the one button on the site */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0 1.5rem;
+  border: 1px solid var(--c-gold);
+  border-radius: var(--radius);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  color: var(--c-gold);
+  white-space: nowrap;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.btn:hover,
+.btn:focus-visible {
+  background: var(--c-gold);
+  color: var(--c-charcoal);
+}
+
 .nav-toggle {
   display: none;
   position: relative;
@@ -106,7 +136,7 @@
   inset-inline: 0.5rem;
   height: 1px;
   background: currentColor;
-  transition: transform var(--dur-fast) var(--ease-out), opacity var(--dur-fast);
+  transition: transform var(--dur-fast) var(--ease-out);
 }
 .nav-toggle span:nth-child(1) { inset-block-start: 1.15rem; }
 .nav-toggle span:nth-child(2) { inset-block-start: 1.6rem; }
@@ -119,6 +149,7 @@
   inset: 0;
   z-index: 55;
   display: none;
+  overflow: hidden;
   background: var(--c-charcoal);
   color: var(--c-paper);
   padding-block: calc(var(--header-h) + var(--space-5)) var(--space-5);
@@ -143,12 +174,10 @@
 }
 .menu__rings {
   position: absolute;
-  inset-block-end: -20vw;
-  inset-inline-end: -20vw;
-  width: 70vw;
-  color: var(--c-gold);
-  opacity: 0.5;
-  pointer-events: none;
+  inset-block-end: -18vw;
+  inset-inline-end: -22vw;
+  width: 78vw;
+  opacity: 0.7;
 }
 body.menu-open {
   overflow: hidden;
@@ -180,16 +209,14 @@ body.menu-open {
 .hero__scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(44, 44, 44, 0.28) 0%, rgba(44, 44, 44, 0) 28%, rgba(44, 44, 44, 0) 62%, rgba(44, 44, 44, 0.62) 100%);
+  background: linear-gradient(to bottom, rgba(44, 44, 44, 0.3) 0%, rgba(44, 44, 44, 0) 28%, rgba(44, 44, 44, 0) 62%, rgba(44, 44, 44, 0.6) 100%);
   pointer-events: none;
 }
 .hero__rings {
   position: absolute;
-  inset-block-start: -8%;
-  left: 46%;
-  width: min(66vh, 52vw);
-  color: var(--c-gold);
-  opacity: 0.9;
+  inset-block-start: -14%;
+  left: 40%;
+  width: min(88vh, 62vw);
   pointer-events: none;
 }
 .hero__content {
@@ -201,7 +228,7 @@ body.menu-open {
 /* the cover lock-up lives on the left half of the frame, exactly like the printed cover */
 .hero__title {
   direction: ltr;
-  margin-right: auto;   /* physical: the lock-up sits on the LEFT half, like the printed cover */
+  margin-right: auto;
   margin-left: 0;
   color: var(--c-charcoal);
   text-align: left;
@@ -255,66 +282,108 @@ body.menu-open {
 .rings circle {
   fill: none;
   stroke: currentColor;
+  stroke-width: var(--sw, 2.5);
   vector-effect: non-scaling-stroke;
 }
+.rings--gold { color: var(--c-gold); }
+.rings--paper { color: var(--c-paper); }
+.rings--ink { color: var(--c-charcoal); }
+.rings--rose { color: var(--c-rose); }
 
-/* decorative ring behind a split image, bleeding off the media box like spread 5 */
-.split__media .rings--behind {
+/* ---------------- solid half-discs (spreads 3, 6, 11, 13) ---------------- */
+.disc {
   position: absolute;
-  inset-block-start: -16%;
-  inset-inline-start: -10%;
-  width: 54%;
-  z-index: 2;
-  opacity: 0.85;
-  color: var(--c-rose);
-}
-.split__media .rings--behind circle {
-  stroke-width: 1.5;
-}
-
-/* solid half-disc anchored to the start (right) edge of the viewport, spreads 3 & 11 */
-.halfdisc {
-  position: absolute;
-  inset-block-start: var(--space-5);
-  inset-inline-start: 0;
-  width: clamp(4.5rem, 7vw, 7rem);
   aspect-ratio: 1 / 2;
-  background: var(--c-gold);
-  border-start-end-radius: 100vmax;
-  border-end-end-radius: 100vmax;
-  opacity: 0.95;
   pointer-events: none;
 }
-.halfdisc--grey {
-  background: var(--c-grey);
-  opacity: 0.5;
+.disc--gold { background: var(--c-gold); }
+.disc--ink { background: var(--c-charcoal); }
+/* sits on the seam of the panorama band, bleeding off the right edge */
+.disc--band {
+  right: 0;
+  bottom: 0;
+  translate: 0 50%;
+  width: clamp(5.5rem, 9vw, 9rem);
+  border-start-start-radius: 100vmax;
+  border-end-start-radius: 100vmax;
+  --disc-from: 100%;
+  z-index: 2;
 }
 
-/* short gold accent rule (spread 6) */
-.rule--accent {
-  width: 3.5rem;
-  background: var(--c-gold);
-  margin-block: var(--space-4);
-}
-
-/* ---------------- layered composition (spread 11 style) ---------------- */
-.compose {
+/* ---------------- framed photo with rings ---------------- */
+.frame {
   position: relative;
-  padding-block-end: 24%;
-  padding-inline-end: 8%;
 }
-.compose__main {
-  width: 100%;
-}
-.compose__circle {
+.frame__rings {
   position: absolute;
-  inset-inline-end: 0;
-  inset-block-end: 0;
+  width: 62%;
+  z-index: 2;
+}
+.frame__rings--top-start {           /* RTL start = right; rings overlap onto the text column side */
+  inset-block-start: -22%;
+  inset-inline-start: -16%;
+}
+.frame__rings--top-end {
+  inset-block-start: -12%;
+  inset-inline-end: -14%;
+}
+.frame__rings--bottom-end {
+  inset-block-end: -10%;
+  inset-inline-end: -10%;
+  width: 62%;
+}
+/* spread 3: dark half-disc pinned to the photo's right edge */
+.frame__disc {
+  inset-block-start: 58%;
+  right: 0;
+  width: 18%;
+  transform: translateY(-50%);
+  opacity: 0.88;
+  border-start-start-radius: 100vmax;
+  border-end-start-radius: 100vmax;
+  z-index: 1;
+  --disc-from: 100%;
+}
+.js .frame__disc { transform: translate(var(--disc-from, 100%), -50%); }
+.js .frame__disc.is-in { transform: translate(0, -50%); }
+
+/* ---------------- spread 11: photo inside a tall arc ---------------- */
+.arc {
+  position: relative;
+  padding-inline-start: 18%;   /* room for the rings to breathe on the cream side */
+}
+.arc__clip {
+  clip-path: inset(0 0 0 44%);            /* left 44 % is cream (physical, like the print) */
+}
+.arc__clip .media {
+  border-radius: 0;
+  background: transparent;
+}
+.arc__clip picture {
+  display: block;
+  height: 100%;
+  clip-path: ellipse(72% 50% at 44% 50%);
+}
+.arc__clip picture img {
+  height: 100%;
+}
+.arc__rings {
+  position: absolute;
+  left: 20%;
+  top: 8%;
   width: 46%;
   z-index: 2;
 }
-.compose__circle .media {
-  background: transparent;
+.arc__disc {
+  position: absolute;
+  left: 22%;
+  top: 38%;
+  width: 46%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(114, 114, 114, 0.7);
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* ---------------- circle tile strip (spread 10) ---------------- */
@@ -323,18 +392,60 @@ body.menu-open {
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: var(--space-5);
   padding-inline: var(--space-3);
-  margin-block-start: var(--space-7);
-  list-style: none;
+  margin-block: var(--space-7) 0;
   margin-inline: 0;
   padding-block: 0;
+  list-style: none;
 }
 .tiles .media--circle {
   outline-offset: 8px;
 }
 
+/* ---------------- spread 4: four ring circles ---------------- */
+.ring-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-5) var(--space-4);
+  list-style: none;
+  margin: var(--space-7) auto 0;
+  padding: 0;
+  max-width: var(--w-narrow);
+}
+.ring-list__item {
+  text-align: center;
+}
+.ring-list__circle {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  width: min(100%, 15rem);
+  margin: 10px auto var(--space-4);
+  padding: 14%;
+  border-radius: 50%;
+  border: 1.5px solid var(--c-gold);
+  outline: 1px solid var(--c-gold);
+  outline-offset: 8px;
+}
+.ring-list__circle p {
+  font-size: var(--fs-small);
+  line-height: 1.55;
+  color: var(--c-ink);
+}
+.ring-list__circle strong {
+  font-weight: var(--fw-bold);
+}
+.ring-list__label {
+  font-weight: var(--fw-bold);
+  line-height: 1.4;
+  max-width: 14rem;
+  margin-inline: auto;
+}
+
 /* ---------------- site plan ---------------- */
 .plan {
   position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
   mix-blend-mode: multiply;   /* white paper of the drawing sinks into the cream ground */
 }
 .plan img {
@@ -342,28 +453,43 @@ body.menu-open {
   height: auto;
 }
 
-/* ---------------- developers (spread 12) ---------------- */
+/* ---------------- developers (spread 12): centered, narrow ---------------- */
+.section-developers {
+  overflow: hidden;
+}
+.section-developers__rings {
+  position: absolute;
+  inset-block-start: -12%;
+  inset-inline-start: -8%;
+  width: min(44vw, 40rem);
+  opacity: 0.55;
+}
 .dev-intro {
+  text-align: center;
   margin-block-end: var(--space-7);
+  position: relative;
+}
+.dev-intro .prose {
+  max-width: 40rem;
 }
 .dev {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
+  position: relative;
 }
 .dev__logo {
   display: grid;
   place-items: center;
-  width: clamp(9rem, 12vw, 11.5rem);
+  width: clamp(9rem, 12vw, 11rem);
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid var(--c-gold);
   outline: 1px solid var(--c-gold-soft);
   outline-offset: 7px;
   color: var(--c-paper);
-  margin-block-end: var(--space-5);
-  margin-inline-start: 8px;
-  margin-block-start: 8px;
+  margin-block: 8px var(--space-5);
 }
 .dev__logo svg,
 .dev__logo img {
@@ -377,6 +503,19 @@ body.menu-open {
   width: 3.5rem;
   background: var(--c-gold);
   margin-block-end: var(--space-3);
+}
+.dev p {
+  max-width: 30rem;
+}
+.dev p + p {
+  margin-block-start: 1em;
+}
+
+/* short gold accent rule (spread 6) */
+.rule--accent {
+  width: 3.5rem;
+  background: var(--c-gold);
+  margin-block: var(--space-4);
 }
 
 /* ---------------- closing + footer ---------------- */
@@ -396,15 +535,10 @@ body.menu-open {
 }
 .closing__rings {
   position: absolute;
-  inset-block-start: -30%;
-  right: 8%;
-  width: min(80vh, 46vw);
+  inset-block-start: -34%;
+  right: 6%;
+  width: min(90vh, 50vw);
   z-index: 2;
-  color: var(--c-paper);
-  opacity: 0.9;
-}
-.closing__rings circle {
-  stroke-width: 1.5;
 }
 
 .footer {
@@ -456,36 +590,60 @@ body.menu-open {
 
 /* ---------------- responsive ---------------- */
 @media (max-width: 1023px) {
+  .site-header__inner {
+    grid-template-columns: auto 1fr;
+  }
   .nav {
     display: none;
   }
   .nav-toggle {
     display: block;
   }
-  .compose {
-    padding-block-end: 22%;
+  .site-header__end .btn {
+    min-height: 2.5rem;
+    padding: 0 1.1rem;
   }
   .tiles {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-5) var(--space-4);
     padding-inline: var(--space-2);
   }
+  .ring-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 34rem;
+  }
+  .frame__rings {
+    width: 50%;
+  }
+  .frame__rings--top-start { inset-block-start: -14%; inset-inline-start: -8%; }
+  .frame__rings--top-end { inset-block-start: -12%; inset-inline-end: -10%; }
+  .frame__rings--bottom-end { inset-block-end: -14%; inset-inline-end: -8%; width: 54%; }
+  .arc {
+    padding-inline-start: 10%;
+  }
+  .section-developers__rings {
+    width: 60vw;
+    inset-block-start: -8%;
+    inset-inline-start: -20%;
+  }
   .dev-intro {
     margin-block-end: var(--space-6);
-  }
-  .halfdisc {
-    display: none;
-  }
-  .split__media .rings--behind {
-    inset-block-start: -10%;
-    inset-inline-start: -6%;
-    width: 46%;
   }
 }
 
 @media (max-width: 767px) {
   .brand svg {
     height: 2.25rem;
+  }
+  .site-header__inner {
+    column-gap: var(--space-2);
+  }
+  .site-header__end {
+    gap: var(--space-1);
+  }
+  .site-header__end .btn {
+    font-size: 0.8125rem;
+    padding: 0 0.9rem;
   }
   .hero {
     height: min(100svh, 130vw);
@@ -495,9 +653,9 @@ body.menu-open {
     object-position: 34% 50%;
   }
   .hero__rings {
-    left: 30%;
-    width: 78vw;
-    inset-block-start: -6%;
+    left: 22%;
+    width: 96vw;
+    inset-block-start: -8%;
   }
   .hero__title {
     transform: translateY(-6vh);
@@ -506,24 +664,40 @@ body.menu-open {
     inset-block-end: var(--space-3);
     height: 2.75rem;
   }
+  .disc--band {
+    width: 3.5rem;
+    bottom: 0;
+    translate: 0 0;      /* stays inside the band so it never touches the copy below */
+  }
   .tiles {
     gap: var(--space-4) var(--space-3);
     margin-block-start: var(--space-5);
   }
-  .compose {
-    padding-block-end: 26%;
-    padding-inline-end: 6%;
+  .ring-list {
+    gap: var(--space-5) var(--space-3);
+    margin-block-start: var(--space-6);
   }
-  .compose__circle {
-    width: 50%;
+  .ring-list__circle {
+    width: min(100%, 11rem);
+    outline-offset: 6px;
+  }
+  .ring-list__circle p {
+    font-size: 0.75rem;
+    line-height: 1.45;
+  }
+  .ring-list__label {
+    font-size: var(--fs-small);
+  }
+  .arc {
+    padding-inline-start: 4%;
   }
   .closing .bleed {
     aspect-ratio: 4 / 3;
   }
   .closing__rings {
-    right: -10%;
-    width: 70vw;
-    inset-block-start: -10%;
+    right: -14%;
+    width: 80vw;
+    inset-block-start: -8%;
   }
   .partners {
     gap: var(--space-4) var(--space-5);

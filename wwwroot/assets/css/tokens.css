@@ -42,7 +42,8 @@
   --lh-flat: 1;
 
   /* layout */
-  --w-max: 1440px;
+  --w-max: 1400px;
+  --w-narrow: 1120px;
   --w-text: 36rem;
   --w-text-2: 48rem;
   --gutter: clamp(1.25rem, 4vw, 5rem);
@@ -54,8 +55,9 @@
   --space-6: 6rem;
   --space-7: 8rem;
   --space-8: 12rem;
-  --section-y: clamp(5rem, 8vw, 10rem);
+  --section-y: clamp(5rem, 7vw, 8.5rem);
   --header-h: 5.5rem;
+  --radius: 6px;
 
   /* motion */
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);

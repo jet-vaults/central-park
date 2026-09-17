@@ -67,9 +67,12 @@
         <li><a href="#developers">על היזמים</a></li>
       </ul>
     </nav>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="תפריט">
-      <span></span><span></span>
-    </button>
+    <div class="site-header__end">
+      <a class="btn" href="#apartments">מלאי דירות</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="תפריט">
+        <span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -79,11 +82,10 @@
       <li><a href="#project">על הפרויקט</a></li>
       <li><a href="#location">על המיקום</a></li>
       <li><a href="#developers">על היזמים</a></li>
+      <li><a href="#apartments">מלאי דירות</a></li>
     </ul>
   </div>
-  <svg class="rings menu__rings" viewBox="0 0 400 400" aria-hidden="true">
-    <circle cx="200" cy="200" r="70" pathLength="1"/><circle cx="200" cy="200" r="130" pathLength="1"/><circle cx="200" cy="200" r="195" pathLength="1"/>
-  </svg>
+  <svg class="rings menu__rings rings--gold" viewBox="0 0 400 400" style="--sw:2" data-observe aria-hidden="true" focusable="false"><circle cx="200" cy="200" r="40.0" pathLength="1"/><circle cx="200" cy="200" r="92.0" pathLength="1"/><circle cx="200" cy="200" r="144.0" pathLength="1"/><circle cx="200" cy="200" r="196.0" pathLength="1"/></svg>
 </div>
 
 <main id="main">
@@ -94,10 +96,11 @@
       <picture><source type="image/avif" srcset="/assets/img/hero-terrace-768.avif 768w, /assets/img/hero-terrace-1280.avif 1280w, /assets/img/hero-terrace-1920.avif 1920w, /assets/img/hero-terrace-2560.avif 2560w" sizes="100vw"><img src="/assets/img/hero-terrace-1920.webp" srcset="/assets/img/hero-terrace-768.webp 768w, /assets/img/hero-terrace-1280.webp 1280w, /assets/img/hero-terrace-1920.webp 1920w, /assets/img/hero-terrace-2560.webp 2560w" sizes="100vw" width="4015" height="2837" alt="מרפסת פנטהאוז ב-Central Park עם נוף פתוח אל מרכז הארץ" decoding="async" fetchpriority="high"></picture>
     </div>
     <div class="hero__scrim"></div>
-    <svg class="rings hero__rings" viewBox="0 0 400 400" aria-hidden="true">
-      <circle cx="200" cy="200" r="62" pathLength="1"/>
-      <circle cx="200" cy="200" r="124" pathLength="1"/>
-      <circle cx="200" cy="200" r="190" pathLength="1"/>
+    <svg class="rings hero__rings rings--gold" viewBox="0 0 400 400" style="--sw:2.5" aria-hidden="true" focusable="false">
+      <circle cx="200" cy="200" r="54" pathLength="1"/>
+      <circle cx="200" cy="200" r="102" pathLength="1"/>
+      <circle cx="200" cy="200" r="150" pathLength="1"/>
+      <circle cx="200" cy="200" r="197" pathLength="1"/>
     </svg>
     <div class="container hero__content">
       <h1 class="hero__title" lang="en">
@@ -111,31 +114,34 @@
   <!-- ============ על הפרויקט ============ -->
   <section id="project" class="section theme-dark section-project">
     <div class="container">
-      <div class="split split--5-7">
+      <div class="split">
         <div class="split__text" data-stagger="110">
           <h2 class="h2 reveal">על הפרויקט</h2>
           <div class="prose">
-            <p class="lead reveal">בלב אלעד מוקם מתחם<span class="latin">Central Park</span>, פרויקט חדשני ורחב היקף, ביוזמת שלוש חברות מובילות  ואיתנות. המתחם משלב מגורים, מסחר ותעסוקה ויוצר סביבת חיים חדשה, פתוחה, איכותית וחווייתית. הפרויקט כולל 460  יחידות דיור הפרוסים על פני 12 בניינים בתכנון אדריכלי מוקפד, לצד עשרות אלפי מ"ר של שטחי מסחר ותעסוקה. מתחם המגורים תוכנן מתוך מחשבה על איכות החיים של הדיירים, עם מרחבים ירוקים, שבילים, פינות ישיבה וסביבה נעימה ובטוחה למשפחות.</p>
+            <p class="reveal">בלב אלעד מוקם מתחם<span class="latin">Central Park</span>, פרויקט חדשני ורחב היקף, ביוזמת שלוש חברות מובילות  ואיתנות. המתחם משלב מגורים, מסחר ותעסוקה ויוצר סביבת חיים חדשה, פתוחה, איכותית וחווייתית. הפרויקט כולל 460  יחידות דיור הפרוסים על פני 12 בניינים בתכנון אדריכלי מוקפד, לצד עשרות אלפי מ"ר של שטחי מסחר ותעסוקה. מתחם המגורים תוכנן מתוך מחשבה על איכות החיים של הדיירים, עם מרחבים ירוקים, שבילים, פינות ישיבה וסביבה נעימה ובטוחה למשפחות.</p>
             <p class="reveal">הדירות ב <span class="latin">Central Park</span> תוכננו בסטנדרט מגורים גבוה, המשלב נוחות, איכות ועיצוב על־זמני.  תכנון הדירות חכם וגמיש, ומתאים הן למשפחות ברוכות ילדים והן לזוגות, עם מגוון רחב של תמהילי דירות, החל מדירות 3 חדרים ועד דירות גן ופנטהאוזים.</p>
           </div>
         </div>
-        <div class="split__media split__media--bleed">
-          <figure class="media media--16-9 mask">
-            <picture><source type="image/avif" srcset="/assets/img/aerial-skyline-768.avif 768w, /assets/img/aerial-skyline-1280.avif 1280w, /assets/img/aerial-skyline-1920.avif 1920w, /assets/img/aerial-skyline-2560.avif 2560w" sizes="(min-width: 1024px) 60vw, 100vw"><img src="/assets/img/aerial-skyline-1920.webp" srcset="/assets/img/aerial-skyline-768.webp 768w, /assets/img/aerial-skyline-1280.webp 1280w, /assets/img/aerial-skyline-1920.webp 1920w, /assets/img/aerial-skyline-2560.webp 2560w" sizes="(min-width: 1024px) 60vw, 100vw" width="7033" height="3956" alt="מבט אווירי על מתחם Central Park באלעד, ובאופק קו הרקיע של תל אביב" decoding="async" loading="lazy"></picture>
-          </figure>
-          <svg class="rings rings--behind" viewBox="0 0 400 400" data-observe aria-hidden="true">
-            <circle cx="200" cy="200" r="48" pathLength="1"/><circle cx="200" cy="200" r="96" pathLength="1"/><circle cx="200" cy="200" r="144" pathLength="1"/><circle cx="200" cy="200" r="194" pathLength="1"/>
-          </svg>
+        <div class="split__media">
+          <div class="frame">
+            <figure class="media media--4-3 fade">
+              <picture><source type="image/avif" srcset="/assets/img/aerial-skyline-768.avif 768w, /assets/img/aerial-skyline-1280.avif 1280w, /assets/img/aerial-skyline-1920.avif 1920w, /assets/img/aerial-skyline-2560.avif 2560w" sizes="(min-width: 1024px) 50vw, 100vw"><img src="/assets/img/aerial-skyline-1920.webp" srcset="/assets/img/aerial-skyline-768.webp 768w, /assets/img/aerial-skyline-1280.webp 1280w, /assets/img/aerial-skyline-1920.webp 1920w, /assets/img/aerial-skyline-2560.webp 2560w" sizes="(min-width: 1024px) 50vw, 100vw" width="7033" height="3956" alt="מבט אווירי על מתחם Central Park באלעד, ובאופק קו הרקיע של תל אביב" decoding="async" loading="lazy"></picture>
+            </figure>
+            <svg class="rings frame__rings frame__rings--top-start rings--gold" viewBox="0 0 400 400" style="--sw:3" data-observe aria-hidden="true" focusable="false"><circle cx="200" cy="200" r="36.0" pathLength="1"/><circle cx="200" cy="200" r="76.2" pathLength="1"/><circle cx="200" cy="200" r="116.5" pathLength="1"/><circle cx="200" cy="200" r="156.8" pathLength="1"/><circle cx="200" cy="200" r="197.0" pathLength="1"/></svg>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="bleed bleed--3-1 parallax">
-    <picture><source type="image/avif" srcset="/assets/img/panorama-768.avif 768w, /assets/img/panorama-1280.avif 1280w, /assets/img/panorama-1920.avif 1920w, /assets/img/panorama-2560.avif 2560w" sizes="100vw"><img src="/assets/img/panorama-1920.webp" srcset="/assets/img/panorama-768.webp 768w, /assets/img/panorama-1280.webp 1280w, /assets/img/panorama-1920.webp 1920w, /assets/img/panorama-2560.webp 2560w" sizes="100vw" width="9000" height="3000" alt="פנורמה של מתחם Central Park: בנייני המגורים ומגדל המשרדים מעל רצועת המסחר" decoding="async" loading="lazy"></picture>
+  <div class="band">
+    <div class="bleed bleed--3-1 parallax">
+      <picture><source type="image/avif" srcset="/assets/img/panorama-768.avif 768w, /assets/img/panorama-1280.avif 1280w, /assets/img/panorama-1920.avif 1920w, /assets/img/panorama-2560.avif 2560w" sizes="100vw"><img src="/assets/img/panorama-1920.webp" srcset="/assets/img/panorama-768.webp 768w, /assets/img/panorama-1280.webp 1280w, /assets/img/panorama-1920.webp 1920w, /assets/img/panorama-2560.webp 2560w" sizes="100vw" width="9000" height="3000" alt="פנורמה של מתחם Central Park: בנייני המגורים ומגדל המשרדים מעל רצועת המסחר" decoding="async" loading="lazy"></picture>
+    </div>
+    <div class="disc disc--gold disc--band" data-observe aria-hidden="true"></div>
   </div>
 
-  <section class="section theme-light has-paper section-apartments">
+  <section id="apartments" class="section theme-light has-paper section-apartments">
     <div class="container">
       <div class="split split--reverse">
         <div class="split__text" data-stagger="110">
@@ -145,32 +151,31 @@
           </div>
         </div>
         <div class="split__media">
-          <div class="compose">
-            <figure class="media media--3-2 compose__main mask">
-              <picture><source type="image/avif" srcset="/assets/img/living-room-640.avif 640w, /assets/img/living-room-1024.avif 1024w, /assets/img/living-room-1600.avif 1600w" sizes="(min-width: 1024px) 45vw, 100vw"><img src="/assets/img/living-room-1600.webp" srcset="/assets/img/living-room-640.webp 640w, /assets/img/living-room-1024.webp 1024w, /assets/img/living-room-1600.webp 1600w" sizes="(min-width: 1024px) 45vw, 100vw" width="3584" height="2160" alt="סלון פנטהאוז עם חלונות מהרצפה עד התקרה ונוף פתוח" decoding="async" loading="lazy"></picture>
-            </figure>
-            <figure class="compose__circle">
-              <div class="media media--circle mask mask--grow" style="--d: 300ms">
-                <picture><source type="image/avif" srcset="/assets/img/terrace-pool-640.avif 640w, /assets/img/terrace-pool-1024.avif 1024w" sizes="(min-width: 1024px) 22vw, 50vw"><img src="/assets/img/terrace-pool-1024.webp" srcset="/assets/img/terrace-pool-640.webp 640w, /assets/img/terrace-pool-1024.webp 1024w" sizes="(min-width: 1024px) 22vw, 50vw" width="3059" height="2160" alt="מרפסת שמש עם בריכה פרטית ופינת ישיבה" decoding="async" loading="lazy"></picture>
-              </div>
-            </figure>
+          <!-- spread 11: photo inside a tall arc, charcoal rings and a grey disc straddling the edge -->
+          <div class="arc">
+            <div class="arc__clip">
+              <figure class="media media--tall fade">
+                <picture><source type="image/avif" srcset="/assets/img/living-room-640.avif 640w, /assets/img/living-room-1024.avif 1024w, /assets/img/living-room-1600.avif 1600w" sizes="(min-width: 1024px) 45vw, 100vw"><img src="/assets/img/living-room-1600.webp" srcset="/assets/img/living-room-640.webp 640w, /assets/img/living-room-1024.webp 1024w, /assets/img/living-room-1600.webp 1600w" sizes="(min-width: 1024px) 45vw, 100vw" width="3584" height="2160" alt="סלון פנטהאוז עם חלונות מהרצפה עד התקרה ונוף פתוח" decoding="async" loading="lazy"></picture>
+              </figure>
+            </div>
+            <svg class="rings arc__rings rings--ink" viewBox="0 0 400 400" style="--sw:4" data-observe aria-hidden="true" focusable="false"><circle cx="200" cy="200" r="30.0" pathLength="1"/><circle cx="200" cy="200" r="71.5" pathLength="1"/><circle cx="200" cy="200" r="113.0" pathLength="1"/><circle cx="200" cy="200" r="154.5" pathLength="1"/><circle cx="200" cy="200" r="196.0" pathLength="1"/></svg>
+            <div class="arc__disc" aria-hidden="true"></div>
           </div>
         </div>
       </div>
 
       <ul class="tiles" data-stagger="90" aria-label="פרטי הדירות והמבנים">
-        <li><div class="media media--circle mask mask--grow stagger-item"><picture><source type="image/avif" srcset="/assets/img/tile-lobby-480.avif 480w, /assets/img/tile-lobby-800.avif 800w" sizes="(min-width: 1024px) 14vw, 30vw"><img src="/assets/img/tile-lobby-800.webp" srcset="/assets/img/tile-lobby-480.webp 480w, /assets/img/tile-lobby-800.webp 800w" sizes="(min-width: 1024px) 14vw, 30vw" width="836" height="836" alt="לובי כניסה מעוצב" decoding="async" loading="lazy"></picture></div></li>
-        <li><div class="media media--circle mask mask--grow stagger-item"><picture><source type="image/avif" srcset="/assets/img/tile-elevators-480.avif 480w, /assets/img/tile-elevators-800.avif 800w" sizes="(min-width: 1024px) 14vw, 30vw"><img src="/assets/img/tile-elevators-800.webp" srcset="/assets/img/tile-elevators-480.webp 480w, /assets/img/tile-elevators-800.webp 800w" sizes="(min-width: 1024px) 14vw, 30vw" width="832" height="832" alt="מעליות" decoding="async" loading="lazy"></picture></div></li>
-        <li><div class="media media--circle mask mask--grow stagger-item"><picture><source type="image/avif" srcset="/assets/img/tile-balcony-480.avif 480w, /assets/img/tile-balcony-800.avif 800w" sizes="(min-width: 1024px) 14vw, 30vw"><img src="/assets/img/tile-balcony-800.webp" srcset="/assets/img/tile-balcony-480.webp 480w, /assets/img/tile-balcony-800.webp 800w" sizes="(min-width: 1024px) 14vw, 30vw" width="836" height="836" alt="מרפסת שמש" decoding="async" loading="lazy"></picture></div></li>
-        <li><div class="media media--circle mask mask--grow stagger-item"><picture><source type="image/avif" srcset="/assets/img/tile-kitchen-480.avif 480w, /assets/img/tile-kitchen-800.avif 800w" sizes="(min-width: 1024px) 14vw, 30vw"><img src="/assets/img/tile-kitchen-800.webp" srcset="/assets/img/tile-kitchen-480.webp 480w, /assets/img/tile-kitchen-800.webp 800w" sizes="(min-width: 1024px) 14vw, 30vw" width="831" height="831" alt="מטבח" decoding="async" loading="lazy"></picture></div></li>
-        <li><div class="media media--circle mask mask--grow stagger-item"><picture><source type="image/avif" srcset="/assets/img/tile-parking-480.avif 480w, /assets/img/tile-parking-800.avif 800w" sizes="(min-width: 1024px) 14vw, 30vw"><img src="/assets/img/tile-parking-800.webp" srcset="/assets/img/tile-parking-480.webp 480w, /assets/img/tile-parking-800.webp 800w" sizes="(min-width: 1024px) 14vw, 30vw" width="831" height="831" alt="חניה תת־קרקעית" decoding="async" loading="lazy"></picture></div></li>
-        <li><div class="media media--circle mask mask--grow stagger-item"><picture><source type="image/avif" srcset="/assets/img/tile-living-480.avif 480w, /assets/img/tile-living-800.avif 800w" sizes="(min-width: 1024px) 14vw, 30vw"><img src="/assets/img/tile-living-800.webp" srcset="/assets/img/tile-living-480.webp 480w, /assets/img/tile-living-800.webp 800w" sizes="(min-width: 1024px) 14vw, 30vw" width="836" height="836" alt="חלל מגורים עם נוף" decoding="async" loading="lazy"></picture></div></li>
+        <li><div class="media media--circle fade stagger-item"><picture><source type="image/avif" srcset="/assets/img/tile-lobby-480.avif 480w, /assets/img/tile-lobby-800.avif 800w" sizes="(min-width: 1024px) 14vw, 30vw"><img src="/assets/img/tile-lobby-800.webp" srcset="/assets/img/tile-lobby-480.webp 480w, /assets/img/tile-lobby-800.webp 800w" sizes="(min-width: 1024px) 14vw, 30vw" width="836" height="836" alt="לובי כניסה מעוצב" decoding="async" loading="lazy"></picture></div></li>
+        <li><div class="media media--circle fade stagger-item"><picture><source type="image/avif" srcset="/assets/img/tile-elevators-480.avif 480w, /assets/img/tile-elevators-800.avif 800w" sizes="(min-width: 1024px) 14vw, 30vw"><img src="/assets/img/tile-elevators-800.webp" srcset="/assets/img/tile-elevators-480.webp 480w, /assets/img/tile-elevators-800.webp 800w" sizes="(min-width: 1024px) 14vw, 30vw" width="832" height="832" alt="מעליות" decoding="async" loading="lazy"></picture></div></li>
+        <li><div class="media media--circle fade stagger-item"><picture><source type="image/avif" srcset="/assets/img/tile-balcony-480.avif 480w, /assets/img/tile-balcony-800.avif 800w" sizes="(min-width: 1024px) 14vw, 30vw"><img src="/assets/img/tile-balcony-800.webp" srcset="/assets/img/tile-balcony-480.webp 480w, /assets/img/tile-balcony-800.webp 800w" sizes="(min-width: 1024px) 14vw, 30vw" width="836" height="836" alt="מרפסת שמש" decoding="async" loading="lazy"></picture></div></li>
+        <li><div class="media media--circle fade stagger-item"><picture><source type="image/avif" srcset="/assets/img/tile-kitchen-480.avif 480w, /assets/img/tile-kitchen-800.avif 800w" sizes="(min-width: 1024px) 14vw, 30vw"><img src="/assets/img/tile-kitchen-800.webp" srcset="/assets/img/tile-kitchen-480.webp 480w, /assets/img/tile-kitchen-800.webp 800w" sizes="(min-width: 1024px) 14vw, 30vw" width="831" height="831" alt="מטבח" decoding="async" loading="lazy"></picture></div></li>
+        <li><div class="media media--circle fade stagger-item"><picture><source type="image/avif" srcset="/assets/img/tile-parking-480.avif 480w, /assets/img/tile-parking-800.avif 800w" sizes="(min-width: 1024px) 14vw, 30vw"><img src="/assets/img/tile-parking-800.webp" srcset="/assets/img/tile-parking-480.webp 480w, /assets/img/tile-parking-800.webp 800w" sizes="(min-width: 1024px) 14vw, 30vw" width="831" height="831" alt="חניה תת־קרקעית" decoding="async" loading="lazy"></picture></div></li>
+        <li><div class="media media--circle fade stagger-item"><picture><source type="image/avif" srcset="/assets/img/tile-living-480.avif 480w, /assets/img/tile-living-800.avif 800w" sizes="(min-width: 1024px) 14vw, 30vw"><img src="/assets/img/tile-living-800.webp" srcset="/assets/img/tile-living-480.webp 480w, /assets/img/tile-living-800.webp 800w" sizes="(min-width: 1024px) 14vw, 30vw" width="836" height="836" alt="חלל מגורים עם נוף" decoding="async" loading="lazy"></picture></div></li>
       </ul>
     </div>
   </section>
 
   <section class="section theme-dark section-city">
-    <div class="halfdisc" aria-hidden="true"></div>
     <div class="container">
       <div class="split">
         <div class="split__text" data-stagger="110">
@@ -180,10 +185,15 @@
           <hr class="rule rule--accent reveal">
           <p class="statement reveal">זהו פרויקט שנועד ליצור לא רק בית, אלא סביבת מגורים איכותית, קהילתית ומלאת חיים.</p>
         </div>
-        <div class="split__media split__media--bleed">
-          <figure class="media media--4-3 mask">
-            <picture><source type="image/avif" srcset="/assets/img/plaza-768.avif 768w, /assets/img/plaza-1280.avif 1280w, /assets/img/plaza-1920.avif 1920w" sizes="(min-width: 1024px) 55vw, 100vw"><img src="/assets/img/plaza-1920.webp" srcset="/assets/img/plaza-768.webp 768w, /assets/img/plaza-1280.webp 1280w, /assets/img/plaza-1920.webp 1920w" sizes="(min-width: 1024px) 55vw, 100vw" width="3840" height="2160" alt="רחבה ציבורית וגן משחקים בין בנייני המתחם, משפחות בהליכה" decoding="async" loading="lazy"></picture>
-          </figure>
+        <div class="split__media">
+          <!-- spread 3: park photo with gold rings and a dark half-disc at the edge -->
+          <div class="frame frame--park">
+            <figure class="media media--4-3 fade">
+              <picture><source type="image/avif" srcset="/assets/img/father-son-640.avif 640w, /assets/img/father-son-1024.avif 1024w" sizes="(min-width: 1024px) 50vw, 100vw"><img src="/assets/img/father-son-1024.webp" srcset="/assets/img/father-son-640.webp 640w, /assets/img/father-son-1024.webp 1024w" sizes="(min-width: 1024px) 50vw, 100vw" width="2178" height="1536" alt="אב ובנו צועדים יד ביד בשביל בפארק" decoding="async" loading="lazy"></picture>
+            </figure>
+            <div class="disc disc--ink frame__disc" data-observe aria-hidden="true"></div>
+            <svg class="rings frame__rings frame__rings--bottom-end rings--gold" viewBox="0 0 400 400" style="--sw:3" data-observe aria-hidden="true" focusable="false"><circle cx="200" cy="200" r="40.0" pathLength="1"/><circle cx="200" cy="200" r="79.2" pathLength="1"/><circle cx="200" cy="200" r="118.5" pathLength="1"/><circle cx="200" cy="200" r="157.8" pathLength="1"/><circle cx="200" cy="200" r="197.0" pathLength="1"/></svg>
+          </div>
         </div>
       </div>
     </div>
@@ -192,7 +202,7 @@
   <!-- ============ על המיקום ============ -->
   <section id="location" class="section theme-light has-paper section-location">
     <div class="container">
-      <div class="split split--5-7">
+      <div class="split">
         <div class="split__text" data-stagger="110">
           <h2 class="h2 reveal">על המיקום</h2>
           <div class="prose">
@@ -202,11 +212,34 @@
           </div>
         </div>
         <div class="split__media">
-          <figure class="plan reveal" style="--d: 200ms">
-            <picture><source type="image/avif" srcset="/assets/img/site-plan-640.avif 640w, /assets/img/site-plan-1024.avif 1024w, /assets/img/site-plan-1600.avif 1600w" sizes="(min-width: 1024px) 55vw, 100vw"><img src="/assets/img/site-plan-1600.webp" srcset="/assets/img/site-plan-640.webp 640w, /assets/img/site-plan-1024.webp 1024w, /assets/img/site-plan-1600.webp 1600w" sizes="(min-width: 1024px) 55vw, 100vw" width="2872" height="2320" alt="תכנית המתחם: שנים־עשר בנייני המגורים A עד L, מרכז המסחר, בית הכנסת, בניין העירייה והכיכר העירונית, עם כיווני הגישה מכביש 444 ומכביש 6" decoding="async" loading="lazy"></picture>
-          </figure>
+          <div class="frame">
+            <figure class="plan fade">
+              <picture><source type="image/avif" srcset="/assets/img/site-plan-640.avif 640w, /assets/img/site-plan-1024.avif 1024w, /assets/img/site-plan-1600.avif 1600w" sizes="(min-width: 1024px) 50vw, 100vw"><img src="/assets/img/site-plan-1600.webp" srcset="/assets/img/site-plan-640.webp 640w, /assets/img/site-plan-1024.webp 1024w, /assets/img/site-plan-1600.webp 1600w" sizes="(min-width: 1024px) 50vw, 100vw" width="2872" height="2320" alt="תכנית המתחם: שנים־עשר בנייני המגורים A עד L, מרכז המסחר, בית הכנסת, בניין העירייה והכיכר העירונית, עם כיווני הגישה מכביש 444 ומכביש 6" decoding="async" loading="lazy"></picture>
+            </figure>
+            <svg class="rings frame__rings frame__rings--top-end rings--ink" viewBox="0 0 400 400" style="--sw:2.5" data-observe aria-hidden="true" focusable="false"><circle cx="200" cy="200" r="48.0" pathLength="1"/><circle cx="200" cy="200" r="97.3" pathLength="1"/><circle cx="200" cy="200" r="146.7" pathLength="1"/><circle cx="200" cy="200" r="196.0" pathLength="1"/></svg>
+          </div>
         </div>
       </div>
+
+      <!-- spread 4: four ring circles. Phrases are lifted from the location copy above. -->
+      <ul class="ring-list" data-stagger="120" aria-label="נגישות ומיקום">
+        <li class="ring-list__item reveal">
+          <div class="ring-list__circle"><p>קרבה לצירי תנועה מרכזיים, בהם <strong>כביש 6</strong> <strong>וכביש 471</strong></p></div>
+          <p class="ring-list__label">על עורק התחבורה הראשי של העיר</p>
+        </li>
+        <li class="ring-list__item reveal">
+          <div class="ring-list__circle"><p>נגישות נוחה ל<strong>פתח תקווה</strong>, <strong>בני ברק</strong>, <strong>תל אביב</strong>, <strong>ירושלים</strong> ויישובי האזור</p></div>
+          <p class="ring-list__label">חיבור מהיר למרכז הארץ</p>
+        </li>
+        <li class="ring-list__item reveal">
+          <div class="ring-list__circle"><p>בסמיכות ל<strong>פארק אלעד החדש</strong>, מוסדות חינוך, בתי כנסת, גינות ציבוריות ושירותים קהילתיים</p></div>
+          <p class="ring-list__label">כל צורכי המשפחה במרחק קצר מהבית</p>
+        </li>
+        <li class="ring-list__item reveal">
+          <div class="ring-list__circle"><p>תושבי <strong>ראש העין</strong>, <strong>שוהם</strong>, <strong>פתח תקווה</strong>, יישובי השומרון והסביבה</p></div>
+          <p class="ring-list__label">משפחות וקהלים מכל האזור</p>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -216,10 +249,11 @@
 
   <!-- ============ על היזמים ============ -->
   <section id="developers" class="section theme-dark section-developers">
-    <div class="container">
+    <svg class="rings section-developers__rings rings--paper" viewBox="0 0 400 400" style="--sw:2.5" data-observe aria-hidden="true" focusable="false"><circle cx="200" cy="200" r="30.0" pathLength="1"/><circle cx="200" cy="200" r="71.8" pathLength="1"/><circle cx="200" cy="200" r="113.5" pathLength="1"/><circle cx="200" cy="200" r="155.2" pathLength="1"/><circle cx="200" cy="200" r="197.0" pathLength="1"/></svg>
+    <div class="container container--narrow">
       <div class="dev-intro" data-stagger="110">
         <h2 class="h2 reveal">על היזמים</h2>
-        <div class="prose prose--2col">
+        <div class="prose prose--center">
           <p class="reveal">פרויקט  <span class="latin">Central Park</span> מוקם בשיתוף פעולה בין שלוש חברות בעלות ניסיון בתחומי היזמות, ההשקעות והבנייה.  קבוצת רבץ השקעות, קבוצת אשל הירדן וקבוצת ידות.</p>
           <p class="reveal">השותפות משלבת ידע וניסיון בשלבי הייזום, התכנון והביצוע, לצד היכרות עם צורכי קהילות ומשפחות בישראל. יחד מובילות החברות את הקמת הפרויקט מתוך מחויבות לאיכות הבנייה, לתכנון מוקפד, לעמידה בלוחות הזמנים ולליווי הדיירים לאורך הדרך.</p>
         </div>
@@ -290,9 +324,7 @@
     <div class="bleed parallax">
       <picture><source type="image/avif" srcset="/assets/img/sunset-terrace-768.avif 768w, /assets/img/sunset-terrace-1280.avif 1280w, /assets/img/sunset-terrace-1920.avif 1920w, /assets/img/sunset-terrace-2560.avif 2560w" sizes="100vw"><img src="/assets/img/sunset-terrace-1920.webp" srcset="/assets/img/sunset-terrace-768.webp 768w, /assets/img/sunset-terrace-1280.webp 1280w, /assets/img/sunset-terrace-1920.webp 1920w, /assets/img/sunset-terrace-2560.webp 2560w" sizes="100vw" width="3063" height="2160" alt="מרפסת גג בשעת שקיעה, נוף אל מרכז הארץ" decoding="async" loading="lazy"></picture>
     </div>
-    <svg class="rings closing__rings" viewBox="0 0 400 400" data-observe aria-hidden="true">
-      <circle cx="200" cy="200" r="196" pathLength="1"/>
-    </svg>
+    <svg class="rings closing__rings rings--paper" viewBox="0 0 400 400" style="--sw:3" data-observe aria-hidden="true" focusable="false"><circle cx="200" cy="200" r="110.0" pathLength="1"/><circle cx="200" cy="200" r="153.5" pathLength="1"/><circle cx="200" cy="200" r="197.0" pathLength="1"/></svg>
   </div>
 </main>
 

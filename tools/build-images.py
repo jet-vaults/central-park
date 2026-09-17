@@ -69,8 +69,8 @@ def build(name, src, widths, aspect):
             continue
         h = int(round(im.height * w / im.width))
         r = im.resize((w, h), Image.LANCZOS)
-        r.save(os.path.join(OUT_DIR, f"{name}-{w}.webp"), "WEBP", quality=82, method=6)
-        r.save(os.path.join(OUT_DIR, f"{name}-{w}.avif"), "AVIF", quality=62, speed=4)
+        r.save(os.path.join(OUT_DIR, f"{name}-{w}.webp"), "WEBP", quality=90, method=6)
+        r.save(os.path.join(OUT_DIR, f"{name}-{w}.avif"), "AVIF", quality=78, speed=3)
         print(w, end=" ", flush=True)
     print()
     return im.width, im.height

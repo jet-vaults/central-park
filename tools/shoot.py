@@ -52,7 +52,7 @@ def main():
             page.wait_for_load_state("networkidle")
             page.evaluate("() => Promise.all([...document.images].filter(i=>!i.complete).map(i=>new Promise(r=>{i.onload=i.onerror=r})))")
             if not motion:
-                page.evaluate("document.querySelectorAll('.reveal,.mask,.rings').forEach(e=>e.classList.add('is-in'))")
+                page.evaluate("document.querySelectorAll('.reveal,.fade,.rings,.disc').forEach(e=>e.classList.add('is-in'))")
             page.wait_for_timeout(1200 if motion else 300)
             overflow = page.evaluate("document.documentElement.scrollWidth - document.documentElement.clientWidth")
             page.screenshot(path=os.path.join(OUT, f"full-{w}.png"), full_page=True)

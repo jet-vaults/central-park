@@ -71,8 +71,21 @@ def img_macro(m):
             f"<img {' '.join(attrs)}></picture>")
 
 
+def rings_macro(m):
+    """{{rings class="rings--gold" n=4 r0=44 r1=196 sw=2.5}} -> concentric-ring SVG that draws itself."""
+    a = kv(m.group(1))
+    n = int(a.get("n", 4)); r0 = float(a.get("r0", 44)); r1 = float(a.get("r1", 196))
+    sw = a.get("sw", "2.5")
+    step = (r1 - r0) / max(n - 1, 1)
+    circles = "".join(f'<circle cx="200" cy="200" r="{r0 + i*step:.1f}" pathLength="1"/>' for i in range(n))
+    cls = ("rings " + a.get("class", "")).strip()
+    return (f'<svg class="{cls}" viewBox="0 0 400 400" style="--sw:{sw}" data-observe aria-hidden="true" focusable="false">'
+            f"{circles}</svg>")
+
+
 def main():
     html = open(SRC, encoding="utf-8").read()
+    html = re.sub(r"\{\{rings\s+(.+?)\}\}", rings_macro, html)
     html = re.sub(r"\{\{svg\s+(.+?)\}\}", svg_macro, html)
     html = re.sub(r"\{\{img\s+(.+?)\}\}", img_macro, html, flags=re.S)
     os.makedirs(os.path.dirname(OUT), exist_ok=True)

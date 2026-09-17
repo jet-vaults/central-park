@@ -1,10 +1,10 @@
 /* ------------------------------------------------------------------
-   Motion: hero entrance, scroll reveals, image masks, ring draws
+   Motion: hero entrance, scroll reveals, ring draws, disc slides
    Everything here is disabled under prefers-reduced-motion.
    ------------------------------------------------------------------ */
 .js .reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(18px);
   transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
   transition-delay: var(--d, 0ms);
   will-change: opacity, transform;
@@ -14,46 +14,38 @@
   transform: none;
 }
 
-/* image mask: wipes in from the leading (right) edge, image settles from a soft zoom.
-   The clip lives on the inner <picture>, not the observed box — Chromium's IntersectionObserver
-   honours clip-path, so a fully clipped element would never intersect. */
-.js .mask > picture {
-  clip-path: inset(0 0 0 100%);
-  transition: clip-path 1200ms var(--ease-in-out);
+/* images: a plain, slow fade. No wipes, no zoom. */
+.js .fade > picture {
+  opacity: 0;
+  transition: opacity 1500ms var(--ease-out);
   transition-delay: var(--d, 0ms);
 }
-.js .mask img {
-  transform: scale(1.06);
-  transition: transform 1800ms var(--ease-out);
-  transition-delay: var(--d, 0ms);
-}
-.js .mask.is-in > picture {
-  clip-path: inset(0 0 0 0);
-}
-.js .mask.is-in img {
-  transform: none;
-}
-/* circles reveal by scale instead of a wipe */
-.js .mask--grow > picture {
-  clip-path: circle(0% at 50% 50%);
-}
-.js .mask--grow.is-in > picture {
-  clip-path: circle(71% at 50% 50%);
+.js .fade.is-in > picture {
+  opacity: 1;
 }
 
-/* rings draw themselves */
+/* rings draw themselves — the brand's signature move. Slow enough to be seen. */
 .js .rings circle {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  transition: stroke-dashoffset var(--dur-slow) var(--ease-in-out);
+  transition: stroke-dashoffset 2600ms var(--ease-in-out);
 }
-.js .rings.is-in circle,
-.js .is-in .rings circle {
+.js .rings.is-in circle {
   stroke-dashoffset: 0;
 }
-.js .rings circle:nth-child(2) { transition-delay: 120ms; }
-.js .rings circle:nth-child(3) { transition-delay: 240ms; }
-.js .rings circle:nth-child(4) { transition-delay: 360ms; }
+.js .rings circle:nth-child(2) { transition-delay: 180ms; }
+.js .rings circle:nth-child(3) { transition-delay: 360ms; }
+.js .rings circle:nth-child(4) { transition-delay: 540ms; }
+.js .rings circle:nth-child(5) { transition-delay: 720ms; }
+
+/* solid discs slide in from their own edge */
+.js .disc {
+  transform: translateX(var(--disc-from, 100%));
+  transition: transform 1600ms var(--ease-in-out);
+}
+.js .disc.is-in {
+  transform: none;
+}
 
 /* hairline grows from the start edge */
 .js .rule.reveal {
@@ -74,8 +66,8 @@
 /* ---------------- hero entrance ---------------- */
 .js .hero__media img {
   opacity: 0;
-  transform: scale(1.05);
-  transition: opacity 1400ms var(--ease-out), transform 2600ms var(--ease-out);
+  transform: scale(1.04);
+  transition: opacity 1400ms var(--ease-out), transform 3000ms var(--ease-out);
 }
 .js .hero__title-a,
 .js .hero__title-b {
@@ -88,22 +80,23 @@
 .js .hero__rings circle {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  transition: stroke-dashoffset 1800ms var(--ease-in-out);
+  transition: stroke-dashoffset 3200ms var(--ease-in-out);
 }
-.js .hero__rings circle:nth-child(1) { transition-delay: 600ms; }
-.js .hero__rings circle:nth-child(2) { transition-delay: 760ms; }
-.js .hero__rings circle:nth-child(3) { transition-delay: 920ms; }
+.js .hero__rings circle:nth-child(1) { transition-delay: 500ms; }
+.js .hero__rings circle:nth-child(2) { transition-delay: 700ms; }
+.js .hero__rings circle:nth-child(3) { transition-delay: 900ms; }
+.js .hero__rings circle:nth-child(4) { transition-delay: 1100ms; }
 .js .hero__cue,
 .js .site-header .brand,
 .js .site-header .nav,
-.js .site-header .nav-toggle {
+.js .site-header__end {
   opacity: 0;
   transition: opacity 900ms var(--ease-out);
 }
 .js .hero__cue { transition-delay: 1600ms; }
 .js .site-header .brand { transition-delay: 300ms; }
 .js .site-header .nav,
-.js .site-header .nav-toggle { transition-delay: 900ms; }
+.js .site-header__end { transition-delay: 900ms; }
 
 .js.is-loaded .hero__media img { opacity: 1; transform: none; }
 .js.is-loaded .hero__title-a,
@@ -112,7 +105,7 @@
 .js.is-loaded .hero__cue,
 .js.is-loaded .site-header .brand,
 .js.is-loaded .site-header .nav,
-.js.is-loaded .site-header .nav-toggle { opacity: 1; }
+.js.is-loaded .site-header__end { opacity: 1; }
 
 /* ---------------- reduced motion: everything visible, nothing moves ---------------- */
 @media (prefers-reduced-motion: reduce) {
@@ -120,9 +113,8 @@
     scroll-behavior: auto;
   }
   .js .reveal,
-  .js .mask > picture,
-  .js .mask img,
-  .js .mask--grow > picture,
+  .js .fade > picture,
+  .js .disc,
   .js .rule.reveal,
   .js .hero__media img,
   .js .hero__title-a,
@@ -130,10 +122,9 @@
   .js .hero__cue,
   .js .site-header .brand,
   .js .site-header .nav,
-  .js .site-header .nav-toggle {
+  .js .site-header__end {
     opacity: 1 !important;
     transform: none !important;
-    clip-path: none !important;
     transition: none !important;
   }
   .js .rings circle,

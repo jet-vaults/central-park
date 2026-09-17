@@ -101,6 +101,11 @@ Breakpoints: 1024 (split → stack), 768 (two-column text → one), 480 (hero ty
 
 ## 6. Motion rules
 
+Revision 2026-09-17 (client review): image wipes/zooms removed — images only fade (1.5 s). The concentric-ring
+draw is the signature move: 2.5–4 px strokes, 2.6 s draw with 180 ms stagger, in gold on photos, paper on charcoal,
+charcoal on cream. Solid half-discs slide in from their edge (1.6 s). Corner radius 6 px on rectangular media and the button.
+
+
 - Reveal = opacity 0→1 + translateY 24px→0, 900 ms, `cubic-bezier(.2,.7,.2,1)`, staggered 90 ms per child.
 - Image reveal = clip-path inset from the leading edge (RTL: right) 100%→0 over 1200 ms, plus scale 1.06→1.
 - Rings draw in via `stroke-dashoffset`, 1400 ms.

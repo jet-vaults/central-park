@@ -66,7 +66,7 @@
   });
 
   /* ---------- scroll reveals ---------- */
-  var targets = document.querySelectorAll(".reveal, .mask, .rings[data-observe], [data-observe]");
+  var targets = document.querySelectorAll(".reveal, .fade, .rings, [data-observe]");
   if ("IntersectionObserver" in window && !reduce.matches) {
     var io = new IntersectionObserver(
       function (entries) {
@@ -77,7 +77,7 @@
           }
         });
       },
-      { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
     );
     targets.forEach(function (t) { io.observe(t); });
   } else {

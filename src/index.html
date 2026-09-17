@@ -38,9 +38,12 @@
         <li><a href="#developers">על היזמים</a></li>
       </ul>
     </nav>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="תפריט">
-      <span></span><span></span>
-    </button>
+    <div class="site-header__end">
+      <a class="btn" href="#apartments">מלאי דירות</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="תפריט">
+        <span></span><span></span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -50,11 +53,10 @@
       <li><a href="#project">על הפרויקט</a></li>
       <li><a href="#location">על המיקום</a></li>
       <li><a href="#developers">על היזמים</a></li>
+      <li><a href="#apartments">מלאי דירות</a></li>
     </ul>
   </div>
-  <svg class="rings menu__rings" viewBox="0 0 400 400" aria-hidden="true">
-    <circle cx="200" cy="200" r="70" pathLength="1"/><circle cx="200" cy="200" r="130" pathLength="1"/><circle cx="200" cy="200" r="195" pathLength="1"/>
-  </svg>
+  {{rings class="menu__rings rings--gold" n=4 r0=40 r1=196 sw=2}}
 </div>
 
 <main id="main">
@@ -65,10 +67,11 @@
       {{img name=hero-terrace widths=768,1280,1920,2560 sizes="100vw" w=4015 h=2837 loading=eager fetchpriority=high alt="מרפסת פנטהאוז ב-Central Park עם נוף פתוח אל מרכז הארץ"}}
     </div>
     <div class="hero__scrim"></div>
-    <svg class="rings hero__rings" viewBox="0 0 400 400" aria-hidden="true">
-      <circle cx="200" cy="200" r="62" pathLength="1"/>
-      <circle cx="200" cy="200" r="124" pathLength="1"/>
-      <circle cx="200" cy="200" r="190" pathLength="1"/>
+    <svg class="rings hero__rings rings--gold" viewBox="0 0 400 400" style="--sw:2.5" aria-hidden="true" focusable="false">
+      <circle cx="200" cy="200" r="54" pathLength="1"/>
+      <circle cx="200" cy="200" r="102" pathLength="1"/>
+      <circle cx="200" cy="200" r="150" pathLength="1"/>
+      <circle cx="200" cy="200" r="197" pathLength="1"/>
     </svg>
     <div class="container hero__content">
       <h1 class="hero__title" lang="en">
@@ -82,31 +85,34 @@
   <!-- ============ על הפרויקט ============ -->
   <section id="project" class="section theme-dark section-project">
     <div class="container">
-      <div class="split split--5-7">
+      <div class="split">
         <div class="split__text" data-stagger="110">
           <h2 class="h2 reveal">על הפרויקט</h2>
           <div class="prose">
-            <p class="lead reveal">בלב אלעד מוקם מתחם<span class="latin">Central Park</span>, פרויקט חדשני ורחב היקף, ביוזמת שלוש חברות מובילות  ואיתנות. המתחם משלב מגורים, מסחר ותעסוקה ויוצר סביבת חיים חדשה, פתוחה, איכותית וחווייתית. הפרויקט כולל 460  יחידות דיור הפרוסים על פני 12 בניינים בתכנון אדריכלי מוקפד, לצד עשרות אלפי מ"ר של שטחי מסחר ותעסוקה. מתחם המגורים תוכנן מתוך מחשבה על איכות החיים של הדיירים, עם מרחבים ירוקים, שבילים, פינות ישיבה וסביבה נעימה ובטוחה למשפחות.</p>
+            <p class="reveal">בלב אלעד מוקם מתחם<span class="latin">Central Park</span>, פרויקט חדשני ורחב היקף, ביוזמת שלוש חברות מובילות  ואיתנות. המתחם משלב מגורים, מסחר ותעסוקה ויוצר סביבת חיים חדשה, פתוחה, איכותית וחווייתית. הפרויקט כולל 460  יחידות דיור הפרוסים על פני 12 בניינים בתכנון אדריכלי מוקפד, לצד עשרות אלפי מ"ר של שטחי מסחר ותעסוקה. מתחם המגורים תוכנן מתוך מחשבה על איכות החיים של הדיירים, עם מרחבים ירוקים, שבילים, פינות ישיבה וסביבה נעימה ובטוחה למשפחות.</p>
             <p class="reveal">הדירות ב <span class="latin">Central Park</span> תוכננו בסטנדרט מגורים גבוה, המשלב נוחות, איכות ועיצוב על־זמני.  תכנון הדירות חכם וגמיש, ומתאים הן למשפחות ברוכות ילדים והן לזוגות, עם מגוון רחב של תמהילי דירות, החל מדירות 3 חדרים ועד דירות גן ופנטהאוזים.</p>
           </div>
         </div>
-        <div class="split__media split__media--bleed">
-          <figure class="media media--16-9 mask">
-            {{img name=aerial-skyline widths=768,1280,1920,2560 sizes="(min-width: 1024px) 60vw, 100vw" w=7033 h=3956 alt="מבט אווירי על מתחם Central Park באלעד, ובאופק קו הרקיע של תל אביב"}}
-          </figure>
-          <svg class="rings rings--behind" viewBox="0 0 400 400" data-observe aria-hidden="true">
-            <circle cx="200" cy="200" r="48" pathLength="1"/><circle cx="200" cy="200" r="96" pathLength="1"/><circle cx="200" cy="200" r="144" pathLength="1"/><circle cx="200" cy="200" r="194" pathLength="1"/>
-          </svg>
+        <div class="split__media">
+          <div class="frame">
+            <figure class="media media--4-3 fade">
+              {{img name=aerial-skyline widths=768,1280,1920,2560 sizes="(min-width: 1024px) 50vw, 100vw" w=7033 h=3956 alt="מבט אווירי על מתחם Central Park באלעד, ובאופק קו הרקיע של תל אביב"}}
+            </figure>
+            {{rings class="frame__rings frame__rings--top-start rings--gold" n=5 r0=36 r1=197 sw=3}}
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="bleed bleed--3-1 parallax">
-    {{img name=panorama widths=768,1280,1920,2560 sizes="100vw" w=9000 h=3000 alt="פנורמה של מתחם Central Park: בנייני המגורים ומגדל המשרדים מעל רצועת המסחר"}}
+  <div class="band">
+    <div class="bleed bleed--3-1 parallax">
+      {{img name=panorama widths=768,1280,1920,2560 sizes="100vw" w=9000 h=3000 alt="פנורמה של מתחם Central Park: בנייני המגורים ומגדל המשרדים מעל רצועת המסחר"}}
+    </div>
+    <div class="disc disc--gold disc--band" data-observe aria-hidden="true"></div>
   </div>
 
-  <section class="section theme-light has-paper section-apartments">
+  <section id="apartments" class="section theme-light has-paper section-apartments">
     <div class="container">
       <div class="split split--reverse">
         <div class="split__text" data-stagger="110">
@@ -116,32 +122,31 @@
           </div>
         </div>
         <div class="split__media">
-          <div class="compose">
-            <figure class="media media--3-2 compose__main mask">
-              {{img name=living-room widths=640,1024,1600 sizes="(min-width: 1024px) 45vw, 100vw" w=3584 h=2160 alt="סלון פנטהאוז עם חלונות מהרצפה עד התקרה ונוף פתוח"}}
-            </figure>
-            <figure class="compose__circle">
-              <div class="media media--circle mask mask--grow" style="--d: 300ms">
-                {{img name=terrace-pool widths=640,1024 sizes="(min-width: 1024px) 22vw, 50vw" w=3059 h=2160 alt="מרפסת שמש עם בריכה פרטית ופינת ישיבה"}}
-              </div>
-            </figure>
+          <!-- spread 11: photo inside a tall arc, charcoal rings and a grey disc straddling the edge -->
+          <div class="arc">
+            <div class="arc__clip">
+              <figure class="media media--tall fade">
+                {{img name=living-room widths=640,1024,1600 sizes="(min-width: 1024px) 45vw, 100vw" w=3584 h=2160 alt="סלון פנטהאוז עם חלונות מהרצפה עד התקרה ונוף פתוח"}}
+              </figure>
+            </div>
+            {{rings class="arc__rings rings--ink" n=5 r0=30 r1=196 sw=4}}
+            <div class="arc__disc" aria-hidden="true"></div>
           </div>
         </div>
       </div>
 
       <ul class="tiles" data-stagger="90" aria-label="פרטי הדירות והמבנים">
-        <li><div class="media media--circle mask mask--grow stagger-item">{{img name=tile-lobby widths=480,800 sizes="(min-width: 1024px) 14vw, 30vw" w=836 h=836 alt="לובי כניסה מעוצב"}}</div></li>
-        <li><div class="media media--circle mask mask--grow stagger-item">{{img name=tile-elevators widths=480,800 sizes="(min-width: 1024px) 14vw, 30vw" w=832 h=832 alt="מעליות"}}</div></li>
-        <li><div class="media media--circle mask mask--grow stagger-item">{{img name=tile-balcony widths=480,800 sizes="(min-width: 1024px) 14vw, 30vw" w=836 h=836 alt="מרפסת שמש"}}</div></li>
-        <li><div class="media media--circle mask mask--grow stagger-item">{{img name=tile-kitchen widths=480,800 sizes="(min-width: 1024px) 14vw, 30vw" w=831 h=831 alt="מטבח"}}</div></li>
-        <li><div class="media media--circle mask mask--grow stagger-item">{{img name=tile-parking widths=480,800 sizes="(min-width: 1024px) 14vw, 30vw" w=831 h=831 alt="חניה תת־קרקעית"}}</div></li>
-        <li><div class="media media--circle mask mask--grow stagger-item">{{img name=tile-living widths=480,800 sizes="(min-width: 1024px) 14vw, 30vw" w=836 h=836 alt="חלל מגורים עם נוף"}}</div></li>
+        <li><div class="media media--circle fade stagger-item">{{img name=tile-lobby widths=480,800 sizes="(min-width: 1024px) 14vw, 30vw" w=836 h=836 alt="לובי כניסה מעוצב"}}</div></li>
+        <li><div class="media media--circle fade stagger-item">{{img name=tile-elevators widths=480,800 sizes="(min-width: 1024px) 14vw, 30vw" w=832 h=832 alt="מעליות"}}</div></li>
+        <li><div class="media media--circle fade stagger-item">{{img name=tile-balcony widths=480,800 sizes="(min-width: 1024px) 14vw, 30vw" w=836 h=836 alt="מרפסת שמש"}}</div></li>
+        <li><div class="media media--circle fade stagger-item">{{img name=tile-kitchen widths=480,800 sizes="(min-width: 1024px) 14vw, 30vw" w=831 h=831 alt="מטבח"}}</div></li>
+        <li><div class="media media--circle fade stagger-item">{{img name=tile-parking widths=480,800 sizes="(min-width: 1024px) 14vw, 30vw" w=831 h=831 alt="חניה תת־קרקעית"}}</div></li>
+        <li><div class="media media--circle fade stagger-item">{{img name=tile-living widths=480,800 sizes="(min-width: 1024px) 14vw, 30vw" w=836 h=836 alt="חלל מגורים עם נוף"}}</div></li>
       </ul>
     </div>
   </section>
 
   <section class="section theme-dark section-city">
-    <div class="halfdisc" aria-hidden="true"></div>
     <div class="container">
       <div class="split">
         <div class="split__text" data-stagger="110">
@@ -151,10 +156,15 @@
           <hr class="rule rule--accent reveal">
           <p class="statement reveal">זהו פרויקט שנועד ליצור לא רק בית, אלא סביבת מגורים איכותית, קהילתית ומלאת חיים.</p>
         </div>
-        <div class="split__media split__media--bleed">
-          <figure class="media media--4-3 mask">
-            {{img name=plaza widths=768,1280,1920 sizes="(min-width: 1024px) 55vw, 100vw" w=3840 h=2160 alt="רחבה ציבורית וגן משחקים בין בנייני המתחם, משפחות בהליכה"}}
-          </figure>
+        <div class="split__media">
+          <!-- spread 3: park photo with gold rings and a dark half-disc at the edge -->
+          <div class="frame frame--park">
+            <figure class="media media--4-3 fade">
+              {{img name=father-son widths=640,1024 sizes="(min-width: 1024px) 50vw, 100vw" w=2178 h=1536 alt="אב ובנו צועדים יד ביד בשביל בפארק"}}
+            </figure>
+            <div class="disc disc--ink frame__disc" data-observe aria-hidden="true"></div>
+            {{rings class="frame__rings frame__rings--bottom-end rings--gold" n=5 r0=40 r1=197 sw=3}}
+          </div>
         </div>
       </div>
     </div>
@@ -163,7 +173,7 @@
   <!-- ============ על המיקום ============ -->
   <section id="location" class="section theme-light has-paper section-location">
     <div class="container">
-      <div class="split split--5-7">
+      <div class="split">
         <div class="split__text" data-stagger="110">
           <h2 class="h2 reveal">על המיקום</h2>
           <div class="prose">
@@ -173,11 +183,34 @@
           </div>
         </div>
         <div class="split__media">
-          <figure class="plan reveal" style="--d: 200ms">
-            {{img name=site-plan widths=640,1024,1600 sizes="(min-width: 1024px) 55vw, 100vw" w=2872 h=2320 alt="תכנית המתחם: שנים־עשר בנייני המגורים A עד L, מרכז המסחר, בית הכנסת, בניין העירייה והכיכר העירונית, עם כיווני הגישה מכביש 444 ומכביש 6"}}
-          </figure>
+          <div class="frame">
+            <figure class="plan fade">
+              {{img name=site-plan widths=640,1024,1600 sizes="(min-width: 1024px) 50vw, 100vw" w=2872 h=2320 alt="תכנית המתחם: שנים־עשר בנייני המגורים A עד L, מרכז המסחר, בית הכנסת, בניין העירייה והכיכר העירונית, עם כיווני הגישה מכביש 444 ומכביש 6"}}
+            </figure>
+            {{rings class="frame__rings frame__rings--top-end rings--ink" n=4 r0=48 r1=196 sw=2.5}}
+          </div>
         </div>
       </div>
+
+      <!-- spread 4: four ring circles. Phrases are lifted from the location copy above. -->
+      <ul class="ring-list" data-stagger="120" aria-label="נגישות ומיקום">
+        <li class="ring-list__item reveal">
+          <div class="ring-list__circle"><p>קרבה לצירי תנועה מרכזיים, בהם <strong>כביש 6</strong> <strong>וכביש 471</strong></p></div>
+          <p class="ring-list__label">על עורק התחבורה הראשי של העיר</p>
+        </li>
+        <li class="ring-list__item reveal">
+          <div class="ring-list__circle"><p>נגישות נוחה ל<strong>פתח תקווה</strong>, <strong>בני ברק</strong>, <strong>תל אביב</strong>, <strong>ירושלים</strong> ויישובי האזור</p></div>
+          <p class="ring-list__label">חיבור מהיר למרכז הארץ</p>
+        </li>
+        <li class="ring-list__item reveal">
+          <div class="ring-list__circle"><p>בסמיכות ל<strong>פארק אלעד החדש</strong>, מוסדות חינוך, בתי כנסת, גינות ציבוריות ושירותים קהילתיים</p></div>
+          <p class="ring-list__label">כל צורכי המשפחה במרחק קצר מהבית</p>
+        </li>
+        <li class="ring-list__item reveal">
+          <div class="ring-list__circle"><p>תושבי <strong>ראש העין</strong>, <strong>שוהם</strong>, <strong>פתח תקווה</strong>, יישובי השומרון והסביבה</p></div>
+          <p class="ring-list__label">משפחות וקהלים מכל האזור</p>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -187,10 +220,11 @@
 
   <!-- ============ על היזמים ============ -->
   <section id="developers" class="section theme-dark section-developers">
-    <div class="container">
+    {{rings class="section-developers__rings rings--paper" n=5 r0=30 r1=197 sw=2.5}}
+    <div class="container container--narrow">
       <div class="dev-intro" data-stagger="110">
         <h2 class="h2 reveal">על היזמים</h2>
-        <div class="prose prose--2col">
+        <div class="prose prose--center">
           <p class="reveal">פרויקט  <span class="latin">Central Park</span> מוקם בשיתוף פעולה בין שלוש חברות בעלות ניסיון בתחומי היזמות, ההשקעות והבנייה.  קבוצת רבץ השקעות, קבוצת אשל הירדן וקבוצת ידות.</p>
           <p class="reveal">השותפות משלבת ידע וניסיון בשלבי הייזום, התכנון והביצוע, לצד היכרות עם צורכי קהילות ומשפחות בישראל. יחד מובילות החברות את הקמת הפרויקט מתוך מחויבות לאיכות הבנייה, לתכנון מוקפד, לעמידה בלוחות הזמנים ולליווי הדיירים לאורך הדרך.</p>
         </div>
@@ -225,9 +259,7 @@
     <div class="bleed parallax">
       {{img name=sunset-terrace widths=768,1280,1920,2560 sizes="100vw" w=3063 h=2160 alt="מרפסת גג בשעת שקיעה, נוף אל מרכז הארץ"}}
     </div>
-    <svg class="rings closing__rings" viewBox="0 0 400 400" data-observe aria-hidden="true">
-      <circle cx="200" cy="200" r="196" pathLength="1"/>
-    </svg>
+    {{rings class="closing__rings rings--paper" n=3 r0=110 r1=197 sw=3}}
   </div>
 </main>
 
