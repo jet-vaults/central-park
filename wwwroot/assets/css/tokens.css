@@ -1,0 +1,73 @@
+/* ------------------------------------------------------------------
+   Central Park Elad — design tokens (measured from the printed prospectus)
+   See /DESIGN.md for the rationale behind every value.
+   ------------------------------------------------------------------ */
+:root {
+  /* colour */
+  --c-charcoal: #2c2c2c;
+  --c-charcoal-2: #262626;
+  --c-cream: #f6f1e8;
+  --c-cream-2: #f3eee3;
+  --c-gold: #c6af7b;
+  --c-gold-soft: rgba(198, 175, 123, 0.45);
+  --c-gold-faint: rgba(198, 175, 123, 0.22);
+  --c-rose: #c29284;
+  --c-grey: #727272;
+  --c-ink: #2c2c2c;
+  --c-ink-soft: rgba(44, 44, 44, 0.74);
+  --c-paper: #f6f1e8;
+  --c-paper-soft: rgba(246, 241, 232, 0.8);
+  --c-hair-dark: rgba(198, 175, 123, 0.35);   /* hairline on charcoal */
+  --c-hair-light: rgba(44, 44, 44, 0.16);     /* hairline on cream */
+
+  /* type */
+  --font-sans: "Heebo", "Ploni", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-sans);
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  --fs-small: 0.875rem;                                  /* 14 */
+  --fs-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);     /* 16 → 18 */
+  --fs-lead: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);     /* 18 → 22 */
+  --fs-h3: clamp(1.25rem, 1.1rem + 0.6vw, 1.625rem);      /* 20 → 26 */
+  --fs-h2: clamp(2rem, 1.5rem + 1.6vw, 3rem);             /* 32 → 48 */
+  --fs-statement: clamp(1.5rem, 1.1rem + 1.6vw, 2.5rem);  /* 24 → 40 */
+  --fs-display: clamp(3.25rem, 2rem + 5vw, 7rem);         /* 52 → 112 */
+  --fs-display-sm: clamp(1.75rem, 1.2rem + 2.2vw, 3.25rem);
+
+  --lh-body: 1.75;
+  --lh-tight: 1.15;
+  --lh-flat: 1;
+
+  /* layout */
+  --w-max: 1440px;
+  --w-text: 36rem;
+  --w-text-2: 48rem;
+  --gutter: clamp(1.25rem, 4vw, 5rem);
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+  --space-7: 8rem;
+  --space-8: 12rem;
+  --section-y: clamp(5rem, 8vw, 10rem);
+  --header-h: 5.5rem;
+
+  /* motion */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 320ms;
+  --dur-base: 900ms;
+  --dur-slow: 1400ms;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --header-h: 4.5rem;
+    --section-y: clamp(4rem, 14vw, 6rem);
+  }
+}

@@ -1,0 +1,151 @@
+/* ------------------------------------------------------------------
+   Motion: hero entrance, scroll reveals, image masks, ring draws
+   Everything here is disabled under prefers-reduced-motion.
+   ------------------------------------------------------------------ */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
+  transition-delay: var(--d, 0ms);
+  will-change: opacity, transform;
+}
+.js .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* image mask: wipes in from the leading (right) edge, image settles from a soft zoom.
+   The clip lives on the inner <picture>, not the observed box — Chromium's IntersectionObserver
+   honours clip-path, so a fully clipped element would never intersect. */
+.js .mask > picture {
+  clip-path: inset(0 0 0 100%);
+  transition: clip-path 1200ms var(--ease-in-out);
+  transition-delay: var(--d, 0ms);
+}
+.js .mask img {
+  transform: scale(1.06);
+  transition: transform 1800ms var(--ease-out);
+  transition-delay: var(--d, 0ms);
+}
+.js .mask.is-in > picture {
+  clip-path: inset(0 0 0 0);
+}
+.js .mask.is-in img {
+  transform: none;
+}
+/* circles reveal by scale instead of a wipe */
+.js .mask--grow > picture {
+  clip-path: circle(0% at 50% 50%);
+}
+.js .mask--grow.is-in > picture {
+  clip-path: circle(71% at 50% 50%);
+}
+
+/* rings draw themselves */
+.js .rings circle {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset var(--dur-slow) var(--ease-in-out);
+}
+.js .rings.is-in circle,
+.js .is-in .rings circle {
+  stroke-dashoffset: 0;
+}
+.js .rings circle:nth-child(2) { transition-delay: 120ms; }
+.js .rings circle:nth-child(3) { transition-delay: 240ms; }
+.js .rings circle:nth-child(4) { transition-delay: 360ms; }
+
+/* hairline grows from the start edge */
+.js .rule.reveal {
+  transform: scaleX(0);
+  transform-origin: right center;
+  opacity: 1;
+}
+.js .rule.reveal.is-in {
+  transform: scaleX(1);
+}
+
+/* parallax layer */
+.js .parallax img {
+  will-change: transform;
+  transform: translate3d(0, var(--py, 0px), 0) scale(1.12);
+}
+
+/* ---------------- hero entrance ---------------- */
+.js .hero__media img {
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 1400ms var(--ease-out), transform 2600ms var(--ease-out);
+}
+.js .hero__title-a,
+.js .hero__title-b {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1000ms var(--ease-out), transform 1000ms var(--ease-out);
+}
+.js .hero__title-a { transition-delay: 500ms; }
+.js .hero__title-b { transition-delay: 720ms; }
+.js .hero__rings circle {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1800ms var(--ease-in-out);
+}
+.js .hero__rings circle:nth-child(1) { transition-delay: 600ms; }
+.js .hero__rings circle:nth-child(2) { transition-delay: 760ms; }
+.js .hero__rings circle:nth-child(3) { transition-delay: 920ms; }
+.js .hero__cue,
+.js .site-header .brand,
+.js .site-header .nav,
+.js .site-header .nav-toggle {
+  opacity: 0;
+  transition: opacity 900ms var(--ease-out);
+}
+.js .hero__cue { transition-delay: 1600ms; }
+.js .site-header .brand { transition-delay: 300ms; }
+.js .site-header .nav,
+.js .site-header .nav-toggle { transition-delay: 900ms; }
+
+.js.is-loaded .hero__media img { opacity: 1; transform: none; }
+.js.is-loaded .hero__title-a,
+.js.is-loaded .hero__title-b { opacity: 1; transform: none; }
+.js.is-loaded .hero__rings circle { stroke-dashoffset: 0; }
+.js.is-loaded .hero__cue,
+.js.is-loaded .site-header .brand,
+.js.is-loaded .site-header .nav,
+.js.is-loaded .site-header .nav-toggle { opacity: 1; }
+
+/* ---------------- reduced motion: everything visible, nothing moves ---------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js .reveal,
+  .js .mask > picture,
+  .js .mask img,
+  .js .mask--grow > picture,
+  .js .rule.reveal,
+  .js .hero__media img,
+  .js .hero__title-a,
+  .js .hero__title-b,
+  .js .hero__cue,
+  .js .site-header .brand,
+  .js .site-header .nav,
+  .js .site-header .nav-toggle {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+  .js .rings circle,
+  .js .hero__rings circle {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
+  }
+  .js .parallax img {
+    transform: none !important;
+  }
+  .hero__cue::after {
+    animation: none;
+  }
+}

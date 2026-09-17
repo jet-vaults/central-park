@@ -1,0 +1,538 @@
+/* ------------------------------------------------------------------
+   Components: header, nav, hero, rings, tiles, developers, footer
+   ------------------------------------------------------------------ */
+
+/* skip link */
+.skip {
+  position: absolute;
+  inset-block-start: -100%;
+  inset-inline-start: var(--gutter);
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--c-gold);
+  color: var(--c-charcoal);
+  font-weight: var(--fw-medium);
+}
+.skip:focus {
+  inset-block-start: 0.5rem;
+}
+
+/* ---------------- header ---------------- */
+.site-header {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 50;
+  height: var(--header-h);
+  color: var(--c-paper);
+  transition: background-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+}
+.site-header::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  height: 1px;
+  background: var(--c-hair-dark);
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+.site-header.is-scrolled {
+  background: rgba(44, 44, 44, 0.9);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.site-header.is-scrolled::after {
+  opacity: 1;
+}
+.site-header__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  color: var(--c-paper);
+}
+.brand svg {
+  height: 2.75rem;
+  width: auto;
+}
+
+.nav ul {
+  display: flex;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav a {
+  position: relative;
+  display: inline-block;
+  padding-block: 0.4rem;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-regular);
+  color: var(--c-paper);
+}
+.nav a::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  height: 1px;
+  background: var(--c-gold);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.nav a:hover::after,
+.nav a:focus-visible::after,
+.nav a.is-active::after {
+  transform: scaleX(1);
+}
+
+.nav-toggle {
+  display: none;
+  position: relative;
+  width: 2.75rem;
+  height: 2.75rem;
+  z-index: 60;
+}
+.nav-toggle span {
+  position: absolute;
+  inset-inline: 0.5rem;
+  height: 1px;
+  background: currentColor;
+  transition: transform var(--dur-fast) var(--ease-out), opacity var(--dur-fast);
+}
+.nav-toggle span:nth-child(1) { inset-block-start: 1.15rem; }
+.nav-toggle span:nth-child(2) { inset-block-start: 1.6rem; }
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(0.225rem) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { transform: translateY(-0.225rem) rotate(-45deg); }
+
+/* mobile overlay menu */
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  display: none;
+  background: var(--c-charcoal);
+  color: var(--c-paper);
+  padding-block: calc(var(--header-h) + var(--space-5)) var(--space-5);
+}
+.menu.is-open {
+  display: block;
+}
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+.menu a {
+  display: block;
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-light);
+  line-height: 1.2;
+  padding-block: var(--space-2);
+  border-block-end: 1px solid var(--c-hair-dark);
+}
+.menu__rings {
+  position: absolute;
+  inset-block-end: -20vw;
+  inset-inline-end: -20vw;
+  width: 70vw;
+  color: var(--c-gold);
+  opacity: 0.5;
+  pointer-events: none;
+}
+body.menu-open {
+  overflow: hidden;
+}
+
+/* ---------------- hero ---------------- */
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 600px;
+  max-height: 1200px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--c-charcoal);
+}
+.hero__media,
+.hero__media picture,
+.hero__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.hero__media img {
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(44, 44, 44, 0.28) 0%, rgba(44, 44, 44, 0) 28%, rgba(44, 44, 44, 0) 62%, rgba(44, 44, 44, 0.62) 100%);
+  pointer-events: none;
+}
+.hero__rings {
+  position: absolute;
+  inset-block-start: -8%;
+  left: 46%;
+  width: min(66vh, 52vw);
+  color: var(--c-gold);
+  opacity: 0.9;
+  pointer-events: none;
+}
+.hero__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+}
+/* the cover lock-up lives on the left half of the frame, exactly like the printed cover */
+.hero__title {
+  direction: ltr;
+  margin-right: auto;   /* physical: the lock-up sits on the LEFT half, like the printed cover */
+  margin-left: 0;
+  color: var(--c-charcoal);
+  text-align: left;
+  transform: translateY(-8vh);
+}
+.hero__title-a {
+  display: block;
+  font-size: var(--fs-display-sm);
+  font-weight: var(--fw-regular);
+  line-height: 1;
+  letter-spacing: 0.005em;
+}
+.hero__title-b {
+  display: block;
+  font-size: var(--fs-display);
+  font-weight: var(--fw-bold);
+  line-height: 0.95;
+  letter-spacing: -0.005em;
+  margin-inline-start: 0.55em;
+}
+.hero__cue {
+  position: absolute;
+  inset-block-end: var(--space-4);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  width: 1px;
+  height: 3.5rem;
+  background: linear-gradient(to bottom, var(--c-gold), transparent);
+  overflow: hidden;
+}
+.hero__cue::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--c-paper);
+  transform: translateY(-100%);
+  animation: cue 2.4s var(--ease-in-out) infinite;
+}
+@keyframes cue {
+  0% { transform: translateY(-100%); }
+  60%, 100% { transform: translateY(100%); }
+}
+
+/* ---------------- concentric rings (brand motif) ---------------- */
+.rings {
+  display: block;
+  color: var(--c-gold);
+  pointer-events: none;
+}
+.rings circle {
+  fill: none;
+  stroke: currentColor;
+  vector-effect: non-scaling-stroke;
+}
+
+/* decorative ring behind a split image, bleeding off the media box like spread 5 */
+.split__media .rings--behind {
+  position: absolute;
+  inset-block-start: -16%;
+  inset-inline-start: -10%;
+  width: 54%;
+  z-index: 2;
+  opacity: 0.85;
+  color: var(--c-rose);
+}
+.split__media .rings--behind circle {
+  stroke-width: 1.5;
+}
+
+/* solid half-disc anchored to the start (right) edge of the viewport, spreads 3 & 11 */
+.halfdisc {
+  position: absolute;
+  inset-block-start: var(--space-5);
+  inset-inline-start: 0;
+  width: clamp(4.5rem, 7vw, 7rem);
+  aspect-ratio: 1 / 2;
+  background: var(--c-gold);
+  border-start-end-radius: 100vmax;
+  border-end-end-radius: 100vmax;
+  opacity: 0.95;
+  pointer-events: none;
+}
+.halfdisc--grey {
+  background: var(--c-grey);
+  opacity: 0.5;
+}
+
+/* short gold accent rule (spread 6) */
+.rule--accent {
+  width: 3.5rem;
+  background: var(--c-gold);
+  margin-block: var(--space-4);
+}
+
+/* ---------------- layered composition (spread 11 style) ---------------- */
+.compose {
+  position: relative;
+  padding-block-end: 24%;
+  padding-inline-end: 8%;
+}
+.compose__main {
+  width: 100%;
+}
+.compose__circle {
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  width: 46%;
+  z-index: 2;
+}
+.compose__circle .media {
+  background: transparent;
+}
+
+/* ---------------- circle tile strip (spread 10) ---------------- */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--space-5);
+  padding-inline: var(--space-3);
+  margin-block-start: var(--space-7);
+  list-style: none;
+  margin-inline: 0;
+  padding-block: 0;
+}
+.tiles .media--circle {
+  outline-offset: 8px;
+}
+
+/* ---------------- site plan ---------------- */
+.plan {
+  position: relative;
+  mix-blend-mode: multiply;   /* white paper of the drawing sinks into the cream ground */
+}
+.plan img {
+  width: 100%;
+  height: auto;
+}
+
+/* ---------------- developers (spread 12) ---------------- */
+.dev-intro {
+  margin-block-end: var(--space-7);
+}
+.dev {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.dev__logo {
+  display: grid;
+  place-items: center;
+  width: clamp(9rem, 12vw, 11.5rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid var(--c-gold);
+  outline: 1px solid var(--c-gold-soft);
+  outline-offset: 7px;
+  color: var(--c-paper);
+  margin-block-end: var(--space-5);
+  margin-inline-start: 8px;
+  margin-block-start: 8px;
+}
+.dev__logo svg,
+.dev__logo img {
+  width: 60%;
+  height: auto;
+}
+.dev__logo img {
+  width: 66%;
+}
+.dev .rule {
+  width: 3.5rem;
+  background: var(--c-gold);
+  margin-block-end: var(--space-3);
+}
+
+/* ---------------- closing + footer ---------------- */
+.closing {
+  position: relative;
+  overflow: hidden;
+}
+.closing .bleed {
+  aspect-ratio: 21 / 9;
+}
+.closing::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(44, 44, 44, 0.1) 0%, rgba(44, 44, 44, 0) 40%, rgba(44, 44, 44, 0.85) 100%);
+  pointer-events: none;
+}
+.closing__rings {
+  position: absolute;
+  inset-block-start: -30%;
+  right: 8%;
+  width: min(80vh, 46vw);
+  z-index: 2;
+  color: var(--c-paper);
+  opacity: 0.9;
+}
+.closing__rings circle {
+  stroke-width: 1.5;
+}
+
+.footer {
+  text-align: center;
+  padding-block: var(--space-7) var(--space-5);
+}
+.footer__logo {
+  display: inline-flex;
+  color: var(--c-paper);
+}
+.footer__logo svg {
+  height: clamp(3.5rem, 6vw, 5rem);
+  width: auto;
+}
+.footer__motif {
+  width: min(22rem, 64vw);
+  margin: var(--space-6) auto;
+  color: var(--c-paper);
+}
+.partners {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4) var(--space-6);
+  color: var(--c-paper);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.partners svg,
+.partners img {
+  height: 2.1rem;
+  width: auto;
+  opacity: 0.92;
+}
+.partners img {
+  height: 2.3rem;
+}
+.footer .rule {
+  max-width: 24rem;
+  margin: var(--space-6) auto var(--space-4);
+}
+.footer__note {
+  font-size: var(--fs-small);
+  color: var(--text-soft);
+  letter-spacing: 0.02em;
+}
+
+/* ---------------- responsive ---------------- */
+@media (max-width: 1023px) {
+  .nav {
+    display: none;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  .compose {
+    padding-block-end: 22%;
+  }
+  .tiles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-5) var(--space-4);
+    padding-inline: var(--space-2);
+  }
+  .dev-intro {
+    margin-block-end: var(--space-6);
+  }
+  .halfdisc {
+    display: none;
+  }
+  .split__media .rings--behind {
+    inset-block-start: -10%;
+    inset-inline-start: -6%;
+    width: 46%;
+  }
+}
+
+@media (max-width: 767px) {
+  .brand svg {
+    height: 2.25rem;
+  }
+  .hero {
+    height: min(100svh, 130vw);
+    min-height: 520px;
+  }
+  .hero__media img {
+    object-position: 34% 50%;
+  }
+  .hero__rings {
+    left: 30%;
+    width: 78vw;
+    inset-block-start: -6%;
+  }
+  .hero__title {
+    transform: translateY(-6vh);
+  }
+  .hero__cue {
+    inset-block-end: var(--space-3);
+    height: 2.75rem;
+  }
+  .tiles {
+    gap: var(--space-4) var(--space-3);
+    margin-block-start: var(--space-5);
+  }
+  .compose {
+    padding-block-end: 26%;
+    padding-inline-end: 6%;
+  }
+  .compose__circle {
+    width: 50%;
+  }
+  .closing .bleed {
+    aspect-ratio: 4 / 3;
+  }
+  .closing__rings {
+    right: -10%;
+    width: 70vw;
+    inset-block-start: -10%;
+  }
+  .partners {
+    gap: var(--space-4) var(--space-5);
+  }
+  .partners svg,
+  .partners img {
+    height: 1.7rem;
+  }
+  .partners img {
+    height: 1.9rem;
+  }
+}

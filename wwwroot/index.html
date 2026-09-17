@@ -1,104 +1,395 @@
 <!DOCTYPE html>
-<html lang="en">
+<html dir="rtl" lang="he" class="js">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>central-park</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Central Park | The Heart Of Elad</title>
+  <meta name="description" content="בלב אלעד מוקם מתחם Central Park, פרויקט חדשני ורחב היקף, ביוזמת שלוש חברות מובילות ואיתנות. המתחם משלב מגורים, מסחר ותעסוקה ויוצר סביבת חיים חדשה, פתוחה, איכותית וחווייתית.">
+  <meta name="theme-color" content="#2c2c2c">
+  <meta property="og:title" content="Central Park | The Heart Of Elad">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://centralpark.co.il/assets/img/hero-terrace-1920.webp">
+  <meta property="og:locale" content="he_IL">
+  <link rel="icon" href="/assets/brand/logo_mark.svg" type="image/svg+xml">
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Outfit', sans-serif;
-      background: #fafaf8;
-      color: #18181b;
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-    }
+  <link rel="preload" href="/assets/fonts/heebo-hebrew.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" type="image/avif"
+        imagesrcset="/assets/img/hero-terrace-768.avif 768w, /assets/img/hero-terrace-1280.avif 1280w, /assets/img/hero-terrace-1920.avif 1920w, /assets/img/hero-terrace-2560.avif 2560w"
+        imagesizes="100vw">
 
-    body::before {
-      content: '';
-      position: fixed;
-      top: -40%;
-      right: -20%;
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(215, 200, 255, 0.25) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    body::after {
-      content: '';
-      position: fixed;
-      bottom: -30%;
-      left: -15%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(255, 220, 180, 0.2) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .page {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      max-width: 520px;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin-bottom: 1rem;
-    }
-
-    .subtitle {
-      font-size: 1.05rem;
-      font-weight: 300;
-      color: #71717a;
-      line-height: 1.7;
-      max-width: 380px;
-      margin: 0 auto 2.5rem;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #fff;
-      border: 1px solid #e4e4e7;
-      border-radius: 100px;
-      padding: 6px 16px;
-      font-size: 0.75rem;
-      font-weight: 400;
-      color: #71717a;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-    }
-
-    .pill .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #a3e635;
-      flex-shrink: 0;
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/layout.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/motion.css">
 </head>
 <body>
-  <div class="page">
-    <h1>Something great is<br>on its way</h1>
-    <p class="subtitle">We're putting the finishing touches on this site. It'll be ready before you know it.</p>
-    <div class="pill">
-      <span class="dot"></span>
-      In progress
-    </div>
+<a class="skip" href="#main">דלג לתוכן</a>
+
+<header class="site-header" id="top">
+  <div class="container site-header__inner">
+    <a class="brand" href="#top" aria-label="Central Park — The Heart Of Elad, לראש העמוד">
+      <svg  aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 174.000 55.500">
+<path fill="#c29284" d="M36.348 53.998 L23.538 53.998 C22.947 53.998 22.467 53.519 22.467 52.927 L22.467 1.447 C22.467 0.855 22.947 0.376 23.538 0.376 L36.348 0.376 C36.939 0.376 37.419 0.855 37.419 1.447 L37.419 52.927 C37.419 53.519 36.939 53.998 36.348 53.998"/>
+<path fill="#c6af7b" d="M17.306 52.424 C17.306 53.180 16.657 53.777 15.904 53.715 C7.359 53.002 0.646 45.841 0.646 37.112 C0.646 28.383 7.359 21.222 15.904 20.510 C16.657 20.447 17.306 21.045 17.306 21.801 L17.306 52.424"/>
+<path fill="#727272" d="M43.449 1.671 C43.449 0.915 44.098 0.318 44.851 0.380 C53.396 1.093 60.109 8.254 60.109 16.983 C60.109 25.712 53.396 32.873 44.851 33.585 C44.098 33.648 43.449 33.050 43.449 32.294 L43.449 1.671"/>
+<path fill="currentColor" d="M74.989 46.768 L74.989 47.901 L72.461 47.901 L72.461 54.774 L71.135 54.774 L71.135 47.901 L68.607 47.901 L68.607 46.768 L74.989 46.768"/>
+<path fill="currentColor" d="M76.271 46.196 L77.518 46.196 L77.518 49.536 C77.975 48.815 78.730 48.415 79.656 48.415 C81.166 48.415 82.047 49.490 82.047 51.308 L82.047 54.774 L80.789 54.774 L80.789 51.308 C80.789 50.188 80.148 49.467 79.176 49.467 C78.181 49.467 77.518 50.188 77.518 51.308 L77.518 54.774 L76.271 54.774 L76.271 46.196"/>
+<path fill="currentColor" d="M86.554 48.369 C88.670 48.369 89.837 50.234 89.607 52.121 L84.621 52.121 C84.804 53.116 85.559 53.779 86.554 53.779 C87.194 53.779 87.755 53.482 88.132 52.956 L89.081 53.619 C88.498 54.420 87.663 54.889 86.554 54.889 C84.735 54.889 83.420 53.470 83.420 51.629 C83.420 49.765 84.735 48.369 86.554 48.369 M88.441 51.206 C88.327 50.314 87.698 49.490 86.554 49.490 C85.536 49.490 84.770 50.176 84.610 51.206 L88.441 51.206"/>
+<path fill="currentColor" d="M96.347 46.768 L96.347 50.028 L100.361 50.028 L100.361 46.768 L101.688 46.768 L101.688 54.774 L100.361 54.774 L100.361 51.160 L96.347 51.160 L96.347 54.774 L95.020 54.774 L95.020 46.768 L96.347 46.768"/>
+<path fill="currentColor" d="M106.332 48.369 C108.448 48.369 109.615 50.234 109.385 52.121 L104.399 52.121 C104.582 53.116 105.337 53.779 106.332 53.779 C106.972 53.779 107.533 53.482 107.910 52.956 L108.859 53.619 C108.276 54.420 107.441 54.889 106.332 54.889 C104.513 54.889 103.198 53.470 103.198 51.629 C103.198 49.765 104.513 48.369 106.332 48.369 M108.219 51.206 C108.105 50.314 107.476 49.490 106.332 49.490 C105.314 49.490 104.548 50.176 104.388 51.206 L108.219 51.206"/>
+<path fill="currentColor" d="M114.819 54.259 C114.384 54.660 113.755 54.889 113.012 54.889 C111.491 54.889 110.416 53.985 110.416 52.704 C110.416 51.434 111.491 50.531 113.012 50.531 C113.755 50.531 114.384 50.760 114.819 51.160 C114.819 49.936 114.167 49.376 113.069 49.376 C112.291 49.376 111.559 49.662 111.079 49.982 L110.667 49.113 C111.193 48.758 112.154 48.358 113.275 48.358 C115.013 48.358 116.100 49.193 116.100 51.160 L116.100 54.774 L114.819 54.774 L114.819 54.259 M113.275 53.985 C114.224 53.985 114.865 53.459 114.865 52.693 C114.865 51.926 114.224 51.400 113.275 51.400 C112.326 51.400 111.674 51.926 111.674 52.693 C111.674 53.459 112.326 53.985 113.275 53.985"/>
+<path fill="currentColor" d="M117.862 48.484 L118.926 48.484 L119.029 49.994 L119.063 50.005 C119.360 49.045 120.332 48.369 121.511 48.438 L121.511 49.628 C120.332 49.547 119.120 50.291 119.120 51.973 L119.120 54.775 L117.862 54.775 L117.862 48.484"/>
+<path fill="currentColor" d="M123.262 48.484 L123.262 47.135 L124.520 46.894 L124.520 48.484 L125.973 48.484 L125.973 49.468 L124.520 49.468 L124.520 52.464 C124.520 53.333 124.783 53.676 125.584 53.676 L126.144 53.676 L126.144 54.775 L125.138 54.775 C123.811 54.775 123.262 54.088 123.262 52.876 L123.262 49.468 L122.462 49.468 L122.462 48.484 L123.262 48.484"/>
+<path fill="currentColor" d="M130.939 50.771 C130.939 48.392 132.700 46.642 135.045 46.642 C137.390 46.642 139.139 48.392 139.139 50.771 C139.139 53.150 137.390 54.900 135.045 54.900 C132.700 54.900 130.939 53.150 130.939 50.771 M135.045 53.664 C136.635 53.664 137.813 52.441 137.813 50.771 C137.813 49.101 136.635 47.877 135.045 47.877 C133.444 47.877 132.266 49.101 132.266 50.771 C132.266 52.441 133.444 53.664 135.045 53.664"/>
+<path fill="currentColor" d="M140.272 48.484 L141.130 48.484 L141.130 47.992 C141.130 46.528 142.033 45.922 143.063 45.922 C143.635 45.922 144.275 46.173 144.789 46.482 L144.322 47.317 C143.977 47.146 143.611 46.997 143.326 46.997 C142.788 46.997 142.376 47.340 142.376 48.232 L142.376 48.484 L143.897 48.484 L143.897 49.468 L142.376 49.468 L142.376 54.775 L141.130 54.775 L141.130 49.468 L140.272 49.468 L140.272 48.484"/>
+<path fill="currentColor" d="M150.454 47.901 L150.454 50.108 L154.125 50.108 L154.125 51.195 L150.454 51.195 L150.454 53.642 L154.697 53.642 L154.697 54.775 L149.127 54.775 L149.127 46.768 L154.697 46.768 L154.697 47.901 L150.454 47.901"/>
+<path fill="currentColor" d="M156.368 46.196H157.615V54.774H156.368Z"/>
+<path fill="currentColor" d="M164.208 54.259 C163.773 54.660 163.144 54.889 162.401 54.889 C160.880 54.889 159.805 53.985 159.805 52.704 C159.805 51.434 160.880 50.531 162.401 50.531 C163.144 50.531 163.773 50.760 164.208 51.160 C164.208 49.936 163.556 49.376 162.458 49.376 C161.680 49.376 160.948 49.662 160.468 49.982 L160.056 49.113 C160.582 48.758 161.543 48.358 162.664 48.358 C164.402 48.358 165.489 49.193 165.489 51.160 L165.489 54.774 L164.208 54.774 L164.208 54.259 M162.664 53.985 C163.613 53.985 164.254 53.459 164.254 52.693 C164.254 51.926 163.613 51.400 162.664 51.400 C161.715 51.400 161.063 51.926 161.063 52.693 C161.063 53.459 161.715 53.985 162.664 53.985"/>
+<path fill="currentColor" d="M166.851 51.629 C166.851 49.787 168.075 48.392 169.756 48.392 C170.740 48.392 171.529 48.827 171.998 49.582 L171.998 46.196 L173.244 46.196 L173.244 54.774 L171.998 54.774 L171.998 53.676 C171.529 54.431 170.740 54.866 169.756 54.866 C168.075 54.866 166.851 53.470 166.851 51.629 M170.019 53.767 C171.151 53.767 171.998 52.853 171.998 51.629 C171.998 50.405 171.151 49.490 170.019 49.490 C168.898 49.490 168.109 50.405 168.109 51.629 C168.109 52.853 168.898 53.767 170.019 53.767"/>
+<path fill="currentColor" d="M79.977 12.087 L82.270 14.606 C80.999 16.059 79.069 16.807 76.641 16.807 C72.057 16.807 68.607 13.312 68.607 8.592 C68.607 3.871 72.057 0.377 76.641 0.377 C79.069 0.377 80.999 1.125 82.270 2.578 L79.977 5.097 C79.365 4.416 78.184 3.849 76.868 3.849 C74.304 3.849 72.352 5.823 72.352 8.592 C72.352 11.361 74.304 13.335 76.868 13.335 C78.184 13.335 79.365 12.767 79.977 12.087"/>
+<path fill="currentColor" d="M88.127 3.939 L88.127 6.867 L94.958 6.867 L94.958 10.021 L88.127 10.021 L88.127 13.244 L95.638 13.244 L95.638 16.534 L84.269 16.534 L84.269 0.648 L95.638 0.648 L95.638 3.939 L88.127 3.939"/>
+<path fill="currentColor" d="M110.414 16.535 L102.630 7.457 L102.630 16.535 L98.840 16.535 L98.840 0.649 L101.632 0.649 L109.416 9.727 L109.416 0.649 L113.206 0.649 L113.206 16.535 L110.414 16.535"/>
+<path fill="currentColor" d="M128.415 3.939 L124.012 3.939 L124.012 16.534 L120.154 16.534 L120.154 3.939 L115.751 3.939 L115.751 0.648 L128.415 0.648 L128.415 3.939"/>
+<path fill="currentColor" d="M144.384 16.353 L144.384 16.534 L140.299 16.534 L137.348 10.975 L135.080 10.975 L135.080 16.534 L131.221 16.534 L131.221 0.648 L138.574 0.648 C142.024 0.648 144.043 2.623 144.043 5.800 C144.043 8.115 143.000 9.794 141.093 10.543 L144.384 16.353 M135.080 7.683 L138.075 7.683 C139.414 7.683 140.186 6.935 140.186 5.800 C140.186 4.688 139.414 3.939 138.075 3.939 L135.080 3.939 L135.080 7.683"/>
+<path fill="currentColor" d="M161.043 16.353 L161.043 16.534 L157.072 16.534 L156.118 14.061 L149.810 14.061 L148.856 16.534 L144.885 16.534 L144.885 16.353 L151.557 0.648 L154.371 0.648 L161.043 16.353 M154.938 10.997 L152.964 5.891 L150.989 10.997 L154.938 10.997"/>
+<path fill="currentColor" d="M173.051 13.244 L173.051 16.535 L162.611 16.535 L162.611 0.649 L166.469 0.649 L166.469 13.244 L173.051 13.244"/>
+<path fill="currentColor" d="M80.771 29.122 C80.771 32.526 78.774 34.569 75.369 34.569 L72.465 34.569 L72.465 39.584 L68.607 39.584 L68.607 23.698 L75.369 23.698 C78.774 23.698 80.771 25.741 80.771 29.122 M76.913 29.122 C76.913 27.806 76.164 26.988 74.870 26.988 L72.465 26.988 L72.465 31.278 L74.870 31.278 C76.164 31.278 76.913 30.438 76.913 29.122"/>
+<path fill="currentColor" d="M96.115 39.403 L96.115 39.585 L92.143 39.585 L91.190 37.111 L84.881 37.111 L83.928 39.585 L79.956 39.585 L79.956 39.403 L86.629 23.698 L89.443 23.698 L96.115 39.403 M90.010 34.047 L88.036 28.941 L86.062 34.047 L90.010 34.047"/>
+<path fill="currentColor" d="M110.846 39.403 L110.846 39.585 L106.761 39.585 L103.810 34.025 L101.542 34.025 L101.542 39.585 L97.683 39.585 L97.683 23.698 L105.036 23.698 C108.486 23.698 110.505 25.673 110.505 28.850 C110.505 31.165 109.462 32.844 107.555 33.593 L110.846 39.403 M101.542 30.733 L104.537 30.733 C105.876 30.733 106.648 29.985 106.648 28.850 C106.648 27.738 105.876 26.989 104.537 26.989 L101.542 26.989 L101.542 30.733"/>
+<path fill="currentColor" d="M127.256 39.471 L127.256 39.584 L122.581 39.584 L117.089 32.776 L117.089 39.584 L113.231 39.584 L113.231 23.698 L117.089 23.698 L117.089 29.735 L122.264 23.698 L126.984 23.698 L126.984 23.811 L120.448 31.164 L127.256 39.471"/>
+</svg>
+    </a>
+    <nav class="nav" aria-label="ניווט ראשי">
+      <ul>
+        <li><a href="#project">על הפרויקט</a></li>
+        <li><a href="#location">על המיקום</a></li>
+        <li><a href="#developers">על היזמים</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="תפריט">
+      <span></span><span></span>
+    </button>
   </div>
+</header>
+
+<div class="menu" id="menu">
+  <div class="container">
+    <ul>
+      <li><a href="#project">על הפרויקט</a></li>
+      <li><a href="#location">על המיקום</a></li>
+      <li><a href="#developers">על היזמים</a></li>
+    </ul>
+  </div>
+  <svg class="rings menu__rings" viewBox="0 0 400 400" aria-hidden="true">
+    <circle cx="200" cy="200" r="70" pathLength="1"/><circle cx="200" cy="200" r="130" pathLength="1"/><circle cx="200" cy="200" r="195" pathLength="1"/>
+  </svg>
+</div>
+
+<main id="main">
+
+  <!-- ============ HERO — the printed cover ============ -->
+  <section class="hero" aria-label="Central Park Elad">
+    <div class="hero__media">
+      <picture><source type="image/avif" srcset="/assets/img/hero-terrace-768.avif 768w, /assets/img/hero-terrace-1280.avif 1280w, /assets/img/hero-terrace-1920.avif 1920w, /assets/img/hero-terrace-2560.avif 2560w" sizes="100vw"><img src="/assets/img/hero-terrace-1920.webp" srcset="/assets/img/hero-terrace-768.webp 768w, /assets/img/hero-terrace-1280.webp 1280w, /assets/img/hero-terrace-1920.webp 1920w, /assets/img/hero-terrace-2560.webp 2560w" sizes="100vw" width="4015" height="2837" alt="מרפסת פנטהאוז ב-Central Park עם נוף פתוח אל מרכז הארץ" decoding="async" fetchpriority="high"></picture>
+    </div>
+    <div class="hero__scrim"></div>
+    <svg class="rings hero__rings" viewBox="0 0 400 400" aria-hidden="true">
+      <circle cx="200" cy="200" r="62" pathLength="1"/>
+      <circle cx="200" cy="200" r="124" pathLength="1"/>
+      <circle cx="200" cy="200" r="190" pathLength="1"/>
+    </svg>
+    <div class="container hero__content">
+      <h1 class="hero__title" lang="en">
+        <span class="hero__title-a">Central Park</span>
+        <span class="hero__title-b">ELAD</span>
+      </h1>
+    </div>
+    <a class="hero__cue" href="#project" aria-label="גלילה אל על הפרויקט"></a>
+  </section>
+
+  <!-- ============ על הפרויקט ============ -->
+  <section id="project" class="section theme-dark section-project">
+    <div class="container">
+      <div class="split split--5-7">
+        <div class="split__text" data-stagger="110">
+          <h2 class="h2 reveal">על הפרויקט</h2>
+          <div class="prose">
+            <p class="lead reveal">בלב אלעד מוקם מתחם<span class="latin">Central Park</span>, פרויקט חדשני ורחב היקף, ביוזמת שלוש חברות מובילות  ואיתנות. המתחם משלב מגורים, מסחר ותעסוקה ויוצר סביבת חיים חדשה, פתוחה, איכותית וחווייתית. הפרויקט כולל 460  יחידות דיור הפרוסים על פני 12 בניינים בתכנון אדריכלי מוקפד, לצד עשרות אלפי מ"ר של שטחי מסחר ותעסוקה. מתחם המגורים תוכנן מתוך מחשבה על איכות החיים של הדיירים, עם מרחבים ירוקים, שבילים, פינות ישיבה וסביבה נעימה ובטוחה למשפחות.</p>
+            <p class="reveal">הדירות ב <span class="latin">Central Park</span> תוכננו בסטנדרט מגורים גבוה, המשלב נוחות, איכות ועיצוב על־זמני.  תכנון הדירות חכם וגמיש, ומתאים הן למשפחות ברוכות ילדים והן לזוגות, עם מגוון רחב של תמהילי דירות, החל מדירות 3 חדרים ועד דירות גן ופנטהאוזים.</p>
+          </div>
+        </div>
+        <div class="split__media split__media--bleed">
+          <figure class="media media--16-9 mask">
+            <picture><source type="image/avif" srcset="/assets/img/aerial-skyline-768.avif 768w, /assets/img/aerial-skyline-1280.avif 1280w, /assets/img/aerial-skyline-1920.avif 1920w, /assets/img/aerial-skyline-2560.avif 2560w" sizes="(min-width: 1024px) 60vw, 100vw"><img src="/assets/img/aerial-skyline-1920.webp" srcset="/assets/img/aerial-skyline-768.webp 768w, /assets/img/aerial-skyline-1280.webp 1280w, /assets/img/aerial-skyline-1920.webp 1920w, /assets/img/aerial-skyline-2560.webp 2560w" sizes="(min-width: 1024px) 60vw, 100vw" width="7033" height="3956" alt="מבט אווירי על מתחם Central Park באלעד, ובאופק קו הרקיע של תל אביב" decoding="async" loading="lazy"></picture>
+          </figure>
+          <svg class="rings rings--behind" viewBox="0 0 400 400" data-observe aria-hidden="true">
+            <circle cx="200" cy="200" r="48" pathLength="1"/><circle cx="200" cy="200" r="96" pathLength="1"/><circle cx="200" cy="200" r="144" pathLength="1"/><circle cx="200" cy="200" r="194" pathLength="1"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bleed bleed--3-1 parallax">
+    <picture><source type="image/avif" srcset="/assets/img/panorama-768.avif 768w, /assets/img/panorama-1280.avif 1280w, /assets/img/panorama-1920.avif 1920w, /assets/img/panorama-2560.avif 2560w" sizes="100vw"><img src="/assets/img/panorama-1920.webp" srcset="/assets/img/panorama-768.webp 768w, /assets/img/panorama-1280.webp 1280w, /assets/img/panorama-1920.webp 1920w, /assets/img/panorama-2560.webp 2560w" sizes="100vw" width="9000" height="3000" alt="פנורמה של מתחם Central Park: בנייני המגורים ומגדל המשרדים מעל רצועת המסחר" decoding="async" loading="lazy"></picture>
+  </div>
+
+  <section class="section theme-light has-paper section-apartments">
+    <div class="container">
+      <div class="split split--reverse">
+        <div class="split__text" data-stagger="110">
+          <div class="prose">
+            <p class="reveal">הדירות מרווחות וכוללת מרפסות סוכה, מפרט טכני עשיר, לובי כניסה מעוצב, מעליות מהירות ושקטות, חניה תת־קרקעית פרטית ושטחים ירוקים לרווחת הדיירים.</p>
+            <p class="reveal">מתחם המגורים תוכנן באופן המאפשר הפרדה בין אזורי המגורים למרחבים הציבוריים, לצד מרחבים בטוחים לילדים, שטחים ירוקים ופינות ישיבה המאפשרות ליהנות מהסביבה הפתוחה.</p>
+          </div>
+        </div>
+        <div class="split__media">
+          <div class="compose">
+            <figure class="media media--3-2 compose__main mask">
+              <picture><source type="image/avif" srcset="/assets/img/living-room-640.avif 640w, /assets/img/living-room-1024.avif 1024w, /assets/img/living-room-1600.avif 1600w" sizes="(min-width: 1024px) 45vw, 100vw"><img src="/assets/img/living-room-1600.webp" srcset="/assets/img/living-room-640.webp 640w, /assets/img/living-room-1024.webp 1024w, /assets/img/living-room-1600.webp 1600w" sizes="(min-width: 1024px) 45vw, 100vw" width="3584" height="2160" alt="סלון פנטהאוז עם חלונות מהרצפה עד התקרה ונוף פתוח" decoding="async" loading="lazy"></picture>
+            </figure>
+            <figure class="compose__circle">
+              <div class="media media--circle mask mask--grow" style="--d: 300ms">
+                <picture><source type="image/avif" srcset="/assets/img/terrace-pool-640.avif 640w, /assets/img/terrace-pool-1024.avif 1024w" sizes="(min-width: 1024px) 22vw, 50vw"><img src="/assets/img/terrace-pool-1024.webp" srcset="/assets/img/terrace-pool-640.webp 640w, /assets/img/terrace-pool-1024.webp 1024w" sizes="(min-width: 1024px) 22vw, 50vw" width="3059" height="2160" alt="מרפסת שמש עם בריכה פרטית ופינת ישיבה" decoding="async" loading="lazy"></picture>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <ul class="tiles" data-stagger="90" aria-label="פרטי הדירות והמבנים">
+        <li><div class="media media--circle mask mask--grow stagger-item"><picture><source type="image/avif" srcset="/assets/img/tile-lobby-480.avif 480w, /assets/img/tile-lobby-800.avif 800w" sizes="(min-width: 1024px) 14vw, 30vw"><img src="/assets/img/tile-lobby-800.webp" srcset="/assets/img/tile-lobby-480.webp 480w, /assets/img/tile-lobby-800.webp 800w" sizes="(min-width: 1024px) 14vw, 30vw" width="836" height="836" alt="לובי כניסה מעוצב" decoding="async" loading="lazy"></picture></div></li>
+        <li><div class="media media--circle mask mask--grow stagger-item"><picture><source type="image/avif" srcset="/assets/img/tile-elevators-480.avif 480w, /assets/img/tile-elevators-800.avif 800w" sizes="(min-width: 1024px) 14vw, 30vw"><img src="/assets/img/tile-elevators-800.webp" srcset="/assets/img/tile-elevators-480.webp 480w, /assets/img/tile-elevators-800.webp 800w" sizes="(min-width: 1024px) 14vw, 30vw" width="832" height="832" alt="מעליות" decoding="async" loading="lazy"></picture></div></li>
+        <li><div class="media media--circle mask mask--grow stagger-item"><picture><source type="image/avif" srcset="/assets/img/tile-balcony-480.avif 480w, /assets/img/tile-balcony-800.avif 800w" sizes="(min-width: 1024px) 14vw, 30vw"><img src="/assets/img/tile-balcony-800.webp" srcset="/assets/img/tile-balcony-480.webp 480w, /assets/img/tile-balcony-800.webp 800w" sizes="(min-width: 1024px) 14vw, 30vw" width="836" height="836" alt="מרפסת שמש" decoding="async" loading="lazy"></picture></div></li>
+        <li><div class="media media--circle mask mask--grow stagger-item"><picture><source type="image/avif" srcset="/assets/img/tile-kitchen-480.avif 480w, /assets/img/tile-kitchen-800.avif 800w" sizes="(min-width: 1024px) 14vw, 30vw"><img src="/assets/img/tile-kitchen-800.webp" srcset="/assets/img/tile-kitchen-480.webp 480w, /assets/img/tile-kitchen-800.webp 800w" sizes="(min-width: 1024px) 14vw, 30vw" width="831" height="831" alt="מטבח" decoding="async" loading="lazy"></picture></div></li>
+        <li><div class="media media--circle mask mask--grow stagger-item"><picture><source type="image/avif" srcset="/assets/img/tile-parking-480.avif 480w, /assets/img/tile-parking-800.avif 800w" sizes="(min-width: 1024px) 14vw, 30vw"><img src="/assets/img/tile-parking-800.webp" srcset="/assets/img/tile-parking-480.webp 480w, /assets/img/tile-parking-800.webp 800w" sizes="(min-width: 1024px) 14vw, 30vw" width="831" height="831" alt="חניה תת־קרקעית" decoding="async" loading="lazy"></picture></div></li>
+        <li><div class="media media--circle mask mask--grow stagger-item"><picture><source type="image/avif" srcset="/assets/img/tile-living-480.avif 480w, /assets/img/tile-living-800.avif 800w" sizes="(min-width: 1024px) 14vw, 30vw"><img src="/assets/img/tile-living-800.webp" srcset="/assets/img/tile-living-480.webp 480w, /assets/img/tile-living-800.webp 800w" sizes="(min-width: 1024px) 14vw, 30vw" width="836" height="836" alt="חלל מגורים עם נוף" decoding="async" loading="lazy"></picture></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section theme-dark section-city">
+    <div class="halfdisc" aria-hidden="true"></div>
+    <div class="container">
+      <div class="split">
+        <div class="split__text" data-stagger="110">
+          <div class="prose">
+            <p class="reveal"><span class="latin">Central Park</span> משתלב בתנופת הפיתוח וההתרחבות של אלעד שהינה עיר צעירה ומשפחתית, המציעה מוסדות חינוך, שירותים קהילתיים ומסחריים ומגוון פתרונות תחבורה.</p>
+          </div>
+          <hr class="rule rule--accent reveal">
+          <p class="statement reveal">זהו פרויקט שנועד ליצור לא רק בית, אלא סביבת מגורים איכותית, קהילתית ומלאת חיים.</p>
+        </div>
+        <div class="split__media split__media--bleed">
+          <figure class="media media--4-3 mask">
+            <picture><source type="image/avif" srcset="/assets/img/plaza-768.avif 768w, /assets/img/plaza-1280.avif 1280w, /assets/img/plaza-1920.avif 1920w" sizes="(min-width: 1024px) 55vw, 100vw"><img src="/assets/img/plaza-1920.webp" srcset="/assets/img/plaza-768.webp 768w, /assets/img/plaza-1280.webp 1280w, /assets/img/plaza-1920.webp 1920w" sizes="(min-width: 1024px) 55vw, 100vw" width="3840" height="2160" alt="רחבה ציבורית וגן משחקים בין בנייני המתחם, משפחות בהליכה" decoding="async" loading="lazy"></picture>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ על המיקום ============ -->
+  <section id="location" class="section theme-light has-paper section-location">
+    <div class="container">
+      <div class="split split--5-7">
+        <div class="split__text" data-stagger="110">
+          <h2 class="h2 reveal">על המיקום</h2>
+          <div class="prose">
+            <p class="reveal"><span class="latin">Central Park</span>  ממוקם בלב אלעד, על עורק התחבורה הראשי של העיר,  במיקום מרכזי ונגיש המשלב בין חיי קהילה, נוחות יומיומית וחיבור מהיר למרכז הארץ.</p>
+            <p class="reveal">הפרויקט נהנה מקרבה לצירי תנועה מרכזיים, בהם כביש 6 וכביש 471 ומאפשר נגישות נוחה לפתח תקווה, בני ברק, תל אביב, ירושלים ויישובי האזור. לצד התחבורה הציבורית והנגישות הגבוהה, הפרויקט ממוקם בסמיכות לפארק אלעד החדש ולמגוון מוסדות חינוך, בתי כנסת, גינות ציבוריות ושירותים קהילתיים כך שכל צורכי המשפחה נמצאים במרחק קצר מהבית.</p>
+            <p class="reveal">מיקומו של הפרויקט הופך אותו לאטרקטיבי לא רק עבור תושבי אלעד, אלא גם עבור משפחות וקהלים מכל האזור, בהם תושבי ראש העין, שוהם, פתח תקווה, יישובי השומרון והסביבה.</p>
+          </div>
+        </div>
+        <div class="split__media">
+          <figure class="plan reveal" style="--d: 200ms">
+            <picture><source type="image/avif" srcset="/assets/img/site-plan-640.avif 640w, /assets/img/site-plan-1024.avif 1024w, /assets/img/site-plan-1600.avif 1600w" sizes="(min-width: 1024px) 55vw, 100vw"><img src="/assets/img/site-plan-1600.webp" srcset="/assets/img/site-plan-640.webp 640w, /assets/img/site-plan-1024.webp 1024w, /assets/img/site-plan-1600.webp 1600w" sizes="(min-width: 1024px) 55vw, 100vw" width="2872" height="2320" alt="תכנית המתחם: שנים־עשר בנייני המגורים A עד L, מרכז המסחר, בית הכנסת, בניין העירייה והכיכר העירונית, עם כיווני הגישה מכביש 444 ומכביש 6" decoding="async" loading="lazy"></picture>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bleed bleed--21-9 parallax">
+    <picture><source type="image/avif" srcset="/assets/img/aerial-hills-768.avif 768w, /assets/img/aerial-hills-1280.avif 1280w, /assets/img/aerial-hills-1920.avif 1920w, /assets/img/aerial-hills-2560.avif 2560w" sizes="100vw"><img src="/assets/img/aerial-hills-1920.webp" srcset="/assets/img/aerial-hills-768.webp 768w, /assets/img/aerial-hills-1280.webp 1280w, /assets/img/aerial-hills-1920.webp 1920w, /assets/img/aerial-hills-2560.webp 2560w" sizes="100vw" width="7033" height="3956" alt="מבט אווירי על המתחם ועל אלעד, ובאופק הרי השומרון" decoding="async" loading="lazy"></picture>
+  </div>
+
+  <!-- ============ על היזמים ============ -->
+  <section id="developers" class="section theme-dark section-developers">
+    <div class="container">
+      <div class="dev-intro" data-stagger="110">
+        <h2 class="h2 reveal">על היזמים</h2>
+        <div class="prose prose--2col">
+          <p class="reveal">פרויקט  <span class="latin">Central Park</span> מוקם בשיתוף פעולה בין שלוש חברות בעלות ניסיון בתחומי היזמות, ההשקעות והבנייה.  קבוצת רבץ השקעות, קבוצת אשל הירדן וקבוצת ידות.</p>
+          <p class="reveal">השותפות משלבת ידע וניסיון בשלבי הייזום, התכנון והביצוע, לצד היכרות עם צורכי קהילות ומשפחות בישראל. יחד מובילות החברות את הקמת הפרויקט מתוך מחויבות לאיכות הבנייה, לתכנון מוקפד, לעמידה בלוחות הזמנים ולליווי הדיירים לאורך הדרך.</p>
+        </div>
+      </div>
+
+      <div class="cols-3" data-stagger="140">
+        <article class="dev reveal">
+          <div class="dev__logo"><svg role="img" aria-label="Ravitz — רבץ השקעות בע״מ" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 596.717 154.423">
+<path fill="currentColor" d="M520.187 119.485 L520.187 29.275 L517.584 27.100 L517.584 119.099 C517.152 119.038 516.717 118.979 516.282 118.919 L516.282 26.013 L513.679 23.837 L513.679 118.576 C513.247 118.521 512.810 118.473 512.377 118.422 L512.377 22.750 L509.775 20.575 L509.775 118.120 C509.342 118.074 508.905 118.033 508.473 117.990 L508.473 19.487 L505.870 17.312 L505.870 117.728 C505.438 117.690 505.001 117.660 504.568 117.621 L504.568 16.224 L501.966 14.050 L501.966 117.409 C501.533 117.377 501.098 117.347 500.664 117.318 L500.664 12.962 L498.060 10.787 L498.060 117.153 C497.626 117.127 497.194 117.098 496.759 117.075 L496.759 9.699 L494.156 7.524 L494.156 116.957 C493.721 116.938 493.289 116.915 492.855 116.897 L492.855 6.437 L490.251 4.261 L490.251 116.821 C489.385 116.798 488.520 116.769 487.648 116.755 L487.648 2.087 L487.648 2.000 L487.595 2.041 L454.052 27.462 L454.324 43.812 L466.823 34.945 L466.823 117.267 C466.095 117.314 465.363 117.360 464.637 117.413 L464.637 39.001 L441.281 56.702 L441.281 69.514 L447.155 65.347 L447.155 119.376 C446.592 119.462 446.037 119.556 445.476 119.645 L445.476 69.778 L427.858 83.131 L427.858 91.995 L431.337 89.527 L431.337 122.371 C404.642 128.500 383.155 139.199 371.050 152.423 C392.623 133.486 434.863 120.621 483.444 120.621 C531.201 120.621 572.823 133.054 594.717 151.465 C580.167 136.285 553.160 124.569 520.187 119.485"/>
+<path fill="currentColor" d="M2.000 6.749 L2.000 5.936 L24.695 5.936 C30.447 5.936 34.611 6.064 37.180 6.316 C39.747 6.570 42.383 7.415 45.077 8.841 C47.773 10.274 49.807 12.212 51.185 14.655 C52.562 17.103 53.248 20.100 53.248 23.648 C53.248 27.705 52.027 31.570 49.585 35.246 C47.140 38.923 43.694 42.028 39.241 44.562 L44.885 53.243 C46.118 55.413 49.382 60.171 54.686 67.508 C59.987 74.847 64.087 79.325 66.984 80.935 C69.878 82.546 72.681 83.350 75.398 83.350 C78.075 83.350 81.153 82.318 84.625 80.257 L84.953 81.342 C80.612 84.887 74.973 86.664 68.029 86.664 C63.402 86.664 59.425 85.293 56.098 82.552 C52.771 79.812 46.981 72.295 38.728 59.998 C38.656 59.928 38.618 59.852 38.618 59.779 L30.583 47.410 L23.458 47.630 L16.986 47.630 L16.986 78.203 C16.986 80.660 17.307 82.422 17.949 83.487 C18.598 84.554 20.157 85.086 22.631 85.086 L22.631 85.903 L2.000 85.903 L2.000 85.086 C4.567 84.980 6.170 84.436 6.807 83.463 C7.440 82.485 7.755 80.494 7.755 77.492 L7.755 13.965 C7.755 11.904 7.483 10.197 6.943 8.838 C6.399 7.485 4.752 6.787 2.000 6.749 M16.986 8.052 L16.986 45.564 L25.360 45.564 C31.960 45.564 36.856 44.010 40.048 40.900 C43.237 37.786 44.834 33.694 44.834 28.629 C44.834 23.706 43.266 19.048 40.129 14.649 C36.992 10.250 31.471 8.052 23.566 8.052 L16.986 8.052"/>
+<path fill="currentColor" d="M136.823 87.150 L135.793 87.150 L107.318 16.739 C105.289 11.782 103.625 8.877 102.320 8.029 C101.021 7.175 99.678 6.749 98.304 6.749 L98.304 5.937 L116.762 5.937 L116.762 6.749 C115.132 6.643 114.320 7.277 114.320 8.651 C114.320 9.192 114.427 9.774 114.644 10.390 L139.473 71.933 L164.081 10.414 C164.404 9.586 164.569 8.923 164.569 8.423 C164.569 7.199 163.635 6.643 161.769 6.749 L161.769 5.937 L173.765 5.937 L173.765 6.749 C172.932 6.749 172.055 6.869 171.132 7.103 C170.209 7.340 169.260 8.272 168.281 9.899 C167.304 11.530 166.798 12.399 166.763 12.505 L136.823 87.150"/>
+<path fill="currentColor" d="M202.615 5.937 L202.615 6.750 C201.562 6.644 200.393 6.808 199.114 7.240 C197.824 7.676 197.065 8.307 196.834 9.140 C196.596 9.968 196.480 11.941 196.480 15.053 L196.480 76.408 C196.480 79.738 196.614 81.769 196.886 82.512 C197.158 83.251 197.678 83.869 198.459 84.356 C199.236 84.847 200.619 85.087 202.615 85.087 L202.615 85.904 L181.278 85.904 L181.278 85.087 C183.958 85.087 185.624 84.572 186.273 83.543 C186.925 82.512 187.250 80.171 187.250 76.514 L187.250 15.758 C187.250 11.958 186.886 9.473 186.162 8.295 C185.439 7.121 183.812 6.606 181.278 6.750 L181.278 5.937 L202.615 5.937"/>
+<path fill="currentColor" d="M276.846 3.168 L273.043 12.832 L272.234 12.832 C272.373 12.253 272.447 11.472 272.447 10.494 C272.447 9.666 272.146 9.131 271.557 8.894 C270.955 8.660 270.006 8.544 268.709 8.544 L247.859 8.544 L247.859 76.954 C247.859 79.772 248.084 81.696 248.535 82.730 C248.987 83.759 249.601 84.411 250.382 84.679 C251.157 84.951 252.413 85.087 254.155 85.087 L254.155 85.904 L232.493 85.904 L232.493 85.087 C235.208 84.905 236.910 84.384 237.592 83.516 C238.281 82.648 238.628 80.836 238.628 78.091 L238.628 8.544 L218.639 8.544 C216.619 8.544 215.300 8.660 214.687 8.894 C214.067 9.131 213.766 9.719 213.766 10.659 C213.766 11.130 213.906 11.855 214.195 12.832 L213.385 12.832 L209.583 3.168 L210.399 3.168 C211.047 4.469 211.688 5.257 212.320 5.529 C212.950 5.801 214.316 5.937 216.411 5.937 L269.474 5.937 C271.568 5.937 273.078 5.801 273.999 5.529 C274.919 5.257 275.597 4.469 276.030 3.168 L276.846 3.168"/>
+<path fill="currentColor" d="M351.911 73.359 L351.911 85.903 L276.076 85.903 L338.212 8.978 L296.604 8.978 C293.160 8.978 290.799 9.420 289.514 10.309 C288.224 11.194 287.332 13.375 286.823 16.848 L286.006 16.848 L286.441 5.936 L352.240 5.936 L289.919 82.917 L342.958 82.917 C346.031 82.917 348.103 82.283 349.173 81.016 C350.237 79.748 350.886 77.199 351.100 73.359 L351.911 73.359"/>
+<path fill="currentColor" d="M52.754 83.296 C52.754 83.007 52.896 82.432 53.171 81.596 C52.426 80.811 51.608 79.885 50.720 78.820 C49.574 81.514 48.509 83.221 47.540 83.921 C46.454 84.700 45.115 85.087 43.523 85.087 L43.523 85.903 L55.413 85.903 L55.413 85.087 C53.642 85.087 52.754 84.488 52.754 83.296"/>
+<path fill="currentColor" d="M112.242 80.495 C110.781 77.434 110.049 75.724 110.049 75.362 L81.538 4.742 L80.100 4.742 L55.612 66.526 C55.664 66.595 55.710 66.661 55.760 66.734 C56.495 67.747 57.198 68.695 57.883 69.598 L66.107 49.094 L66.142 49.094 L66.990 46.869 L66.874 46.869 L77.698 19.615 L88.502 46.869 L88.457 46.869 L89.377 49.094 L89.576 49.094 L101.018 77.487 C101.052 77.487 101.108 77.668 101.177 78.030 C101.287 78.358 101.414 78.592 101.559 78.737 C102.389 80.728 102.806 82.174 102.806 83.082 C102.806 84.419 101.955 85.087 100.254 85.087 L100.254 85.904 L118.929 85.904 L118.929 85.087 C115.931 85.087 113.706 83.557 112.242 80.495"/>
+<path fill="currentColor" d="M137.536 143.224 L135.104 143.224 L135.104 119.276 L123.093 119.276 L123.093 137.500 C123.093 141.317 121.431 143.224 118.106 143.224 L115.994 143.224 L115.994 141.062 L117.910 141.062 C119.745 141.062 120.661 140.006 120.661 137.893 L120.661 117.016 L137.536 117.016 L137.536 143.224"/>
+<path fill="currentColor" d="M149.498 143.224 L147.017 143.224 L147.017 119.276 L143.308 119.276 L143.308 117.016 L149.498 117.016 L149.498 143.224"/>
+<path fill="currentColor" d="M173.765 133.571 C173.765 136.322 173.061 138.548 171.651 140.252 C169.997 142.233 167.567 143.224 164.358 143.224 L154.533 143.224 L154.533 141.113 L160.623 141.113 L156.350 117.016 L158.806 117.016 L162.883 141.113 L164.897 141.113 C169.089 141.113 171.185 138.548 171.185 133.424 L171.185 117.016 L173.765 117.016 L173.765 133.571"/>
+<path fill="currentColor" d="M199.652 125.220 C199.652 130.247 198.310 134.652 195.624 138.434 L192.260 143.224 L189.754 143.224 L189.754 142.929 L193.929 136.788 C196.107 133.563 197.196 129.772 197.196 125.416 L197.196 119.276 L180.593 119.276 L180.593 117.016 L199.652 117.016 L199.652 125.220 M181.502 125.907H183.909V151.256H181.502Z"/>
+<path fill="currentColor" d="M230.305 133.816 C230.305 140.252 226.981 143.469 220.333 143.469 L216.305 143.469 C210.082 143.469 206.972 140.456 206.972 134.431 L206.972 117.016 L209.379 117.016 L209.379 135.314 C209.379 139.311 211.409 141.307 215.471 141.307 L217.410 141.307 L217.410 117.016 L219.842 117.016 L219.842 141.307 L221.488 141.307 C223.501 141.307 225.061 140.772 226.166 139.699 C227.272 138.627 227.824 137.083 227.824 135.070 L227.824 117.016 L230.305 117.016 L230.305 133.816"/>
+<path fill="currentColor" d="M255.678 143.224 L253.197 143.224 L253.197 119.276 L237.207 119.276 L237.207 117.016 L255.678 117.016 L255.678 143.224 M237.823 127.184H240.278V143.224H237.823Z"/>
+<path fill="currentColor" d="M289.424 121.438 C289.424 128.314 286.174 132.711 279.673 134.627 L279.673 151.255 L277.192 151.255 L277.192 136.592 C277.192 134.675 277.011 133.046 276.653 131.703 L272.723 117.016 L275.130 117.016 L279.354 132.859 C284.464 131.385 287.017 127.660 287.017 121.683 L287.017 117.016 L289.424 117.016 L289.424 121.438"/>
+<path fill="currentColor" d="M313.127 143.224 L294.755 143.224 L294.755 141.112 L308.191 141.112 L308.191 119.276 L295.271 119.276 L295.271 117.016 L310.646 117.016 L310.646 141.112 L313.127 141.112 L313.127 143.224"/>
+<path fill="currentColor" d="M333.318 143.224 L330.860 143.224 L330.860 124.065 C330.860 120.873 329.550 119.276 326.932 119.276 L316.763 119.276 L316.763 117.016 L326.636 117.016 C331.090 117.016 333.318 119.481 333.318 124.410 L333.318 143.224"/>
+<path fill="currentColor" d="M40.892 135.466 C40.892 140.461 38.509 142.957 33.744 142.957 L29.987 142.957 L29.987 140.845 L33.843 140.845 C36.905 140.845 38.436 139.250 38.436 136.054 L38.436 119.010 L26.916 119.010 L23.993 142.957 L21.636 142.957 L24.705 119.010 L20.924 119.010 L20.924 116.751 L40.892 116.751 L40.892 135.466"/>
+<path fill="currentColor" d="M45.141 121.441 C45.141 117.445 46.230 114.188 48.408 111.666 L48.703 111.666 L48.998 111.886 C47.933 114.097 47.400 116.423 47.400 118.862 L47.400 122.547 L45.141 122.547 L45.141 121.441 M51.576 121.441 C51.576 117.381 52.649 114.122 54.795 111.666 L55.090 111.666 L55.408 111.886 C54.327 114.196 53.787 116.521 53.787 118.862 L53.787 122.547 L51.576 122.547 L51.576 121.441"/>
+<path fill="currentColor" d="M76.899 133.305 C76.899 136.054 76.195 138.282 74.787 139.985 C73.133 141.967 70.701 142.958 67.492 142.958 L57.667 142.958 L57.667 140.846 L63.759 140.846 L59.485 116.751 L61.942 116.751 L66.019 140.846 L68.032 140.846 C72.225 140.846 74.320 138.282 74.320 133.158 L74.320 116.751 L76.899 116.751 L76.899 133.305"/>
+<path fill="currentColor" d="M101.092 142.957 L82.720 142.957 L82.720 140.845 L96.156 140.845 L96.156 119.009 L83.235 119.009 L83.235 116.750 L98.611 116.750 L98.611 140.845 L101.092 140.845 L101.092 142.957"/>
+</svg></div>
+          <hr class="rule">
+          <h3 class="h3">קבוצת רבץ השקעות</h3>
+          <p>קבוצת רבץ השקעות פועלת בתחום ההשקעות והנדל״ן ומעורבת בייזום ובקידום פרויקטים ברחבי הארץ. פעילותה משלבת איתור הזדמנויות, רכישת קרקעות, תכנון ופיתוח של פרויקטים למגורים ולשימושים נוספים. הקבוצה מביאה לפרויקט ניסיון עסקי, ראייה רחבה ויכולת לקדם מהלכי נדל״ן מורכבים משלב הייזום ועד להשלמתם.</p>
+        </article>
+        <article class="dev reveal">
+          <div class="dev__logo"><img src="/assets/brand/partner_eshel.png" width="2541" height="656" alt="אשל הירדן — ליזום. לתכנן. לבצע." loading="lazy" decoding="async"></div>
+          <hr class="rule">
+          <h3 class="h3">קבוצת אשל הירדן</h3>
+          <p>קבוצת אשל הירדן פועלת משנת 1994 בתחומי הייזום והבנייה בישראל. לאורך שנות פעילותה הקימה החברה אלפי יחידות דיור וכן פרויקטים בתחומי המסחר והתעסוקה.</p>
+          <p>הקבוצה מרכזת תחת קורת גג אחת את שלבי הייזום, התכנון האדריכלי והביצוע, ופועלת תוך הקפדה על איכות הבנייה, תקנים מחמירים, יעילות ועמידה בלוחות הזמנים. ניסיונה כולל בנייה רוויה, צמודי קרקע ופרויקטים במסגרת תוכניות הדיור הממשלתיות.</p>
+        </article>
+        <article class="dev reveal">
+          <div class="dev__logo"><svg role="img" aria-label="קבוצת ידות" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 438.329 166.406">
+<path fill="currentColor" d="M251.814 2.378 L194.528 32.467 L194.528 54.198 L194.528 151.224 L180.324 151.224 L180.324 164.406 L251.814 164.406 L251.814 54.198 L251.814 2.378"/>
+<path fill="currentColor" d="M414.483 84.176 L436.329 84.176 L352.549 2.378 L284.983 2.378 L365.542 83.630 L365.542 164.406 L419.963 164.406 L419.963 159.480 L414.483 159.480 L414.483 84.176"/>
+<path fill="currentColor" d="M326.865 159.479 L326.865 63.766 L264.578 2.377 L264.578 71.789 L278.483 85.002 L278.483 164.405 L332.084 164.405 L332.084 159.479 L326.865 159.479"/>
+<path fill="currentColor" d="M414.139 2.000 L371.304 2.000 L414.139 43.339 L414.139 2.000"/>
+<path fill="currentColor" d="M97.990 97.191 L96.509 97.191 L96.509 85.781 C96.509 85.567 96.504 85.361 96.496 85.161 C96.486 84.960 96.463 84.759 96.424 84.553 C96.388 84.301 96.311 84.025 96.195 83.721 C96.079 83.420 95.886 83.152 95.616 82.918 C95.410 82.750 95.193 82.629 94.967 82.547 C94.738 82.470 94.509 82.410 94.274 82.374 C94.071 82.336 93.865 82.318 93.654 82.318 L93.103 82.318 L88.019 82.318 L88.019 97.191 L83.495 97.191 L83.814 95.710 L86.523 95.710 L86.523 82.346 L84.752 82.346 L85.043 80.865 C86.132 80.819 87.134 80.783 88.048 80.755 C88.959 80.726 89.740 80.713 90.394 80.713 C91.128 80.713 91.784 80.726 92.361 80.755 L94.331 80.865 C94.843 80.904 95.333 81.017 95.804 81.208 C96.272 81.398 96.664 81.653 96.970 81.970 C97.333 82.362 97.593 82.843 97.753 83.422 C97.910 83.999 97.990 84.622 97.990 85.294 L97.990 97.191"/>
+<path fill="currentColor" d="M112.822 80.838 L110.044 90.013 L108.813 90.013 L112.443 96.646 L112.443 97.192 L101.551 97.192 L101.958 95.711 L110.337 95.711 L103.003 82.319 L100.979 82.319 L101.355 80.838 L103.897 80.838 L108.563 89.498 L108.730 89.498 L111.161 80.838 L112.822 80.838"/>
+<path fill="currentColor" d="M120.530 97.191 L119.008 97.191 L119.008 82.318 L115.977 82.318 L116.255 80.837 L120.530 80.837 L120.530 97.191"/>
+<path fill="currentColor" d="M136.869 95.711 L136.617 97.192 L124.970 97.192 L124.970 95.711 L133.727 95.711 L133.727 86.467 L133.727 85.782 C133.727 85.707 133.725 85.617 133.720 85.509 C133.715 85.403 133.707 85.282 133.699 85.154 C133.681 84.968 133.658 84.788 133.630 84.615 C133.601 84.443 133.563 84.268 133.516 84.093 C133.462 83.876 133.393 83.665 133.308 83.457 C133.223 83.248 133.073 83.050 132.860 82.862 C132.546 82.555 132.159 82.388 131.701 82.360 C131.255 82.331 130.820 82.318 130.403 82.318 L125.137 82.318 L125.431 80.866 C126.075 80.817 126.654 80.786 127.169 80.768 C127.686 80.750 128.201 80.740 128.714 80.740 C129.077 80.740 129.432 80.745 129.783 80.753 C130.130 80.763 130.478 80.779 130.820 80.797 C131.165 80.815 131.464 80.835 131.716 80.858 C131.966 80.882 132.177 80.912 132.345 80.948 C132.950 81.062 133.442 81.263 133.818 81.556 C134.194 81.850 134.487 82.205 134.698 82.625 C134.907 83.045 135.048 83.513 135.123 84.036 C135.198 84.556 135.234 85.102 135.234 85.668 L135.234 91.982 L135.234 95.711 L136.869 95.711"/>
+<path fill="currentColor" d="M152.692 81.913 L149.229 97.219 L147.735 97.219 L151.170 82.289 L139.704 82.289 L139.984 80.795 L152.692 80.795 L152.692 81.913 M140.417 87.040H141.856V101.779H140.417Z"/>
+<path fill="currentColor" stroke="currentColor" stroke-width="0.339" d="M52.118 163.688 L43.855 163.688 L43.855 126.422 C43.855 124.061 43.358 122.292 42.356 121.110 C41.360 119.931 39.619 119.338 37.137 119.338 L19.389 119.338 L19.389 163.688 L2.000 163.688 L3.319 154.928 L11.216 154.928 L11.216 119.521 L5.997 119.521 L7.040 110.807 C10.853 110.686 14.417 110.542 17.729 110.372 C21.045 110.207 23.790 110.128 25.969 110.128 C28.451 110.128 30.995 110.156 33.596 110.215 C36.199 110.280 38.682 110.385 41.043 110.534 C43.159 110.656 44.921 111.065 46.327 111.758 C47.738 112.455 48.871 113.380 49.731 114.528 C50.596 115.679 51.209 117.042 51.572 118.612 C51.935 120.188 52.118 121.911 52.118 123.788 L52.118 163.688"/>
+<path fill="currentColor" stroke="currentColor" stroke-width="0.339" d="M79.032 163.688 L70.764 163.688 L70.764 119.431 L68.724 119.431 L60.819 119.431 L61.728 110.534 L72.718 110.534 L79.032 110.534 L79.032 163.688"/>
+<path fill="currentColor" stroke="currentColor" stroke-width="0.339" d="M128.091 110.535 L127.548 119.066 L121.144 119.429 L121.144 163.689 L112.839 163.689 L112.839 119.429 L88.778 119.429 L88.778 110.535 L128.091 110.535"/>
+<path fill="currentColor" stroke="currentColor" stroke-width="0.339" d="M151.874 137.366 L143.701 137.366 L143.701 119.431 L134.298 119.431 L135.208 110.537 L151.874 110.537 L151.874 137.366"/>
+</svg></div>
+          <hr class="rule">
+          <h3 class="h3">קבוצת ידות</h3>
+          <p>קבוצת ידות פועלת בתחומי הייזום והבנייה למגורים, למסחר ולשימושים קהילתיים. החברה מתמחה בקידום פרויקטים המתוכננים בהתאם למאפייני האוכלוסייה ולצורכי המשפחות והקהילה המקומית. פעילותה בפרויקט מביאה עמה היכרות עם המגזר החרדי, לצד דגש על תכנון פונקציונלי, סביבת מגורים נוחה ומענה לצורכי חיי היום יום.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ closing image — spread 12 ============ -->
+  <div class="closing">
+    <div class="bleed parallax">
+      <picture><source type="image/avif" srcset="/assets/img/sunset-terrace-768.avif 768w, /assets/img/sunset-terrace-1280.avif 1280w, /assets/img/sunset-terrace-1920.avif 1920w, /assets/img/sunset-terrace-2560.avif 2560w" sizes="100vw"><img src="/assets/img/sunset-terrace-1920.webp" srcset="/assets/img/sunset-terrace-768.webp 768w, /assets/img/sunset-terrace-1280.webp 1280w, /assets/img/sunset-terrace-1920.webp 1920w, /assets/img/sunset-terrace-2560.webp 2560w" sizes="100vw" width="3063" height="2160" alt="מרפסת גג בשעת שקיעה, נוף אל מרכז הארץ" decoding="async" loading="lazy"></picture>
+    </div>
+    <svg class="rings closing__rings" viewBox="0 0 400 400" data-observe aria-hidden="true">
+      <circle cx="200" cy="200" r="196" pathLength="1"/>
+    </svg>
+  </div>
+</main>
+
+<footer class="footer theme-dark">
+  <div class="container" data-stagger="160">
+    <a class="footer__logo reveal" href="#top" aria-label="Central Park — The Heart Of Elad, לראש העמוד"><svg  aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 174.000 55.500">
+<path fill="#c29284" d="M36.348 53.998 L23.538 53.998 C22.947 53.998 22.467 53.519 22.467 52.927 L22.467 1.447 C22.467 0.855 22.947 0.376 23.538 0.376 L36.348 0.376 C36.939 0.376 37.419 0.855 37.419 1.447 L37.419 52.927 C37.419 53.519 36.939 53.998 36.348 53.998"/>
+<path fill="#c6af7b" d="M17.306 52.424 C17.306 53.180 16.657 53.777 15.904 53.715 C7.359 53.002 0.646 45.841 0.646 37.112 C0.646 28.383 7.359 21.222 15.904 20.510 C16.657 20.447 17.306 21.045 17.306 21.801 L17.306 52.424"/>
+<path fill="#727272" d="M43.449 1.671 C43.449 0.915 44.098 0.318 44.851 0.380 C53.396 1.093 60.109 8.254 60.109 16.983 C60.109 25.712 53.396 32.873 44.851 33.585 C44.098 33.648 43.449 33.050 43.449 32.294 L43.449 1.671"/>
+<path fill="currentColor" d="M74.989 46.768 L74.989 47.901 L72.461 47.901 L72.461 54.774 L71.135 54.774 L71.135 47.901 L68.607 47.901 L68.607 46.768 L74.989 46.768"/>
+<path fill="currentColor" d="M76.271 46.196 L77.518 46.196 L77.518 49.536 C77.975 48.815 78.730 48.415 79.656 48.415 C81.166 48.415 82.047 49.490 82.047 51.308 L82.047 54.774 L80.789 54.774 L80.789 51.308 C80.789 50.188 80.148 49.467 79.176 49.467 C78.181 49.467 77.518 50.188 77.518 51.308 L77.518 54.774 L76.271 54.774 L76.271 46.196"/>
+<path fill="currentColor" d="M86.554 48.369 C88.670 48.369 89.837 50.234 89.607 52.121 L84.621 52.121 C84.804 53.116 85.559 53.779 86.554 53.779 C87.194 53.779 87.755 53.482 88.132 52.956 L89.081 53.619 C88.498 54.420 87.663 54.889 86.554 54.889 C84.735 54.889 83.420 53.470 83.420 51.629 C83.420 49.765 84.735 48.369 86.554 48.369 M88.441 51.206 C88.327 50.314 87.698 49.490 86.554 49.490 C85.536 49.490 84.770 50.176 84.610 51.206 L88.441 51.206"/>
+<path fill="currentColor" d="M96.347 46.768 L96.347 50.028 L100.361 50.028 L100.361 46.768 L101.688 46.768 L101.688 54.774 L100.361 54.774 L100.361 51.160 L96.347 51.160 L96.347 54.774 L95.020 54.774 L95.020 46.768 L96.347 46.768"/>
+<path fill="currentColor" d="M106.332 48.369 C108.448 48.369 109.615 50.234 109.385 52.121 L104.399 52.121 C104.582 53.116 105.337 53.779 106.332 53.779 C106.972 53.779 107.533 53.482 107.910 52.956 L108.859 53.619 C108.276 54.420 107.441 54.889 106.332 54.889 C104.513 54.889 103.198 53.470 103.198 51.629 C103.198 49.765 104.513 48.369 106.332 48.369 M108.219 51.206 C108.105 50.314 107.476 49.490 106.332 49.490 C105.314 49.490 104.548 50.176 104.388 51.206 L108.219 51.206"/>
+<path fill="currentColor" d="M114.819 54.259 C114.384 54.660 113.755 54.889 113.012 54.889 C111.491 54.889 110.416 53.985 110.416 52.704 C110.416 51.434 111.491 50.531 113.012 50.531 C113.755 50.531 114.384 50.760 114.819 51.160 C114.819 49.936 114.167 49.376 113.069 49.376 C112.291 49.376 111.559 49.662 111.079 49.982 L110.667 49.113 C111.193 48.758 112.154 48.358 113.275 48.358 C115.013 48.358 116.100 49.193 116.100 51.160 L116.100 54.774 L114.819 54.774 L114.819 54.259 M113.275 53.985 C114.224 53.985 114.865 53.459 114.865 52.693 C114.865 51.926 114.224 51.400 113.275 51.400 C112.326 51.400 111.674 51.926 111.674 52.693 C111.674 53.459 112.326 53.985 113.275 53.985"/>
+<path fill="currentColor" d="M117.862 48.484 L118.926 48.484 L119.029 49.994 L119.063 50.005 C119.360 49.045 120.332 48.369 121.511 48.438 L121.511 49.628 C120.332 49.547 119.120 50.291 119.120 51.973 L119.120 54.775 L117.862 54.775 L117.862 48.484"/>
+<path fill="currentColor" d="M123.262 48.484 L123.262 47.135 L124.520 46.894 L124.520 48.484 L125.973 48.484 L125.973 49.468 L124.520 49.468 L124.520 52.464 C124.520 53.333 124.783 53.676 125.584 53.676 L126.144 53.676 L126.144 54.775 L125.138 54.775 C123.811 54.775 123.262 54.088 123.262 52.876 L123.262 49.468 L122.462 49.468 L122.462 48.484 L123.262 48.484"/>
+<path fill="currentColor" d="M130.939 50.771 C130.939 48.392 132.700 46.642 135.045 46.642 C137.390 46.642 139.139 48.392 139.139 50.771 C139.139 53.150 137.390 54.900 135.045 54.900 C132.700 54.900 130.939 53.150 130.939 50.771 M135.045 53.664 C136.635 53.664 137.813 52.441 137.813 50.771 C137.813 49.101 136.635 47.877 135.045 47.877 C133.444 47.877 132.266 49.101 132.266 50.771 C132.266 52.441 133.444 53.664 135.045 53.664"/>
+<path fill="currentColor" d="M140.272 48.484 L141.130 48.484 L141.130 47.992 C141.130 46.528 142.033 45.922 143.063 45.922 C143.635 45.922 144.275 46.173 144.789 46.482 L144.322 47.317 C143.977 47.146 143.611 46.997 143.326 46.997 C142.788 46.997 142.376 47.340 142.376 48.232 L142.376 48.484 L143.897 48.484 L143.897 49.468 L142.376 49.468 L142.376 54.775 L141.130 54.775 L141.130 49.468 L140.272 49.468 L140.272 48.484"/>
+<path fill="currentColor" d="M150.454 47.901 L150.454 50.108 L154.125 50.108 L154.125 51.195 L150.454 51.195 L150.454 53.642 L154.697 53.642 L154.697 54.775 L149.127 54.775 L149.127 46.768 L154.697 46.768 L154.697 47.901 L150.454 47.901"/>
+<path fill="currentColor" d="M156.368 46.196H157.615V54.774H156.368Z"/>
+<path fill="currentColor" d="M164.208 54.259 C163.773 54.660 163.144 54.889 162.401 54.889 C160.880 54.889 159.805 53.985 159.805 52.704 C159.805 51.434 160.880 50.531 162.401 50.531 C163.144 50.531 163.773 50.760 164.208 51.160 C164.208 49.936 163.556 49.376 162.458 49.376 C161.680 49.376 160.948 49.662 160.468 49.982 L160.056 49.113 C160.582 48.758 161.543 48.358 162.664 48.358 C164.402 48.358 165.489 49.193 165.489 51.160 L165.489 54.774 L164.208 54.774 L164.208 54.259 M162.664 53.985 C163.613 53.985 164.254 53.459 164.254 52.693 C164.254 51.926 163.613 51.400 162.664 51.400 C161.715 51.400 161.063 51.926 161.063 52.693 C161.063 53.459 161.715 53.985 162.664 53.985"/>
+<path fill="currentColor" d="M166.851 51.629 C166.851 49.787 168.075 48.392 169.756 48.392 C170.740 48.392 171.529 48.827 171.998 49.582 L171.998 46.196 L173.244 46.196 L173.244 54.774 L171.998 54.774 L171.998 53.676 C171.529 54.431 170.740 54.866 169.756 54.866 C168.075 54.866 166.851 53.470 166.851 51.629 M170.019 53.767 C171.151 53.767 171.998 52.853 171.998 51.629 C171.998 50.405 171.151 49.490 170.019 49.490 C168.898 49.490 168.109 50.405 168.109 51.629 C168.109 52.853 168.898 53.767 170.019 53.767"/>
+<path fill="currentColor" d="M79.977 12.087 L82.270 14.606 C80.999 16.059 79.069 16.807 76.641 16.807 C72.057 16.807 68.607 13.312 68.607 8.592 C68.607 3.871 72.057 0.377 76.641 0.377 C79.069 0.377 80.999 1.125 82.270 2.578 L79.977 5.097 C79.365 4.416 78.184 3.849 76.868 3.849 C74.304 3.849 72.352 5.823 72.352 8.592 C72.352 11.361 74.304 13.335 76.868 13.335 C78.184 13.335 79.365 12.767 79.977 12.087"/>
+<path fill="currentColor" d="M88.127 3.939 L88.127 6.867 L94.958 6.867 L94.958 10.021 L88.127 10.021 L88.127 13.244 L95.638 13.244 L95.638 16.534 L84.269 16.534 L84.269 0.648 L95.638 0.648 L95.638 3.939 L88.127 3.939"/>
+<path fill="currentColor" d="M110.414 16.535 L102.630 7.457 L102.630 16.535 L98.840 16.535 L98.840 0.649 L101.632 0.649 L109.416 9.727 L109.416 0.649 L113.206 0.649 L113.206 16.535 L110.414 16.535"/>
+<path fill="currentColor" d="M128.415 3.939 L124.012 3.939 L124.012 16.534 L120.154 16.534 L120.154 3.939 L115.751 3.939 L115.751 0.648 L128.415 0.648 L128.415 3.939"/>
+<path fill="currentColor" d="M144.384 16.353 L144.384 16.534 L140.299 16.534 L137.348 10.975 L135.080 10.975 L135.080 16.534 L131.221 16.534 L131.221 0.648 L138.574 0.648 C142.024 0.648 144.043 2.623 144.043 5.800 C144.043 8.115 143.000 9.794 141.093 10.543 L144.384 16.353 M135.080 7.683 L138.075 7.683 C139.414 7.683 140.186 6.935 140.186 5.800 C140.186 4.688 139.414 3.939 138.075 3.939 L135.080 3.939 L135.080 7.683"/>
+<path fill="currentColor" d="M161.043 16.353 L161.043 16.534 L157.072 16.534 L156.118 14.061 L149.810 14.061 L148.856 16.534 L144.885 16.534 L144.885 16.353 L151.557 0.648 L154.371 0.648 L161.043 16.353 M154.938 10.997 L152.964 5.891 L150.989 10.997 L154.938 10.997"/>
+<path fill="currentColor" d="M173.051 13.244 L173.051 16.535 L162.611 16.535 L162.611 0.649 L166.469 0.649 L166.469 13.244 L173.051 13.244"/>
+<path fill="currentColor" d="M80.771 29.122 C80.771 32.526 78.774 34.569 75.369 34.569 L72.465 34.569 L72.465 39.584 L68.607 39.584 L68.607 23.698 L75.369 23.698 C78.774 23.698 80.771 25.741 80.771 29.122 M76.913 29.122 C76.913 27.806 76.164 26.988 74.870 26.988 L72.465 26.988 L72.465 31.278 L74.870 31.278 C76.164 31.278 76.913 30.438 76.913 29.122"/>
+<path fill="currentColor" d="M96.115 39.403 L96.115 39.585 L92.143 39.585 L91.190 37.111 L84.881 37.111 L83.928 39.585 L79.956 39.585 L79.956 39.403 L86.629 23.698 L89.443 23.698 L96.115 39.403 M90.010 34.047 L88.036 28.941 L86.062 34.047 L90.010 34.047"/>
+<path fill="currentColor" d="M110.846 39.403 L110.846 39.585 L106.761 39.585 L103.810 34.025 L101.542 34.025 L101.542 39.585 L97.683 39.585 L97.683 23.698 L105.036 23.698 C108.486 23.698 110.505 25.673 110.505 28.850 C110.505 31.165 109.462 32.844 107.555 33.593 L110.846 39.403 M101.542 30.733 L104.537 30.733 C105.876 30.733 106.648 29.985 106.648 28.850 C106.648 27.738 105.876 26.989 104.537 26.989 L101.542 26.989 L101.542 30.733"/>
+<path fill="currentColor" d="M127.256 39.471 L127.256 39.584 L122.581 39.584 L117.089 32.776 L117.089 39.584 L113.231 39.584 L113.231 23.698 L117.089 23.698 L117.089 29.735 L122.264 23.698 L126.984 23.698 L126.984 23.811 L120.448 31.164 L127.256 39.471"/>
+</svg></a>
+    <div class="footer__motif reveal"><svg  aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 191.500 43.300">
+<path fill="#c29284" d="M43.432 42.795 C55.109 42.795 64.575 33.329 64.575 21.652 C64.575 9.974 55.109 0.508 43.432 0.508 C31.755 0.508 22.289 9.974 22.289 21.652 C22.289 33.329 31.755 42.795 43.432 42.795"/>
+<path fill="#c6af7b" d="M127.314 42.795 C138.991 42.795 148.457 33.329 148.457 21.652 C148.457 9.974 138.991 0.508 127.314 0.508 C115.637 0.508 106.171 9.974 106.171 21.652 C106.171 33.329 115.637 42.795 127.314 42.795"/>
+<path fill="none" stroke="currentColor" stroke-width="0.441" d="M87.629 21.652 C87.629 24.682 85.200 27.139 82.204 27.139 C79.208 27.139 76.779 24.682 76.779 21.652 C76.779 18.622 79.208 16.165 82.204 16.165 C85.200 16.165 87.629 18.622 87.629 21.652"/>
+<path fill="none" stroke="currentColor" stroke-width="0.882" d="M98.041 21.652 C98.041 30.497 90.950 37.667 82.203 37.667 C73.457 37.667 66.366 30.497 66.366 21.652 C66.366 12.807 73.457 5.637 82.203 5.637 C90.950 5.637 98.041 12.807 98.041 21.652"/>
+<path fill="#727272" d="M106.171 0.508 C94.494 0.508 85.028 9.974 85.028 21.651 C85.028 33.329 94.494 42.795 106.171 42.795 L106.171 0.508"/>
+<path fill="#727272" d="M169.601 0.508 C157.924 0.508 148.458 9.974 148.458 21.651 C148.458 33.329 157.924 42.795 169.601 42.795 L169.601 0.508"/>
+<path fill="#727272" d="M190.745 0.508 C179.068 0.508 169.602 9.974 169.602 21.651 C169.602 33.329 179.068 42.795 190.745 42.795 L190.745 0.508"/>
+<path fill="#c6af7b" d="M1.145 42.795 C12.822 42.795 22.288 33.329 22.288 21.652 C22.288 9.974 12.822 0.508 1.145 0.508 L1.145 42.795"/>
+<path fill="none" stroke="currentColor" stroke-width="1.102" d="M102.568 21.652 C102.568 33.025 93.451 42.244 82.204 42.244 C70.957 42.244 61.839 33.025 61.839 21.652 C61.839 10.279 70.957 1.060 82.204 1.060 C93.451 1.060 102.568 10.279 102.568 21.652"/>
+<path fill="none" stroke="currentColor" stroke-width="0.661" d="M93.319 21.652 C93.319 27.860 88.342 32.892 82.203 32.892 C76.064 32.892 71.088 27.860 71.088 21.652 C71.088 15.444 76.064 10.412 82.203 10.412 C88.342 10.412 93.319 15.444 93.319 21.652"/>
+<path fill="none" stroke="currentColor" stroke-width="0.441" d="M22.289 16.165 C25.285 16.165 27.714 18.621 27.714 21.652 C27.714 24.682 25.285 27.138 22.289 27.138"/>
+<path fill="none" stroke="currentColor" stroke-width="0.882" d="M22.289 5.637 C31.036 5.637 38.127 12.807 38.127 21.652 C38.127 30.497 31.036 37.667 22.289 37.667"/>
+<path fill="none" stroke="currentColor" stroke-width="1.102" d="M22.289 1.059 C33.536 1.059 42.653 10.279 42.653 21.651 C42.653 33.024 33.536 42.244 22.289 42.244"/>
+<path fill="none" stroke="currentColor" stroke-width="0.661" d="M22.289 10.411 C28.428 10.411 33.405 15.444 33.405 21.651 C33.405 27.859 28.428 32.892 22.289 32.892"/>
+</svg></div>
+    <ul class="partners reveal" aria-label="היזמים">
+      <li><svg role="img" aria-label="קבוצת ידות" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 438.329 166.406">
+<path fill="currentColor" d="M251.814 2.378 L194.528 32.467 L194.528 54.198 L194.528 151.224 L180.324 151.224 L180.324 164.406 L251.814 164.406 L251.814 54.198 L251.814 2.378"/>
+<path fill="currentColor" d="M414.483 84.176 L436.329 84.176 L352.549 2.378 L284.983 2.378 L365.542 83.630 L365.542 164.406 L419.963 164.406 L419.963 159.480 L414.483 159.480 L414.483 84.176"/>
+<path fill="currentColor" d="M326.865 159.479 L326.865 63.766 L264.578 2.377 L264.578 71.789 L278.483 85.002 L278.483 164.405 L332.084 164.405 L332.084 159.479 L326.865 159.479"/>
+<path fill="currentColor" d="M414.139 2.000 L371.304 2.000 L414.139 43.339 L414.139 2.000"/>
+<path fill="currentColor" d="M97.990 97.191 L96.509 97.191 L96.509 85.781 C96.509 85.567 96.504 85.361 96.496 85.161 C96.486 84.960 96.463 84.759 96.424 84.553 C96.388 84.301 96.311 84.025 96.195 83.721 C96.079 83.420 95.886 83.152 95.616 82.918 C95.410 82.750 95.193 82.629 94.967 82.547 C94.738 82.470 94.509 82.410 94.274 82.374 C94.071 82.336 93.865 82.318 93.654 82.318 L93.103 82.318 L88.019 82.318 L88.019 97.191 L83.495 97.191 L83.814 95.710 L86.523 95.710 L86.523 82.346 L84.752 82.346 L85.043 80.865 C86.132 80.819 87.134 80.783 88.048 80.755 C88.959 80.726 89.740 80.713 90.394 80.713 C91.128 80.713 91.784 80.726 92.361 80.755 L94.331 80.865 C94.843 80.904 95.333 81.017 95.804 81.208 C96.272 81.398 96.664 81.653 96.970 81.970 C97.333 82.362 97.593 82.843 97.753 83.422 C97.910 83.999 97.990 84.622 97.990 85.294 L97.990 97.191"/>
+<path fill="currentColor" d="M112.822 80.838 L110.044 90.013 L108.813 90.013 L112.443 96.646 L112.443 97.192 L101.551 97.192 L101.958 95.711 L110.337 95.711 L103.003 82.319 L100.979 82.319 L101.355 80.838 L103.897 80.838 L108.563 89.498 L108.730 89.498 L111.161 80.838 L112.822 80.838"/>
+<path fill="currentColor" d="M120.530 97.191 L119.008 97.191 L119.008 82.318 L115.977 82.318 L116.255 80.837 L120.530 80.837 L120.530 97.191"/>
+<path fill="currentColor" d="M136.869 95.711 L136.617 97.192 L124.970 97.192 L124.970 95.711 L133.727 95.711 L133.727 86.467 L133.727 85.782 C133.727 85.707 133.725 85.617 133.720 85.509 C133.715 85.403 133.707 85.282 133.699 85.154 C133.681 84.968 133.658 84.788 133.630 84.615 C133.601 84.443 133.563 84.268 133.516 84.093 C133.462 83.876 133.393 83.665 133.308 83.457 C133.223 83.248 133.073 83.050 132.860 82.862 C132.546 82.555 132.159 82.388 131.701 82.360 C131.255 82.331 130.820 82.318 130.403 82.318 L125.137 82.318 L125.431 80.866 C126.075 80.817 126.654 80.786 127.169 80.768 C127.686 80.750 128.201 80.740 128.714 80.740 C129.077 80.740 129.432 80.745 129.783 80.753 C130.130 80.763 130.478 80.779 130.820 80.797 C131.165 80.815 131.464 80.835 131.716 80.858 C131.966 80.882 132.177 80.912 132.345 80.948 C132.950 81.062 133.442 81.263 133.818 81.556 C134.194 81.850 134.487 82.205 134.698 82.625 C134.907 83.045 135.048 83.513 135.123 84.036 C135.198 84.556 135.234 85.102 135.234 85.668 L135.234 91.982 L135.234 95.711 L136.869 95.711"/>
+<path fill="currentColor" d="M152.692 81.913 L149.229 97.219 L147.735 97.219 L151.170 82.289 L139.704 82.289 L139.984 80.795 L152.692 80.795 L152.692 81.913 M140.417 87.040H141.856V101.779H140.417Z"/>
+<path fill="currentColor" stroke="currentColor" stroke-width="0.339" d="M52.118 163.688 L43.855 163.688 L43.855 126.422 C43.855 124.061 43.358 122.292 42.356 121.110 C41.360 119.931 39.619 119.338 37.137 119.338 L19.389 119.338 L19.389 163.688 L2.000 163.688 L3.319 154.928 L11.216 154.928 L11.216 119.521 L5.997 119.521 L7.040 110.807 C10.853 110.686 14.417 110.542 17.729 110.372 C21.045 110.207 23.790 110.128 25.969 110.128 C28.451 110.128 30.995 110.156 33.596 110.215 C36.199 110.280 38.682 110.385 41.043 110.534 C43.159 110.656 44.921 111.065 46.327 111.758 C47.738 112.455 48.871 113.380 49.731 114.528 C50.596 115.679 51.209 117.042 51.572 118.612 C51.935 120.188 52.118 121.911 52.118 123.788 L52.118 163.688"/>
+<path fill="currentColor" stroke="currentColor" stroke-width="0.339" d="M79.032 163.688 L70.764 163.688 L70.764 119.431 L68.724 119.431 L60.819 119.431 L61.728 110.534 L72.718 110.534 L79.032 110.534 L79.032 163.688"/>
+<path fill="currentColor" stroke="currentColor" stroke-width="0.339" d="M128.091 110.535 L127.548 119.066 L121.144 119.429 L121.144 163.689 L112.839 163.689 L112.839 119.429 L88.778 119.429 L88.778 110.535 L128.091 110.535"/>
+<path fill="currentColor" stroke="currentColor" stroke-width="0.339" d="M151.874 137.366 L143.701 137.366 L143.701 119.431 L134.298 119.431 L135.208 110.537 L151.874 110.537 L151.874 137.366"/>
+</svg></li>
+      <li><img src="/assets/brand/partner_eshel.png" width="2541" height="656" alt="אשל הירדן" loading="lazy" decoding="async"></li>
+      <li><svg role="img" aria-label="Ravitz" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 596.717 154.423">
+<path fill="currentColor" d="M520.187 119.485 L520.187 29.275 L517.584 27.100 L517.584 119.099 C517.152 119.038 516.717 118.979 516.282 118.919 L516.282 26.013 L513.679 23.837 L513.679 118.576 C513.247 118.521 512.810 118.473 512.377 118.422 L512.377 22.750 L509.775 20.575 L509.775 118.120 C509.342 118.074 508.905 118.033 508.473 117.990 L508.473 19.487 L505.870 17.312 L505.870 117.728 C505.438 117.690 505.001 117.660 504.568 117.621 L504.568 16.224 L501.966 14.050 L501.966 117.409 C501.533 117.377 501.098 117.347 500.664 117.318 L500.664 12.962 L498.060 10.787 L498.060 117.153 C497.626 117.127 497.194 117.098 496.759 117.075 L496.759 9.699 L494.156 7.524 L494.156 116.957 C493.721 116.938 493.289 116.915 492.855 116.897 L492.855 6.437 L490.251 4.261 L490.251 116.821 C489.385 116.798 488.520 116.769 487.648 116.755 L487.648 2.087 L487.648 2.000 L487.595 2.041 L454.052 27.462 L454.324 43.812 L466.823 34.945 L466.823 117.267 C466.095 117.314 465.363 117.360 464.637 117.413 L464.637 39.001 L441.281 56.702 L441.281 69.514 L447.155 65.347 L447.155 119.376 C446.592 119.462 446.037 119.556 445.476 119.645 L445.476 69.778 L427.858 83.131 L427.858 91.995 L431.337 89.527 L431.337 122.371 C404.642 128.500 383.155 139.199 371.050 152.423 C392.623 133.486 434.863 120.621 483.444 120.621 C531.201 120.621 572.823 133.054 594.717 151.465 C580.167 136.285 553.160 124.569 520.187 119.485"/>
+<path fill="currentColor" d="M2.000 6.749 L2.000 5.936 L24.695 5.936 C30.447 5.936 34.611 6.064 37.180 6.316 C39.747 6.570 42.383 7.415 45.077 8.841 C47.773 10.274 49.807 12.212 51.185 14.655 C52.562 17.103 53.248 20.100 53.248 23.648 C53.248 27.705 52.027 31.570 49.585 35.246 C47.140 38.923 43.694 42.028 39.241 44.562 L44.885 53.243 C46.118 55.413 49.382 60.171 54.686 67.508 C59.987 74.847 64.087 79.325 66.984 80.935 C69.878 82.546 72.681 83.350 75.398 83.350 C78.075 83.350 81.153 82.318 84.625 80.257 L84.953 81.342 C80.612 84.887 74.973 86.664 68.029 86.664 C63.402 86.664 59.425 85.293 56.098 82.552 C52.771 79.812 46.981 72.295 38.728 59.998 C38.656 59.928 38.618 59.852 38.618 59.779 L30.583 47.410 L23.458 47.630 L16.986 47.630 L16.986 78.203 C16.986 80.660 17.307 82.422 17.949 83.487 C18.598 84.554 20.157 85.086 22.631 85.086 L22.631 85.903 L2.000 85.903 L2.000 85.086 C4.567 84.980 6.170 84.436 6.807 83.463 C7.440 82.485 7.755 80.494 7.755 77.492 L7.755 13.965 C7.755 11.904 7.483 10.197 6.943 8.838 C6.399 7.485 4.752 6.787 2.000 6.749 M16.986 8.052 L16.986 45.564 L25.360 45.564 C31.960 45.564 36.856 44.010 40.048 40.900 C43.237 37.786 44.834 33.694 44.834 28.629 C44.834 23.706 43.266 19.048 40.129 14.649 C36.992 10.250 31.471 8.052 23.566 8.052 L16.986 8.052"/>
+<path fill="currentColor" d="M136.823 87.150 L135.793 87.150 L107.318 16.739 C105.289 11.782 103.625 8.877 102.320 8.029 C101.021 7.175 99.678 6.749 98.304 6.749 L98.304 5.937 L116.762 5.937 L116.762 6.749 C115.132 6.643 114.320 7.277 114.320 8.651 C114.320 9.192 114.427 9.774 114.644 10.390 L139.473 71.933 L164.081 10.414 C164.404 9.586 164.569 8.923 164.569 8.423 C164.569 7.199 163.635 6.643 161.769 6.749 L161.769 5.937 L173.765 5.937 L173.765 6.749 C172.932 6.749 172.055 6.869 171.132 7.103 C170.209 7.340 169.260 8.272 168.281 9.899 C167.304 11.530 166.798 12.399 166.763 12.505 L136.823 87.150"/>
+<path fill="currentColor" d="M202.615 5.937 L202.615 6.750 C201.562 6.644 200.393 6.808 199.114 7.240 C197.824 7.676 197.065 8.307 196.834 9.140 C196.596 9.968 196.480 11.941 196.480 15.053 L196.480 76.408 C196.480 79.738 196.614 81.769 196.886 82.512 C197.158 83.251 197.678 83.869 198.459 84.356 C199.236 84.847 200.619 85.087 202.615 85.087 L202.615 85.904 L181.278 85.904 L181.278 85.087 C183.958 85.087 185.624 84.572 186.273 83.543 C186.925 82.512 187.250 80.171 187.250 76.514 L187.250 15.758 C187.250 11.958 186.886 9.473 186.162 8.295 C185.439 7.121 183.812 6.606 181.278 6.750 L181.278 5.937 L202.615 5.937"/>
+<path fill="currentColor" d="M276.846 3.168 L273.043 12.832 L272.234 12.832 C272.373 12.253 272.447 11.472 272.447 10.494 C272.447 9.666 272.146 9.131 271.557 8.894 C270.955 8.660 270.006 8.544 268.709 8.544 L247.859 8.544 L247.859 76.954 C247.859 79.772 248.084 81.696 248.535 82.730 C248.987 83.759 249.601 84.411 250.382 84.679 C251.157 84.951 252.413 85.087 254.155 85.087 L254.155 85.904 L232.493 85.904 L232.493 85.087 C235.208 84.905 236.910 84.384 237.592 83.516 C238.281 82.648 238.628 80.836 238.628 78.091 L238.628 8.544 L218.639 8.544 C216.619 8.544 215.300 8.660 214.687 8.894 C214.067 9.131 213.766 9.719 213.766 10.659 C213.766 11.130 213.906 11.855 214.195 12.832 L213.385 12.832 L209.583 3.168 L210.399 3.168 C211.047 4.469 211.688 5.257 212.320 5.529 C212.950 5.801 214.316 5.937 216.411 5.937 L269.474 5.937 C271.568 5.937 273.078 5.801 273.999 5.529 C274.919 5.257 275.597 4.469 276.030 3.168 L276.846 3.168"/>
+<path fill="currentColor" d="M351.911 73.359 L351.911 85.903 L276.076 85.903 L338.212 8.978 L296.604 8.978 C293.160 8.978 290.799 9.420 289.514 10.309 C288.224 11.194 287.332 13.375 286.823 16.848 L286.006 16.848 L286.441 5.936 L352.240 5.936 L289.919 82.917 L342.958 82.917 C346.031 82.917 348.103 82.283 349.173 81.016 C350.237 79.748 350.886 77.199 351.100 73.359 L351.911 73.359"/>
+<path fill="currentColor" d="M52.754 83.296 C52.754 83.007 52.896 82.432 53.171 81.596 C52.426 80.811 51.608 79.885 50.720 78.820 C49.574 81.514 48.509 83.221 47.540 83.921 C46.454 84.700 45.115 85.087 43.523 85.087 L43.523 85.903 L55.413 85.903 L55.413 85.087 C53.642 85.087 52.754 84.488 52.754 83.296"/>
+<path fill="currentColor" d="M112.242 80.495 C110.781 77.434 110.049 75.724 110.049 75.362 L81.538 4.742 L80.100 4.742 L55.612 66.526 C55.664 66.595 55.710 66.661 55.760 66.734 C56.495 67.747 57.198 68.695 57.883 69.598 L66.107 49.094 L66.142 49.094 L66.990 46.869 L66.874 46.869 L77.698 19.615 L88.502 46.869 L88.457 46.869 L89.377 49.094 L89.576 49.094 L101.018 77.487 C101.052 77.487 101.108 77.668 101.177 78.030 C101.287 78.358 101.414 78.592 101.559 78.737 C102.389 80.728 102.806 82.174 102.806 83.082 C102.806 84.419 101.955 85.087 100.254 85.087 L100.254 85.904 L118.929 85.904 L118.929 85.087 C115.931 85.087 113.706 83.557 112.242 80.495"/>
+<path fill="currentColor" d="M137.536 143.224 L135.104 143.224 L135.104 119.276 L123.093 119.276 L123.093 137.500 C123.093 141.317 121.431 143.224 118.106 143.224 L115.994 143.224 L115.994 141.062 L117.910 141.062 C119.745 141.062 120.661 140.006 120.661 137.893 L120.661 117.016 L137.536 117.016 L137.536 143.224"/>
+<path fill="currentColor" d="M149.498 143.224 L147.017 143.224 L147.017 119.276 L143.308 119.276 L143.308 117.016 L149.498 117.016 L149.498 143.224"/>
+<path fill="currentColor" d="M173.765 133.571 C173.765 136.322 173.061 138.548 171.651 140.252 C169.997 142.233 167.567 143.224 164.358 143.224 L154.533 143.224 L154.533 141.113 L160.623 141.113 L156.350 117.016 L158.806 117.016 L162.883 141.113 L164.897 141.113 C169.089 141.113 171.185 138.548 171.185 133.424 L171.185 117.016 L173.765 117.016 L173.765 133.571"/>
+<path fill="currentColor" d="M199.652 125.220 C199.652 130.247 198.310 134.652 195.624 138.434 L192.260 143.224 L189.754 143.224 L189.754 142.929 L193.929 136.788 C196.107 133.563 197.196 129.772 197.196 125.416 L197.196 119.276 L180.593 119.276 L180.593 117.016 L199.652 117.016 L199.652 125.220 M181.502 125.907H183.909V151.256H181.502Z"/>
+<path fill="currentColor" d="M230.305 133.816 C230.305 140.252 226.981 143.469 220.333 143.469 L216.305 143.469 C210.082 143.469 206.972 140.456 206.972 134.431 L206.972 117.016 L209.379 117.016 L209.379 135.314 C209.379 139.311 211.409 141.307 215.471 141.307 L217.410 141.307 L217.410 117.016 L219.842 117.016 L219.842 141.307 L221.488 141.307 C223.501 141.307 225.061 140.772 226.166 139.699 C227.272 138.627 227.824 137.083 227.824 135.070 L227.824 117.016 L230.305 117.016 L230.305 133.816"/>
+<path fill="currentColor" d="M255.678 143.224 L253.197 143.224 L253.197 119.276 L237.207 119.276 L237.207 117.016 L255.678 117.016 L255.678 143.224 M237.823 127.184H240.278V143.224H237.823Z"/>
+<path fill="currentColor" d="M289.424 121.438 C289.424 128.314 286.174 132.711 279.673 134.627 L279.673 151.255 L277.192 151.255 L277.192 136.592 C277.192 134.675 277.011 133.046 276.653 131.703 L272.723 117.016 L275.130 117.016 L279.354 132.859 C284.464 131.385 287.017 127.660 287.017 121.683 L287.017 117.016 L289.424 117.016 L289.424 121.438"/>
+<path fill="currentColor" d="M313.127 143.224 L294.755 143.224 L294.755 141.112 L308.191 141.112 L308.191 119.276 L295.271 119.276 L295.271 117.016 L310.646 117.016 L310.646 141.112 L313.127 141.112 L313.127 143.224"/>
+<path fill="currentColor" d="M333.318 143.224 L330.860 143.224 L330.860 124.065 C330.860 120.873 329.550 119.276 326.932 119.276 L316.763 119.276 L316.763 117.016 L326.636 117.016 C331.090 117.016 333.318 119.481 333.318 124.410 L333.318 143.224"/>
+<path fill="currentColor" d="M40.892 135.466 C40.892 140.461 38.509 142.957 33.744 142.957 L29.987 142.957 L29.987 140.845 L33.843 140.845 C36.905 140.845 38.436 139.250 38.436 136.054 L38.436 119.010 L26.916 119.010 L23.993 142.957 L21.636 142.957 L24.705 119.010 L20.924 119.010 L20.924 116.751 L40.892 116.751 L40.892 135.466"/>
+<path fill="currentColor" d="M45.141 121.441 C45.141 117.445 46.230 114.188 48.408 111.666 L48.703 111.666 L48.998 111.886 C47.933 114.097 47.400 116.423 47.400 118.862 L47.400 122.547 L45.141 122.547 L45.141 121.441 M51.576 121.441 C51.576 117.381 52.649 114.122 54.795 111.666 L55.090 111.666 L55.408 111.886 C54.327 114.196 53.787 116.521 53.787 118.862 L53.787 122.547 L51.576 122.547 L51.576 121.441"/>
+<path fill="currentColor" d="M76.899 133.305 C76.899 136.054 76.195 138.282 74.787 139.985 C73.133 141.967 70.701 142.958 67.492 142.958 L57.667 142.958 L57.667 140.846 L63.759 140.846 L59.485 116.751 L61.942 116.751 L66.019 140.846 L68.032 140.846 C72.225 140.846 74.320 138.282 74.320 133.158 L74.320 116.751 L76.899 116.751 L76.899 133.305"/>
+<path fill="currentColor" d="M101.092 142.957 L82.720 142.957 L82.720 140.845 L96.156 140.845 L96.156 119.009 L83.235 119.009 L83.235 116.750 L98.611 116.750 L98.611 140.845 L101.092 140.845 L101.092 142.957"/>
+</svg></li>
+    </ul>
+    <hr class="rule reveal">
+    <p class="footer__note reveal" lang="en" dir="ltr">Images/Renderings are for illustration purposes only</p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
 </body>
 </html>
