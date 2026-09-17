@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | **Domain** | `https://centralpark.co.il` |
-| **Pages URL** | `https://central-park.pages.dev` |
+| **Pages URL** | `https://central-park-a19.pages.dev` |
 | **Storage mode** | `Standard` (`standard`) |
 | **Storage account** | `jetvaults` |
 | **Public storage** | `https://jetvaults.blob.core.windows.net/central-park/` |
