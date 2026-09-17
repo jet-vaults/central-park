@@ -100,7 +100,7 @@
       var r = img.parentElement.getBoundingClientRect();
       if (r.bottom < 0 || r.top > vh) return;
       var progress = (r.top + r.height / 2 - vh / 2) / vh; /* -1 … 1 */
-      var travel = r.height * 0.06;
+      var travel = r.height * 0.03;
       img.style.setProperty("--py", (-progress * travel).toFixed(1) + "px");
     });
   }

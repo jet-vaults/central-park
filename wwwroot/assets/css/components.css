@@ -26,7 +26,9 @@
   z-index: 50;
   height: var(--header-h);
   color: var(--c-paper);
-  transition: background-color var(--dur-fast) var(--ease-out);
+  background: rgba(44, 44, 44, 0.92);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 .site-header::after {
   content: "";
@@ -35,16 +37,6 @@
   inset-block-end: 0;
   height: 1px;
   background: var(--c-hair-dark);
-  opacity: 0;
-  transition: opacity var(--dur-fast) var(--ease-out);
-}
-.site-header.is-scrolled {
-  background: rgba(44, 44, 44, 0.92);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-}
-.site-header.is-scrolled::after {
-  opacity: 1;
 }
 .site-header__inner {
   height: 100%;
@@ -310,95 +302,44 @@ body.menu-open {
   z-index: 2;
 }
 
-/* ---------------- framed photo with rings ---------------- */
+/* ---------------- framed photo with rings behind it ---------------- */
 .frame {
   position: relative;
 }
+.frame .media,
+.frame .plan {
+  position: relative;
+  z-index: 1;
+}
 .frame__rings {
   position: absolute;
-  width: 62%;
-  z-index: 2;
+  z-index: 0;            /* BEHIND the photo */
 }
-.frame__rings--top-start {           /* RTL start = right; rings overlap onto the text column side */
-  inset-block-start: -22%;
-  inset-inline-start: -16%;
+.frame--rings-left {
+  margin-left: 16%;      /* physical: leave room on the left for the rings to show */
 }
-.frame__rings--top-end {
-  inset-block-start: -12%;
-  inset-inline-end: -14%;
+.frame__rings--behind-left {   /* half hidden behind the photo, half showing on its physical left */
+  left: -30%;
+  top: 50%;
+  width: 60%;
+  translate: 0 -50%;
 }
-.frame__rings--bottom-end {
-  inset-block-end: -10%;
-  inset-inline-end: -10%;
-  width: 62%;
-}
-/* spread 3: dark half-disc pinned to the photo's right edge */
-.frame__disc {
-  inset-block-start: 58%;
-  right: 0;
-  width: 18%;
-  transform: translateY(-50%);
-  opacity: 0.88;
-  border-start-start-radius: 100vmax;
-  border-end-start-radius: 100vmax;
-  z-index: 1;
-  --disc-from: 100%;
-}
-.js .frame__disc { transform: translate(var(--disc-from, 100%), -50%); }
-.js .frame__disc.is-in { transform: translate(0, -50%); }
 
-/* ---------------- spread 11: photo inside a tall arc ---------------- */
+/* ---------------- spread 11: photo inside a tall arc (D shape, curve on the physical left) ---------------- */
 .arc {
   position: relative;
-  padding-inline-start: 18%;   /* room for the rings to breathe on the cream side */
-}
-.arc__clip {
-  clip-path: inset(0 0 0 44%);            /* left 44 % is cream (physical, like the print) */
+  padding-inline-end: 4%;
 }
 .arc__clip .media {
-  border-radius: 0;
+  border-radius: 50% 0 0 50% / 50% 0 0 50%;   /* physical: left corners only */
   background: transparent;
 }
 .arc__clip picture {
   display: block;
   height: 100%;
-  clip-path: ellipse(72% 50% at 44% 50%);
 }
 .arc__clip picture img {
   height: 100%;
-}
-.arc__rings {
-  position: absolute;
-  left: 20%;
-  top: 8%;
-  width: 46%;
-  z-index: 2;
-}
-.arc__disc {
-  position: absolute;
-  left: 22%;
-  top: 38%;
-  width: 46%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: rgba(114, 114, 114, 0.7);
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* ---------------- circle tile strip (spread 10) ---------------- */
-.tiles {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: var(--space-5);
-  padding-inline: var(--space-3);
-  margin-block: var(--space-7) 0;
-  margin-inline: 0;
-  padding-block: 0;
-  list-style: none;
-}
-.tiles .media--circle {
-  outline-offset: 8px;
 }
 
 /* ---------------- spread 4: four ring circles ---------------- */
@@ -603,23 +544,16 @@ body.menu-open {
     min-height: 2.5rem;
     padding: 0 1.1rem;
   }
-  .tiles {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--space-5) var(--space-4);
-    padding-inline: var(--space-2);
-  }
   .ring-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     max-width: 34rem;
   }
-  .frame__rings {
-    width: 50%;
+  .frame--rings-left {
+    margin-left: 12%;
   }
-  .frame__rings--top-start { inset-block-start: -14%; inset-inline-start: -8%; }
-  .frame__rings--top-end { inset-block-start: -12%; inset-inline-end: -10%; }
-  .frame__rings--bottom-end { inset-block-end: -14%; inset-inline-end: -8%; width: 54%; }
-  .arc {
-    padding-inline-start: 10%;
+  .frame__rings--behind-left {
+    left: -22%;
+    width: 46%;
   }
   .section-developers__rings {
     width: 60vw;
@@ -669,10 +603,6 @@ body.menu-open {
     bottom: 0;
     translate: 0 0;      /* stays inside the band so it never touches the copy below */
   }
-  .tiles {
-    gap: var(--space-4) var(--space-3);
-    margin-block-start: var(--space-5);
-  }
   .ring-list {
     gap: var(--space-5) var(--space-3);
     margin-block-start: var(--space-6);
@@ -687,9 +617,6 @@ body.menu-open {
   }
   .ring-list__label {
     font-size: var(--fs-small);
-  }
-  .arc {
-    padding-inline-start: 4%;
   }
   .closing .bleed {
     aspect-ratio: 4 / 3;

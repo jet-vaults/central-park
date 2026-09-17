@@ -60,7 +60,7 @@
 /* parallax layer */
 .js .parallax img {
   will-change: transform;
-  transform: translate3d(0, var(--py, 0px), 0) scale(1.12);
+  transform: translate3d(0, var(--py, 0px), 0) scale(1.06);
 }
 
 /* ---------------- hero entrance ---------------- */

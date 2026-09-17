@@ -20,6 +20,7 @@ PDF_DIR = os.path.join(os.path.dirname(__file__), "..", "source", "prospectus-ex
 OUT_DIR = os.path.join(os.path.dirname(__file__), "..", "wwwroot", "assets", "img")
 
 WIDTHS_WIDE = (768, 1280, 1920, 2560)   # full-bleed / hero imagery
+WIDTHS_PANO = (768, 1280, 1920, 2560, 3840)
 WIDTHS_HALF = (640, 1024, 1600)         # split layouts (max ~50vw)
 WIDTHS_TILE = (480, 800)                # circles / small tiles
 
@@ -29,7 +30,7 @@ IMAGES = [
     ("hero-terrace",      os.path.join(PDF_DIR, "p01_cover_terrace_a.jpg"),      WIDTHS_WIDE, None),
     ("aerial-skyline",    os.path.join(SRC_DIR, "Shtila_0776Day.png"),          WIDTHS_WIDE, 16/9),
     ("aerial-hills",      os.path.join(SRC_DIR, "Shtila_0760Day.png"),          WIDTHS_WIDE, 16/9),
-    ("panorama",          os.path.join(SRC_DIR, "003Day.png"),                  WIDTHS_WIDE, None),   # 3:1
+    ("panorama",          os.path.join(SRC_DIR, "003Day.png"),                  WIDTHS_PANO, None),   # 3:1
     ("aerial-top",        os.path.join(SRC_DIR, "004Day.png"),                  WIDTHS_WIDE, None),
     ("balconies",         os.path.join(SRC_DIR, "007Day.png"),                  WIDTHS_WIDE, None),
     ("elevation",         os.path.join(SRC_DIR, "001Day.png"),                  WIDTHS_WIDE, None),
