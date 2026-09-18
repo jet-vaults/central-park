@@ -332,7 +332,7 @@ body.menu-open {
   padding-block-end: 7%;
 }
 .arc__clip .media {
-  border-radius: 50% 0 0 50% / 50% 0 0 50%;   /* physical: left corners only */
+  border-radius: 50% var(--radius) var(--radius) 50% / 50% var(--radius) var(--radius) 50%;   /* D shape, small radius on the straight edge */
   background: transparent;
 }
 .arc__clip picture {
@@ -893,14 +893,14 @@ body.menu-open {
   inset-block: 10% 0;
   inset-inline-start: 0;       /* RTL start = right */
   inset-inline-end: 34%;
-  background: var(--c-grey);
-  opacity: 0.6;
+  background: #473c36;
+  opacity: 1;
   border-radius: var(--radius);
   z-index: 0;
   pointer-events: none;
 }
 .js .arc__panel { transform: translateX(-6%); opacity: 0; transition: transform 1400ms var(--ease-out), opacity 1400ms var(--ease-out); }
-.js .arc__panel.is-in { transform: none; opacity: 0.6; }
+.js .arc__panel.is-in { transform: none; opacity: 1; }
 @media (max-width: 767px) {
   .arc { padding-inline-start: 7%; padding-block-end: 6%; }
 }
@@ -985,3 +985,7 @@ body.menu-open {
 /* hero rings: 270° arcs at rest, gap toward the top-right */
 .hero__rings circle { stroke-dasharray: 0.75 1; }
 .hero__rings { transform: rotate(-20deg); }
+
+/* closing image: no gradient */
+.closing::after { display: none; }
+.section-apartments .h2 { margin-block-end: var(--space-4); }
