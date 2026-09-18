@@ -182,7 +182,7 @@ button {
 }
 /* paper texture from the prospectus, very faint */
 .theme-light.has-paper {
-  background-image: linear-gradient(rgba(246, 241, 232, 0.86), rgba(246, 241, 232, 0.86)), url("../img/texture-paper-1200.webp");
-  background-size: auto, 1200px auto;
+  background-image: linear-gradient(rgba(246, 241, 232, 0.9), rgba(246, 241, 232, 0.9)), url("../img/texture-paper-seamless.webp");
+  background-size: auto, 1800px auto;
   background-repeat: repeat;
 }
