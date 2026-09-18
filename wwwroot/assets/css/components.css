@@ -162,7 +162,7 @@
   transition: transform .45s var(--ease-out);
 }
 .menu.is-open .menu__panel { transform: none; }
-.menu__brand { display: inline-flex; align-self: flex-end; color: var(--c-paper); margin-block: var(--space-2) var(--space-5); }
+.menu__brand { display: inline-flex; align-self: center; color: var(--c-paper); margin-block: var(--space-2) var(--space-5); }
 .menu__brand svg { height: 2.5rem; width: auto; }
 .menu__close {
   align-self: flex-end;
