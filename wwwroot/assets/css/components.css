@@ -274,9 +274,15 @@ body.menu-open {
 .rings circle {
   fill: none;
   stroke: currentColor;
-  stroke-width: var(--sw, 2.5);
+  stroke-width: var(--sw, 2.5);      /* outer ring = full weight… */
   vector-effect: non-scaling-stroke;
 }
+/* …and every ring inward is lighter, as in the prospectus (1.7 / 1.36 / 1.02 / 0.68 pt) */
+.rings circle:nth-last-child(2) { stroke-width: calc(var(--sw, 2.5) * .8); }
+.rings circle:nth-last-child(3) { stroke-width: calc(var(--sw, 2.5) * .6); }
+.rings circle:nth-last-child(4) { stroke-width: calc(var(--sw, 2.5) * .42); }
+.rings circle:nth-last-child(5) { stroke-width: calc(var(--sw, 2.5) * .3); }
+.rings circle:nth-last-child(6) { stroke-width: calc(var(--sw, 2.5) * .22); }
 .rings--gold { color: var(--c-gold); }
 .rings--paper { color: var(--c-paper); }
 .rings--ink { color: var(--c-charcoal); }
@@ -1089,3 +1095,6 @@ body.menu-open {
 @keyframes disc-drift { from { translate: 0 -0.6rem; } to { translate: 0 0.6rem; } }
 @media (prefers-reduced-motion: reduce) { .js .disc--edge-right.is-in, .js .disc--edge-left.is-in { animation: none; } }
 @media (max-width: 767px) { .disc--edge-right, .disc--edge-left { width: calc(var(--disc-w, 5rem) * .7); } }
+
+/* hills band: keep the towers in frame */
+.bleed--hills img { object-position: 50% 82%; }
