@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>עורך מפת בניינים — Central Park</title>
+<style>
+  :root { --gold:#c6af7b; --ink:#2c2c2c; --cream:#f6f1e8; --rose:#c29284; }
+  * { box-sizing: border-box; }
+  body { margin:0; font: 15px/1.5 "Heebo", system-ui, sans-serif; background:#1f1f1f; color:var(--cream); }
+  header { display:flex; flex-wrap:wrap; gap:.75rem 1.25rem; align-items:center; padding:.9rem 1.25rem; background:var(--ink); border-bottom:1px solid rgba(198,175,123,.35); position:sticky; top:0; z-index:5; }
+  header h1 { font-size:1.05rem; margin:0; color:var(--gold); font-weight:700; }
+  .letters { display:flex; gap:.35rem; flex-wrap:wrap; }
+  .letters button { width:2.3rem; height:2.3rem; border:1px solid var(--gold); background:transparent; color:var(--cream); border-radius:6px; font-weight:700; cursor:pointer; }
+  .letters button.on { background:var(--gold); color:var(--ink); }
+  .letters button.done { border-color:rgba(198,175,123,.5); box-shadow: inset 0 -3px 0 var(--gold); }
+  .tools { display:flex; gap:.5rem; flex-wrap:wrap; margin-inline-start:auto; }
+  .tools button, .tools label.btn { padding:.45rem .9rem; border:1px solid rgba(246,241,232,.35); background:transparent; color:var(--cream); border-radius:6px; cursor:pointer; font-size:.9rem; }
+  .tools button.primary { border-color:var(--gold); color:var(--gold); }
+  .tools button:hover { background:rgba(246,241,232,.08); }
+  main { padding:1rem 1.25rem 2rem; max-width:1600px; margin-inline:auto; }
+  .hint { font-size:.85rem; color:rgba(246,241,232,.7); margin:0 0 .75rem; }
+  .stage { position:relative; user-select:none; border-radius:6px; overflow:hidden; background:#000; }
+  .stage img { display:block; width:100%; height:auto; pointer-events:none; }
+  svg.overlay { position:absolute; inset:0; width:100%; height:100%; cursor:crosshair; }
+  polygon { fill:rgba(198,175,123,.18); stroke:rgba(246,241,232,.7); stroke-width:1; vector-effect:non-scaling-stroke; }
+  g.b.on polygon { fill:rgba(198,175,123,.4); stroke:#fff; stroke-width:1.5; }
+  polyline { fill:none; stroke:var(--rose); stroke-width:1.5; stroke-dasharray:3 2; vector-effect:non-scaling-stroke; }
+  circle.pt { fill:#fff; stroke:var(--ink); stroke-width:.4; r:.7; cursor:grab; }
+  g.b.on circle.pt { fill:var(--gold); }
+  circle.pt:hover { fill:var(--rose); }
+  circle.lab { fill:var(--rose); stroke:#fff; stroke-width:.3; r:.9; cursor:move; }
+  text.tag { fill:var(--cream); font-size:3px; font-weight:700; text-anchor:middle; dominant-baseline:middle; pointer-events:none; paint-order:stroke; stroke:var(--ink); stroke-width:.6; }
+  textarea { width:100%; min-height:12rem; margin-top:1rem; background:#141414; color:#cfc7b5; border:1px solid rgba(198,175,123,.35); border-radius:6px; padding:.75rem; font:12px/1.4 ui-monospace, Consolas, monospace; direction:ltr; }
+  .status { font-size:.85rem; color:var(--gold); min-height:1.4em; margin-top:.5rem; }
+  kbd { background:#333; border-radius:4px; padding:0 .35rem; font-family:inherit; }
+</style>
+</head>
+<body>
+<header>
+  <h1>עורך מפת בניינים</h1>
+  <div class="letters" id="letters"></div>
+  <div class="tools">
+    <button id="undo" title="מחיקת הנקודה האחרונה (Backspace)">בטל נקודה</button>
+    <button id="clear">נקה בניין</button>
+    <button id="resetLabel">אפס מיקום תווית</button>
+    <label class="btn">טען JSON <input id="file" type="file" accept="application/json" hidden></label>
+    <button id="copy" class="primary">העתק JSON</button>
+    <button id="save" class="primary">שמור buildings.json</button>
+  </div>
+</header>
+<main>
+  <p class="hint">
+    בחרו אות → לחצו על התמונה כדי להוסיף נקודות למצולע (סגירה אוטומטית). גררו נקודה לבנה כדי לדייק, גררו את העיגול הוורוד כדי למקם את התווית.
+    <kbd>Backspace</kbd> מוחק את הנקודה האחרונה, <kbd>Delete</kbd> מוחק נקודה מסומנת (לחצו עליה עם <kbd>Alt</kbd>). לסיום: “שמור” (Chrome/Edge) או “העתק” והדביקו אל <code>src/buildings.json</code>, ואז <code>python tools/build-html.py</code>.
+  </p>
+  <div class="stage" id="stage">
+    <img id="img" src="../wwwroot/assets/img/aerial-top-1920.webp" alt="">
+    <svg class="overlay" id="svg"></svg>
+  </div>
+  <div class="status" id="status"></div>
+  <textarea id="out" spellcheck="false"></textarea>
+</main>
+<script>
+(async () => {
+  const LETTERS = "ABCDEFGHIJKL".split("");
+  const img = document.getElementById("img"), svg = document.getElementById("svg"), out = document.getElementById("out"), status = document.getElementById("status");
+  let data = { viewBox: [100, 60.99], buildings: {}, labels: {} };
+  try { const r = await fetch("../src/buildings.json"); if (r.ok) data = Object.assign(data, await r.json()); } catch (e) {}
+  data.labels = data.labels || {};
+  await new Promise(r => img.complete ? r() : img.onload = r);
+  data.viewBox = [100, +(100 * img.naturalHeight / img.naturalWidth).toFixed(2)];
+  svg.setAttribute("viewBox", `0 0 ${data.viewBox[0]} ${data.viewBox[1]}`);
+
+  let cur = "A", drag = null, sel = null;
+  const lettersEl = document.getElementById("letters");
+  LETTERS.forEach(L => { const b = document.createElement("button"); b.textContent = L; b.onclick = () => { cur = L; sel = null; render(); }; lettersEl.appendChild(b); });
+
+  const toSvg = (e) => { const p = svg.createSVGPoint(); p.x = e.clientX; p.y = e.clientY; const q = p.matrixTransform(svg.getScreenCTM().inverse()); return [+q.x.toFixed(1), +q.y.toFixed(1)]; };
+  const bbox = (pts) => { const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]); return [(Math.min(...xs) + Math.max(...xs)) / 2, (Math.min(...ys) + Math.max(...ys)) / 2]; };
+
+  function render() {
+    lettersEl.querySelectorAll("button").forEach(b => { b.classList.toggle("on", b.textContent === cur); b.classList.toggle("done", (data.buildings[b.textContent] || []).length >= 3); });
+    svg.innerHTML = "";
+    for (const L of LETTERS) {
+      const pts = data.buildings[L] || []; if (!pts.length) continue;
+      const g = document.createElementNS(svg.namespaceURI, "g"); g.classList.add("b"); if (L === cur) g.classList.add("on");
+      const shape = document.createElementNS(svg.namespaceURI, pts.length >= 3 ? "polygon" : "polyline");
+      shape.setAttribute("points", pts.map(p => p.join(",")).join(" ")); g.appendChild(shape);
+      const lab = data.labels[L] || bbox(pts);
+      const t = document.createElementNS(svg.namespaceURI, "text"); t.classList.add("tag"); t.setAttribute("x", lab[0]); t.setAttribute("y", lab[1]); t.textContent = L; g.appendChild(t);
+      if (L === cur) {
+        pts.forEach((p, i) => { const c = document.createElementNS(svg.namespaceURI, "circle"); c.classList.add("pt"); c.setAttribute("cx", p[0]); c.setAttribute("cy", p[1]); c.dataset.i = i; if (sel === i) c.style.fill = "#c29284"; g.appendChild(c); });
+        const lc = document.createElementNS(svg.namespaceURI, "circle"); lc.classList.add("lab"); lc.setAttribute("cx", lab[0]); lc.setAttribute("cy", lab[1]); g.appendChild(lc);
+      }
+      svg.appendChild(g);
+    }
+    const clean = { viewBox: data.viewBox, buildings: {}, labels: {} };
+    LETTERS.forEach(L => { if ((data.buildings[L] || []).length >= 3) clean.buildings[L] = data.buildings[L]; if (data.labels[L]) clean.labels[L] = data.labels[L]; });
+    out.value = JSON.stringify(clean, null, 1);
+    status.textContent = `בניין ${cur}: ${(data.buildings[cur] || []).length} נקודות · ${Object.keys(clean.buildings).length}/12 בניינים מוגדרים`;
+  }
+
+  svg.addEventListener("pointerdown", (e) => {
+    const t = e.target;
+    if (t.classList.contains("pt")) { if (e.altKey) { sel = +t.dataset.i; render(); return; } drag = { kind: "pt", i: +t.dataset.i }; svg.setPointerCapture(e.pointerId); return; }
+    if (t.classList.contains("lab")) { drag = { kind: "lab" }; svg.setPointerCapture(e.pointerId); return; }
+    if (e.button !== 0) return;
+    (data.buildings[cur] = data.buildings[cur] || []).push(toSvg(e)); sel = null; render();
+  });
+  svg.addEventListener("pointermove", (e) => {
+    if (!drag) return; const p = toSvg(e);
+    if (drag.kind === "pt") data.buildings[cur][drag.i] = p; else data.labels[cur] = p;
+    render();
+  });
+  svg.addEventListener("pointerup", () => { drag = null; });
+  svg.addEventListener("contextmenu", (e) => { e.preventDefault(); (data.buildings[cur] || []).pop(); render(); });
+  document.addEventListener("keydown", (e) => {
+    if (e.target === out) return;
+    if (e.key === "Backspace") { (data.buildings[cur] || []).pop(); sel = null; render(); }
+    if (e.key === "Delete" && sel != null) { data.buildings[cur].splice(sel, 1); sel = null; render(); }
+    const k = e.key.toUpperCase(); if (LETTERS.includes(k) && !e.ctrlKey && !e.metaKey) { cur = k; sel = null; render(); }
+  });
+  document.getElementById("undo").onclick = () => { (data.buildings[cur] || []).pop(); render(); };
+  document.getElementById("clear").onclick = () => { data.buildings[cur] = []; delete data.labels[cur]; render(); };
+  document.getElementById("resetLabel").onclick = () => { delete data.labels[cur]; render(); };
+  document.getElementById("copy").onclick = async () => { await navigator.clipboard.writeText(out.value); status.textContent = "הועתק — הדביקו אל src/buildings.json והריצו python tools/build-html.py"; };
+  document.getElementById("file").onchange = async (e) => { const f = e.target.files[0]; if (!f) return; data = Object.assign(data, JSON.parse(await f.text())); data.labels = data.labels || {}; render(); };
+  document.getElementById("save").onclick = async () => {
+    if (!window.showSaveFilePicker) { status.textContent = "הדפדפן לא תומך בשמירה ישירה — השתמשו ב'העתק JSON'"; return; }
+    try { const h = await showSaveFilePicker({ suggestedName: "buildings.json", types: [{ description: "JSON", accept: { "application/json": [".json"] } }] });
+      const w = await h.createWritable(); await w.write(out.value); await w.close(); status.textContent = "נשמר. הריצו python tools/build-html.py"; } catch (e) {}
+  };
+  render();
+})();
+</script>
+</body>
+</html>

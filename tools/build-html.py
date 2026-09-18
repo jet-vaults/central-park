@@ -85,12 +85,35 @@ def rings_macro(m):
 
 def build(name):
     html = open(os.path.join(SRC_DIR, name), encoding="utf-8").read()
+    html = re.sub(r"\{\{buildings\}\}", buildings_macro, html)
     html = re.sub(r"\{\{rings\s+(.+?)\}\}", rings_macro, html)
     html = re.sub(r"\{\{svg\s+(.+?)\}\}", svg_macro, html)
     html = re.sub(r"\{\{img\s+(.+?)\}\}", img_macro, html, flags=re.S)
     out = os.path.join(OUT_DIR, name)
     open(out, "w", encoding="utf-8", newline="\n").write(html)
     print(f"wrote {os.path.relpath(out, ROOT)} ({len(html.encode('utf-8'))//1024} KB)")
+
+
+def buildings_macro(m):
+    """{{buildings}} -> SVG overlay of clickable building polygons from src/buildings.json
+    (edit the JSON with tools/map-editor.html)."""
+    import json
+    data = json.load(open(os.path.join(SRC_DIR, "buildings.json"), encoding="utf-8"))
+    vw, vh = data["viewBox"]
+    out = [f'<svg class="pick__map" viewBox="0 0 {vw} {vh}" aria-label="בחירת בניין" role="group">']
+    for k in sorted(data["buildings"]):
+        pts = data["buildings"][k]
+        if len(pts) < 3:
+            continue
+        xs = [p[0] for p in pts]; ys = [p[1] for p in pts]
+        lab = data.get("labels", {}).get(k) or [(min(xs) + max(xs)) / 2, (min(ys) + max(ys)) / 2]
+        out.append(
+            f'<a class="pick__b" href="/apartments.html?view=building&amp;bview_building={k}" aria-label="בניין {k} — צפייה במלאי הדירות">'
+            f'<polygon points="{" ".join(f"{x:.1f},{y:.1f}" for x, y in pts)}"/>'
+            f'<g class="pick__tag" transform="translate({lab[0]:.1f} {lab[1]:.1f})"><rect x="-2.4" y="-2.4" width="4.8" height="4.8" rx="0.5"/>'
+            f'<text x="0" y="0.2" text-anchor="middle" dominant-baseline="middle">{k}</text></g></a>')
+    out.append("</svg>")
+    return "\n        ".join(out)
 
 
 def main():
