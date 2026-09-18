@@ -53,8 +53,8 @@ body.page-inventory .footer__powered { margin-block-start: var(--space-2); }
 .inv-hero__media img { object-fit: cover; object-position: 50% 45%; }
 .inv-hero__scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(44,44,44,.82) 0%, rgba(44,44,44,.25) 55%, rgba(44,44,44,.1) 100%); }
 .inv-hero__rings { position: absolute; inset-block-start: -40%; left: 4%; width: min(60vh, 34vw); opacity: .8; pointer-events: none; }
-.inv-hero__content { position: relative; z-index: 2; padding-block-end: var(--space-5); }
-.inv-hero__title { font-size: var(--fs-h2); font-weight: var(--fw-bold); line-height: 1.1; color: var(--c-gold); }
+.inv-hero__content { position: relative; z-index: 2; padding-block-end: var(--space-6); }
+.inv-hero__title { font-size: clamp(3rem, 2rem + 4.5vw, 6.5rem); font-weight: var(--fw-bold); line-height: 1; color: var(--c-paper); letter-spacing: -0.01em; }
 .inv-hero__sub { margin-block-start: var(--space-2); color: var(--c-paper-soft); font-size: var(--fs-body); }
 
 .section-inventory { padding-block: var(--space-5) var(--section-y); }
