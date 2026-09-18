@@ -174,3 +174,9 @@ body.page-inventory .footer__powered { margin-block-start: var(--space-2); }
   .page-inventory .jv-realestate-root .apartment-card { width: 100%; max-width: 22rem; }
   .page-inventory .jv-realestate-root .display-btn { min-width: 8.5rem; }
 }
+
+body.page-inventory .a11y-grid button { font-family: var(--font-sans); }
+body.page-inventory .a11y-title, body.page-inventory .a11y-statement, body.page-inventory .footer__links { margin: 0; }
+body.page-inventory .a11y-title { margin-block-end: .8rem; }
+body.page-inventory .a11y-statement { margin-block-start: .8rem; }
+body.page-inventory .footer__links { margin-block-start: var(--space-3); }

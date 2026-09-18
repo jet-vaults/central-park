@@ -202,7 +202,7 @@
   if (!c) return;
   var track = c.querySelector(".carousel__track");
   var slides = Array.prototype.slice.call(track.children);
-  var dots = document.querySelector(".carousel__dots");
+  var dots = document.querySelector(".carousel__dots") || document.createElement("ol");
   function perView() { return Math.max(1, Math.round(track.clientWidth / slides[0].getBoundingClientRect().width)); }
   function pages() { return Math.ceil(slides.length / perView()); }
   function current() { return Math.round(Math.abs(track.scrollLeft) / track.clientWidth); }
@@ -259,4 +259,32 @@
     window.addEventListener("popstate", function () { setTimeout(sync, 50); });
     if (sel.value) sync(); else new MutationObserver(function () { if (sel.value) sync(); }).observe(sel, { childList: true });
   }, 100);
+})();
+
+/* ---------- accessibility menu ---------- */
+(function () {
+  "use strict";
+  var root = document.getElementById("a11y");
+  if (!root) return;
+  var toggle = document.getElementById("a11yToggle"), panel = document.getElementById("a11yPanel");
+  var KEY = "central-park-a11y", state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { state = {}; }
+  function apply() {
+    document.querySelectorAll("[data-a11y]").forEach(function (btn) {
+      var key = btn.getAttribute("data-a11y"), on = !!state[key];
+      document.documentElement.classList.toggle("a11y-" + key, on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+  }
+  function open(o) { panel.hidden = !o; toggle.setAttribute("aria-expanded", o ? "true" : "false"); }
+  toggle.addEventListener("click", function () { open(panel.hidden); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !panel.hidden) { open(false); toggle.focus(); } });
+  document.addEventListener("click", function (e) { if (!panel.hidden && !root.contains(e.target)) open(false); });
+  document.querySelectorAll("[data-a11y]").forEach(function (btn) {
+    btn.addEventListener("click", function () { var k = btn.getAttribute("data-a11y"); state[k] = !state[k]; apply(); });
+  });
+  var reset = document.getElementById("a11yReset");
+  if (reset) reset.addEventListener("click", function () { state = {}; apply(); });
+  apply();
 })();

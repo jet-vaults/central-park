@@ -83,8 +83,13 @@ def rings_macro(m):
             f"{circles}</svg>")
 
 
+def include_macro(m):
+    return open(os.path.join(SRC_DIR, m.group(1).strip()), encoding="utf-8").read().strip()
+
+
 def build(name):
     html = open(os.path.join(SRC_DIR, name), encoding="utf-8").read()
+    html = re.sub(r"\{\{include\s+(.+?)\}\}", include_macro, html)
     html = re.sub(r"\{\{buildings\}\}", buildings_macro, html)
     html = re.sub(r"\{\{rings\s+(.+?)\}\}", rings_macro, html)
     html = re.sub(r"\{\{svg\s+(.+?)\}\}", svg_macro, html)
@@ -118,7 +123,7 @@ def buildings_macro(m):
 
 def main():
     for name in sorted(os.listdir(SRC_DIR)):
-        if name.endswith(".html"):
+        if name.endswith(".html") and not name.startswith("_"):
             build(name)
 
 

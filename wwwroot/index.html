@@ -145,8 +145,8 @@
   </section>
 
   <div class="band">
-    <div class="bleed bleed--3-1 parallax">
-      <picture><source type="image/avif" srcset="/assets/img/panorama-768.avif 768w, /assets/img/panorama-1280.avif 1280w, /assets/img/panorama-1920.avif 1920w, /assets/img/panorama-2560.avif 2560w, /assets/img/panorama-3840.avif 3840w" sizes="100vw"><img src="/assets/img/panorama-1920.webp" srcset="/assets/img/panorama-768.webp 768w, /assets/img/panorama-1280.webp 1280w, /assets/img/panorama-1920.webp 1920w, /assets/img/panorama-2560.webp 2560w, /assets/img/panorama-3840.webp 3840w" sizes="100vw" width="9000" height="3000" alt="פנורמה של מתחם Central Park: בנייני המגורים ומגדל המשרדים מעל רצועת המסחר" decoding="async" loading="lazy"></picture>
+    <div class="bleed bleed--3-1 bleed--hills parallax">
+      <picture><source type="image/avif" srcset="/assets/img/aerial-hills-768.avif 768w, /assets/img/aerial-hills-1280.avif 1280w, /assets/img/aerial-hills-1920.avif 1920w, /assets/img/aerial-hills-2560.avif 2560w" sizes="100vw"><img src="/assets/img/aerial-hills-1920.webp" srcset="/assets/img/aerial-hills-768.webp 768w, /assets/img/aerial-hills-1280.webp 1280w, /assets/img/aerial-hills-1920.webp 1920w, /assets/img/aerial-hills-2560.webp 2560w" sizes="100vw" width="7033" height="3956" alt="מבט אווירי על מתחם Central Park: שנים־עשר בנייני המגורים, מגדל המשרדים והרחבה, על רקע אלעד" decoding="async" loading="lazy"></picture>
     </div>
     <div class="disc disc--gold disc--band" data-observe aria-hidden="true"></div>
   </div>
@@ -388,7 +388,6 @@
         </ul>
         <button class="carousel__arrow carousel__arrow--next" type="button" data-carousel-next aria-label="התמונה הבאה"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
       </div>
-      <ol class="carousel__dots" aria-hidden="true"></ol>
     </div>
     <dialog id="gallery-modal" class="modal modal--gallery">
       <button class="modal__close" type="button" data-close aria-label="סגירה">&times;</button>
@@ -513,10 +512,34 @@
     </ul>
     <hr class="rule reveal">
     <p class="footer__note reveal" lang="en" dir="ltr">Images/Renderings are for illustration purposes only</p>
+    <p class="footer__links reveal"><a href="/accessibility.html">הצהרת נגישות</a></p>
     <p class="footer__powered reveal" lang="en" dir="ltr">Powered by <a href="https://einstein-web.co.il" target="_blank" rel="noopener">einstein-web</a></p>
   </div>
 </footer>
 
+<!-- ===== Accessibility menu ===== -->
+<div class="a11y" id="a11y">
+  <button class="a11y-toggle" id="a11yToggle" type="button" aria-expanded="false" aria-controls="a11yPanel" aria-label="תפריט נגישות">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <circle cx="12" cy="4.5" r="2.2"/>
+      <path d="M12 8c-2.8 0-5.1-.5-6.9-1l-.5 1.9c1.6.5 3.4.8 5.4 1v3.2l-2.4 7.2 1.9.7 2.2-6.5h.6l2.2 6.5 1.9-.7-2.4-7.2v-3.2c2-.2 3.8-.5 5.4-1L18.9 7c-1.8.5-4.1 1-6.9 1z"/>
+    </svg>
+  </button>
+  <div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="הגדרות נגישות" hidden>
+    <p class="a11y-title">הגדרות נגישות</p>
+    <div class="a11y-grid">
+      <button type="button" data-a11y="fontsize" aria-pressed="false"><span class="a11y-ico" aria-hidden="true">א+</span><span>הגדלת טקסט</span></button>
+      <button type="button" data-a11y="contrast" aria-pressed="false"><span class="a11y-ico" aria-hidden="true">◐</span><span>ניגודיות גבוהה</span></button>
+      <button type="button" data-a11y="grayscale" aria-pressed="false"><span class="a11y-ico" aria-hidden="true">▦</span><span>שחור-לבן</span></button>
+      <button type="button" data-a11y="links" aria-pressed="false"><span class="a11y-ico" aria-hidden="true">⎁</span><span>הדגשת קישורים</span></button>
+      <button type="button" data-a11y="readable" aria-pressed="false"><span class="a11y-ico" aria-hidden="true">ק</span><span>גופן קריא</span></button>
+      <button type="button" data-a11y="nomotion" aria-pressed="false"><span class="a11y-ico" aria-hidden="true">⏸</span><span>עצירת אנימציות</span></button>
+      <button type="button" data-a11y="cursor" aria-pressed="false"><span class="a11y-ico" aria-hidden="true">➚</span><span>סמן גדול</span></button>
+      <button type="button" id="a11yReset"><span class="a11y-ico" aria-hidden="true">↺</span><span>איפוס הגדרות</span></button>
+    </div>
+    <a class="a11y-statement" href="/accessibility.html">להצהרת הנגישות</a>
+  </div>
+</div>
 <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

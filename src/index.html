@@ -116,8 +116,8 @@
   </section>
 
   <div class="band">
-    <div class="bleed bleed--3-1 parallax">
-      {{img name=panorama widths=768,1280,1920,2560,3840 sizes="100vw" w=9000 h=3000 alt="פנורמה של מתחם Central Park: בנייני המגורים ומגדל המשרדים מעל רצועת המסחר"}}
+    <div class="bleed bleed--3-1 bleed--hills parallax">
+      {{img name=aerial-hills widths=768,1280,1920,2560 sizes="100vw" w=7033 h=3956 alt="מבט אווירי על מתחם Central Park: שנים־עשר בנייני המגורים, מגדל המשרדים והרחבה, על רקע אלעד"}}
     </div>
     <div class="disc disc--gold disc--band" data-observe aria-hidden="true"></div>
   </div>
@@ -310,7 +310,6 @@
         </ul>
         <button class="carousel__arrow carousel__arrow--next" type="button" data-carousel-next aria-label="התמונה הבאה"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
       </div>
-      <ol class="carousel__dots" aria-hidden="true"></ol>
     </div>
     <dialog id="gallery-modal" class="modal modal--gallery">
       <button class="modal__close" type="button" data-close aria-label="סגירה">&times;</button>
@@ -355,10 +354,12 @@
     </ul>
     <hr class="rule reveal">
     <p class="footer__note reveal" lang="en" dir="ltr">Images/Renderings are for illustration purposes only</p>
+    <p class="footer__links reveal"><a href="/accessibility.html">הצהרת נגישות</a></p>
     <p class="footer__powered reveal" lang="en" dir="ltr">Powered by <a href="https://einstein-web.co.il" target="_blank" rel="noopener">einstein-web</a></p>
   </div>
 </footer>
 
+{{include _a11y.html}}
 <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
