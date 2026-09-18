@@ -1064,7 +1064,7 @@ body.menu-open {
 .pick__b:hover polygon, .pick__b:focus-visible polygon { fill: rgba(198, 175, 123, .42); stroke: rgba(246, 241, 232, .9); stroke-width: 1.5; }
 .pick__b:focus-visible { outline: none; }
 .pick__tag { pointer-events: none; transition: opacity .3s var(--ease-out); }
-.pick__tag circle { fill: rgba(44, 44, 44, .9); stroke: var(--c-gold); stroke-width: 1; vector-effect: non-scaling-stroke; transition: fill .3s; }
+.pick__tag circle { fill: rgba(44, 44, 44, .9); stroke: var(--c-gold); stroke-width: 2.25; vector-effect: non-scaling-stroke; transition: fill .3s; }
 .pick__b:hover .pick__tag circle, .pick__b:focus-visible .pick__tag circle { fill: var(--c-gold); }
 .pick__b:hover .pick__tag text, .pick__b:focus-visible .pick__tag text { fill: var(--c-charcoal); }
 .pick__tag text { fill: var(--c-gold); font-family: var(--font-sans); font-weight: 700; font-size: 2px; }
