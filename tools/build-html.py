@@ -13,8 +13,8 @@ Two tiny macros keep the page source readable and consistent:
 import os, re, shlex
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
-SRC = os.path.join(ROOT, "src", "index.html")
-OUT = os.path.join(ROOT, "wwwroot", "index.html")
+SRC_DIR = os.path.join(ROOT, "src")
+OUT_DIR = os.path.join(ROOT, "wwwroot")
 BRAND = os.path.join(ROOT, "wwwroot", "assets", "brand")
 IMG = os.path.join(ROOT, "wwwroot", "assets", "img")
 
@@ -83,14 +83,20 @@ def rings_macro(m):
             f"{circles}</svg>")
 
 
-def main():
-    html = open(SRC, encoding="utf-8").read()
+def build(name):
+    html = open(os.path.join(SRC_DIR, name), encoding="utf-8").read()
     html = re.sub(r"\{\{rings\s+(.+?)\}\}", rings_macro, html)
     html = re.sub(r"\{\{svg\s+(.+?)\}\}", svg_macro, html)
     html = re.sub(r"\{\{img\s+(.+?)\}\}", img_macro, html, flags=re.S)
-    os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    open(OUT, "w", encoding="utf-8", newline="\n").write(html)
-    print(f"wrote {os.path.relpath(OUT, ROOT)} ({len(html.encode('utf-8'))//1024} KB)")
+    out = os.path.join(OUT_DIR, name)
+    open(out, "w", encoding="utf-8", newline="\n").write(html)
+    print(f"wrote {os.path.relpath(out, ROOT)} ({len(html.encode('utf-8'))//1024} KB)")
+
+
+def main():
+    for name in sorted(os.listdir(SRC_DIR)):
+        if name.endswith(".html"):
+            build(name)
 
 
 if __name__ == "__main__":

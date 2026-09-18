@@ -1,0 +1,163 @@
+/* ------------------------------------------------------------------
+   מלאי דירות — page styles + JetVaults widget re-skin
+   The widget injects Bootstrap + its own styles AFTER this file, so every
+   rule here is written with enough specificity to win regardless of order.
+   ------------------------------------------------------------------ */
+
+/* ---- guard the site chrome against Bootstrap's reboot ---- */
+html body.page-inventory {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--c-paper);
+  background: var(--c-charcoal);
+  margin: 0;
+}
+body.page-inventory a { color: inherit; text-decoration: none; }
+body.page-inventory .container {
+  width: 100%;
+  max-width: var(--w-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+body.page-inventory .rule { border: 0; opacity: 1; margin: 0; }
+body.page-inventory .footer .rule { margin: var(--space-6) auto var(--space-4); }
+body.page-inventory .site-header .btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 2.75rem; padding: 0 1.5rem; line-height: 1;
+  border: 1px solid var(--c-gold); border-radius: var(--radius);
+  font-size: var(--fs-small); font-weight: var(--fw-medium); color: var(--c-gold);
+  background: transparent; box-shadow: none;
+}
+body.page-inventory .site-header .btn.is-current,
+body.page-inventory .site-header .btn:hover { background: var(--c-gold); color: var(--c-charcoal); }
+body.page-inventory .nav ul { padding: 0; margin: 0; }
+body.page-inventory .menu ul, body.page-inventory .partners { padding: 0; margin: 0; }
+body.page-inventory .footer__logo svg, body.page-inventory .brand svg { vertical-align: top; }
+body.page-inventory h1 { margin: 0; }
+body.page-inventory p { margin: 0; }
+body.page-inventory .footer__note, body.page-inventory .footer__powered { margin: 0; }
+body.page-inventory .footer__powered { margin-block-start: var(--space-2); }
+
+/* ---- compact hero ---- */
+.inv-hero {
+  position: relative;
+  height: clamp(20rem, 46vh, 30rem);
+  margin-block-start: var(--header-h);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--c-charcoal);
+}
+.inv-hero__media, .inv-hero__media picture, .inv-hero__media img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.inv-hero__media img { object-fit: cover; object-position: 50% 45%; }
+.inv-hero__scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(44,44,44,.82) 0%, rgba(44,44,44,.25) 55%, rgba(44,44,44,.1) 100%); }
+.inv-hero__rings { position: absolute; inset-block-start: -40%; left: 4%; width: min(60vh, 34vw); opacity: .8; pointer-events: none; }
+.inv-hero__content { position: relative; z-index: 2; padding-block-end: var(--space-5); }
+.inv-hero__title { font-size: var(--fs-h2); font-weight: var(--fw-bold); line-height: 1.1; color: var(--c-gold); }
+.inv-hero__sub { margin-block-start: var(--space-2); color: var(--c-paper-soft); font-size: var(--fs-body); }
+
+.section-inventory { padding-block: var(--space-5) var(--section-y); }
+
+/* ---- widget re-skin ---- */
+.page-inventory .jv-realestate-root {
+  --light-color: #fbf8f2;
+  --main-color: var(--c-charcoal);
+  --secondary-color: var(--c-gold);
+  --dark-color: var(--c-ink);
+  --danger-color: var(--c-rose);
+  --font-family: var(--font-sans);
+  color: var(--c-ink);
+}
+.page-inventory .jv-realestate-root,
+.page-inventory .jv-realestate-root :not(i):not([class^="fa"]):not([class*=" fa"]) { font-family: var(--font-sans) !important; }
+
+/* status / spinner */
+.page-inventory .jv-realestate-root .status { color: var(--c-ink-soft); }
+.page-inventory .jv-realestate-root .jv-spinner { border-color: rgba(44,44,44,.1); border-top-color: var(--c-gold); }
+
+/* view toggle */
+.page-inventory .jv-realestate-root .view-toggle { margin-block: 0 var(--space-5) !important; gap: var(--space-2); }
+.page-inventory .jv-realestate-root .display-btn {
+  width: auto !important; min-width: 10rem; padding: .7rem 1.5rem !important;
+  border: 1px solid var(--c-gold) !important; border-radius: var(--radius) !important;
+  background: transparent !important; color: var(--c-ink) !important;
+  font-size: var(--fs-small) !important; font-weight: var(--fw-medium) !important;
+  box-shadow: none !important; transition: background-color .3s, color .3s;
+}
+.page-inventory .jv-realestate-root .display-btn:hover { background: var(--c-gold-faint) !important; }
+.page-inventory .jv-realestate-root .display-btn.active { background: var(--c-gold) !important; color: var(--c-charcoal) !important; }
+.page-inventory .jv-realestate-root .display-btn i { color: inherit; }
+
+/* selects */
+.page-inventory .jv-realestate-root .form-label { color: var(--c-ink-soft); font-size: var(--fs-small); margin: 0 0 .35rem; }
+.page-inventory .jv-realestate-root .form-select {
+  background-color: #fbf8f2; border: 1px solid rgba(44,44,44,.22); border-radius: var(--radius);
+  color: var(--c-ink); padding: .65rem 2.25rem .65rem .9rem; font-size: var(--fs-small); box-shadow: none;
+}
+.page-inventory .jv-realestate-root .form-select:focus { border-color: var(--c-gold); box-shadow: 0 0 0 3px var(--c-gold-faint); }
+.page-inventory .jv-realestate-root .filters, .page-inventory .jv-realestate-root #building-view > .row { margin-bottom: var(--space-4) !important; }
+
+/* floor blocks */
+.page-inventory .jv-realestate-root .floor-section { margin-bottom: var(--space-5); }
+.page-inventory .jv-realestate-root .floor-title {
+  background: var(--c-charcoal); color: var(--c-gold);
+  font-size: var(--fs-h3); font-weight: var(--fw-bold); padding: .9rem 1.25rem;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.page-inventory .jv-realestate-root .apartments-row {
+  border: 1px solid var(--c-hair-light); border-top: 0; border-radius: 0 0 var(--radius) var(--radius);
+  padding: var(--space-3); gap: var(--space-3); background: rgba(255,255,255,.25);
+}
+.page-inventory .jv-realestate-root .apartments-row-filter { padding: 0; gap: var(--space-3); }
+
+/* cards */
+.page-inventory .jv-realestate-root .apartment-card {
+  background: #fbf8f2; border: 1px solid var(--c-hair-light); border-radius: var(--radius);
+  box-shadow: none; margin: 0; padding: 1.25rem 1.1rem 1.1rem; width: 17.5rem;
+  transition: transform .5s var(--ease-out), border-color .3s, box-shadow .5s var(--ease-out);
+}
+.page-inventory .jv-realestate-root .apartment-card:hover {
+  transform: translateY(-4px); border-color: var(--c-gold); box-shadow: 0 14px 30px -18px rgba(44,44,44,.35);
+}
+.page-inventory .jv-realestate-root .apartment-title { color: var(--c-gold); font-size: 1.35rem; font-weight: var(--fw-bold); margin-bottom: .35rem; }
+.page-inventory .jv-realestate-root .apartment-type { color: var(--c-ink-soft); margin-top: 0; font-size: .8rem; letter-spacing: .04em; }
+.page-inventory .jv-realestate-root .lamishtaken { color: var(--c-rose); margin-top: 0; font-size: .8rem; font-weight: var(--fw-medium); }
+.page-inventory .jv-realestate-root .free-market { color: var(--c-grey); margin-top: 0; font-size: .8rem; }
+.page-inventory .jv-realestate-root .apartment-info { margin: .75rem 0 1rem; gap: .5rem; font-size: .85rem; }
+.page-inventory .jv-realestate-root .apartment-info li {
+  background: transparent; border: 1px solid var(--c-hair-light); border-radius: var(--radius); padding: .3rem .6rem; color: var(--c-ink);
+}
+.page-inventory .jv-realestate-root .apartment-info li i { color: var(--c-gold); }
+.page-inventory .jv-realestate-root .apartment-price {
+  color: var(--c-charcoal); font-size: 1.35rem; font-weight: var(--fw-bold); margin-bottom: 0;
+  padding-top: .85rem; border-top: 1px solid var(--c-gold-soft);
+}
+.page-inventory .jv-realestate-root .floor-info { color: var(--c-gold) !important; font-weight: var(--fw-medium) !important; }
+.page-inventory .jv-realestate-root .floor-info i { color: var(--c-gold); }
+.page-inventory .jv-realestate-root .apartment-card.sold::before { background: var(--c-rose); }
+.page-inventory .jv-realestate-root .apartment-plan { background: transparent; border: 1px solid var(--c-gold); border-radius: var(--radius); color: var(--c-ink); }
+
+/* pagination */
+.page-inventory .jv-realestate-root .pagination { margin-top: var(--space-4); gap: .25rem; }
+.page-inventory .jv-realestate-root .page-link {
+  color: var(--c-ink); background: transparent; border: 1px solid var(--c-hair-light); border-radius: var(--radius) !important;
+  font-size: var(--fs-small); padding: .45rem .8rem;
+}
+.page-inventory .jv-realestate-root .page-item.active .page-link { background: var(--c-gold); border-color: var(--c-gold); color: var(--c-charcoal); }
+.page-inventory .jv-realestate-root .page-link:focus { box-shadow: 0 0 0 3px var(--c-gold-faint); }
+
+/* modal */
+.page-inventory .modal-content { background: var(--c-cream); color: var(--c-ink); border: 0; border-radius: var(--radius); }
+.page-inventory .modal-header { border-bottom: 1px solid var(--c-hair-light); }
+.page-inventory .modal-title { color: var(--c-gold); font-weight: var(--fw-bold); }
+
+@media (max-width: 1023px) {
+  body.page-inventory .nav { display: none; }   /* Bootstrap's .nav would re-show it */
+}
+@media (max-width: 767px) {
+  .inv-hero { height: clamp(16rem, 40vh, 22rem); }
+  .inv-hero__rings { left: -20%; width: 70vw; inset-block-start: -30%; }
+  .page-inventory .jv-realestate-root .apartment-card { width: 100%; max-width: 22rem; }
+  .page-inventory .jv-realestate-root .display-btn { min-width: 8.5rem; }
+}

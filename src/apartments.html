@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he" class="js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>מלאי דירות | Central Park Elad</title>
+  <meta name="description" content="מלאי הדירות בפרויקט Central Park באלעד: 460 יחידות דיור ב-12 בניינים, מדירות 3 חדרים ועד דירות גן ופנטהאוזים.">
+  <meta name="theme-color" content="#2c2c2c">
+  <meta property="og:title" content="מלאי דירות | Central Park Elad">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://centralpark.co.il/assets/img/balconies-1920.webp">
+  <meta property="og:locale" content="he_IL">
+  <link rel="icon" href="/assets/brand/logo_mark.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/heebo-hebrew.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/layout.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/motion.css">
+  <link rel="stylesheet" href="/assets/css/inventory.css">
+</head>
+<body class="page-inventory">
+<a class="skip" href="#main">דלג לתוכן</a>
+
+<header class="site-header" id="top">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Central Park — The Heart Of Elad, לעמוד הבית">
+      {{svg logo_full}}
+    </a>
+    <nav class="nav" aria-label="ניווט ראשי">
+      <ul>
+        <li><a href="/#project">על הפרויקט</a></li>
+        <li><a href="/#location">על המיקום</a></li>
+        <li><a href="/#developers">על היזמים</a></li>
+        <li><a href="/#gallery">גלריה</a></li>
+        <li><a href="/#contact">צור קשר</a></li>
+      </ul>
+    </nav>
+    <div class="site-header__end">
+      <a class="btn is-current" href="/apartments.html" aria-current="page">מלאי דירות</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="תפריט">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu">
+  <div class="container">
+    <ul>
+      <li><a href="/#project">על הפרויקט</a></li>
+      <li><a href="/#location">על המיקום</a></li>
+      <li><a href="/#developers">על היזמים</a></li>
+      <li><a href="/#gallery">גלריה</a></li>
+      <li><a href="/#contact">צור קשר</a></li>
+      <li><a href="/apartments.html" aria-current="page">מלאי דירות</a></li>
+    </ul>
+  </div>
+  {{rings class="menu__rings rings--gold" n=4 r0=40 r1=196 sw=2}}
+</div>
+
+<main id="main">
+  <!-- compact hero band -->
+  <section class="inv-hero" aria-label="מלאי דירות">
+    <div class="inv-hero__media">
+      {{img name=balconies widths=768,1280,1920,2560 sizes="100vw" w=3840 h=2160 loading=eager fetchpriority=high alt="מרפסות הדירות ב-Central Park"}}
+    </div>
+    <div class="inv-hero__scrim"></div>
+    <svg class="rings inv-hero__rings rings--paper" viewBox="0 0 400 400" style="--sw:2.5" aria-hidden="true" focusable="false">
+      <circle cx="200" cy="200" r="70" pathLength="1"/>
+      <circle cx="200" cy="200" r="130" pathLength="1"/>
+      <circle cx="200" cy="200" r="197" pathLength="1"/>
+    </svg>
+    <div class="container inv-hero__content">
+      <h1 class="inv-hero__title reveal">מלאי דירות</h1>
+      <p class="inv-hero__sub reveal">460 יחידות דיור · 12 בניינים · מדירות 3 חדרים ועד דירות גן ופנטהאוזים</p>
+    </div>
+  </section>
+
+  <!-- the JetVaults inventory widget mounts here -->
+  <section class="section theme-light has-paper section-inventory">
+    <div class="container">
+      <div id="inventory" class="inventory"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer theme-dark">
+  <div class="container" data-stagger="160">
+    <a class="footer__logo reveal" href="/" aria-label="Central Park — The Heart Of Elad, לעמוד הבית">{{svg logo_full}}</a>
+    <div class="footer__motif reveal">{{svg motif_row}}</div>
+    <ul class="partners reveal" aria-label="היזמים">
+      <li>{{svg partner_yadot role="img" aria-label="קבוצת ידות"}}</li>
+      <li><img src="/assets/brand/partner_eshel.png" width="2541" height="656" alt="אשל הירדן" loading="lazy" decoding="async"></li>
+      <li>{{svg partner_ravitz role="img" aria-label="Ravitz"}}</li>
+    </ul>
+    <hr class="rule reveal">
+    <p class="footer__note reveal" lang="en" dir="ltr">Images/Renderings are for illustration purposes only</p>
+    <p class="footer__powered reveal" lang="en" dir="ltr">Powered by <a href="https://einstein-web.co.il" target="_blank" rel="noopener">einstein-web</a></p>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/jetvaults-real-estate.js" defer
+        data-container="central-park"
+        data-project="2d569983-5b20-4127-96e6-58bb6b7d2cc4"
+        data-target="#inventory"></script>
+</body>
+</html>
