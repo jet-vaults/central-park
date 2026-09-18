@@ -1071,3 +1071,21 @@ body.menu-open {
 @media (hover: none) {
   .pick__b polygon { fill: rgba(198, 175, 123, .14); stroke: rgba(246, 241, 232, .5); stroke-width: 1; }
 }
+
+/* ================= logo half-discs on section edges ================= */
+.section-gallery { overflow: hidden; }
+.disc--grey { background: var(--c-grey); }
+.disc--rose { background: var(--c-rose); }
+.disc--edge-right, .disc--edge-left {
+  top: var(--disc-top, 50%);
+  width: var(--disc-w, 5rem);
+  z-index: 0;
+  opacity: .92;
+}
+.disc--edge-right { right: 0; border-start-start-radius: 100vmax; border-end-start-radius: 100vmax; --disc-from: 100%; }
+.disc--edge-left  { left: 0;  border-start-end-radius: 100vmax;   border-end-end-radius: 100vmax;   --disc-from: -100%; }
+.theme-light .disc--grey { opacity: .55; }
+.js .disc--edge-right.is-in, .js .disc--edge-left.is-in { animation: disc-drift 16s var(--ease-in-out) 1.6s infinite alternate; }
+@keyframes disc-drift { from { translate: 0 -0.6rem; } to { translate: 0 0.6rem; } }
+@media (prefers-reduced-motion: reduce) { .js .disc--edge-right.is-in, .js .disc--edge-left.is-in { animation: none; } }
+@media (max-width: 767px) { .disc--edge-right, .disc--edge-left { width: calc(var(--disc-w, 5rem) * .7); } }
