@@ -288,3 +288,17 @@
   if (reset) reset.addEventListener("click", function () { state = {}; apply(); });
   apply();
 })();
+
+/* ---------- inventory: the widget says "מחיר למשתכן"; this project is "מחיר מטרה" ---------- */
+(function () {
+  "use strict";
+  var host = document.getElementById("inventory");
+  if (!host) return;
+  function relabel() {
+    host.querySelectorAll(".lamishtaken").forEach(function (el) {
+      if (el.textContent.indexOf("למשתכן") !== -1) el.textContent = "- מחיר מטרה -";
+    });
+  }
+  new MutationObserver(relabel).observe(host, { childList: true, subtree: true });
+  relabel();
+})();
