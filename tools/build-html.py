@@ -110,7 +110,7 @@ def buildings_macro(m):
         out.append(
             f'<a class="pick__b" href="/apartments.html?view=building&amp;bview_building={k}" aria-label="בניין {k} — צפייה במלאי הדירות">'
             f'<polygon points="{" ".join(f"{x:.1f},{y:.1f}" for x, y in pts)}"/>'
-            f'<g class="pick__tag" transform="translate({lab[0]:.1f} {lab[1]:.1f})"><rect x="-2.4" y="-2.4" width="4.8" height="4.8" rx="0.5"/>'
+            f'<g class="pick__tag" transform="translate({lab[0]:.1f} {lab[1]:.1f})"><circle r="1.55"/>'
             f'<text x="0" y="0.2" text-anchor="middle" dominant-baseline="middle">{k}</text></g></a>')
     out.append("</svg>")
     return "\n        ".join(out)
