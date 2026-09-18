@@ -981,3 +981,7 @@ body.menu-open {
   .bleed--21-9 { height: clamp(14rem, 60vw, 20rem); }
   .closing .bleed { height: clamp(14rem, 60vw, 20rem); }
 }
+
+/* hero rings: 270° arcs at rest, gap toward the top-right */
+.hero__rings circle { stroke-dasharray: 0.75 1; }
+.hero__rings { transform: rotate(-20deg); }

@@ -78,9 +78,9 @@
 .js .hero__title-a { transition-delay: 500ms; }
 .js .hero__title-b { transition-delay: 720ms; }
 .js .hero__rings circle {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  transition: stroke-dashoffset 3200ms var(--ease-in-out);
+  stroke-dasharray: 0.75 1;      /* draws a 270° arc, gap at the top-right */
+  stroke-dashoffset: 0.75;
+  transition: stroke-dashoffset 2400ms var(--ease-in-out);
 }
 .js .hero__rings circle:nth-child(1) { transition-delay: 500ms; }
 .js .hero__rings circle:nth-child(2) { transition-delay: 700ms; }
@@ -127,9 +127,13 @@
     transform: none !important;
     transition: none !important;
   }
-  .js .rings circle,
-  .js .hero__rings circle {
+  .js .rings circle {
     stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
+  }
+  .js .hero__rings circle {
+    stroke-dasharray: 0.75 1 !important;
     stroke-dashoffset: 0 !important;
     transition: none !important;
   }
