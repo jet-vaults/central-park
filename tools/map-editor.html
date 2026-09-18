@@ -31,10 +31,13 @@
   polygon { fill:rgba(198,175,123,.18); stroke:rgba(246,241,232,.7); stroke-width:1; vector-effect:non-scaling-stroke; }
   g.b.on polygon { fill:rgba(198,175,123,.4); stroke:#fff; stroke-width:1.5; }
   polyline { fill:none; stroke:var(--rose); stroke-width:1.5; stroke-dasharray:3 2; vector-effect:non-scaling-stroke; }
-  circle.pt { fill:#fff; stroke:var(--ink); stroke-width:.4; r:.7; cursor:grab; }
+  svg.overlay { --hz: 1; }   /* 1/zoom, keeps handles a constant screen size */
+  circle.pt { fill:#fff; stroke:var(--ink); stroke-width:calc(.15px * var(--hz)); r:calc(.32px * var(--hz)); cursor:grab; }
   g.b.on circle.pt { fill:var(--gold); }
   circle.pt:hover { fill:var(--rose); }
-  circle.lab { fill:var(--rose); stroke:#fff; stroke-width:.3; r:.9; cursor:move; }
+  circle.lab { fill:none; stroke:var(--rose); stroke-width:calc(.18px * var(--hz)); r:calc(.55px * var(--hz)); cursor:move; }
+  circle.lab:hover { stroke:#fff; }
+  text.tag { font-size:calc(2px * var(--hz)) !important; }
   text.tag { fill:var(--cream); font-size:2px; font-weight:700; text-anchor:middle; dominant-baseline:middle; pointer-events:none; paint-order:stroke; stroke:var(--ink); stroke-width:.6; }
   textarea { width:100%; min-height:12rem; margin-top:1rem; background:#141414; color:#cfc7b5; border:1px solid rgba(198,175,123,.35); border-radius:6px; padding:.75rem; font:12px/1.4 ui-monospace, Consolas, monospace; direction:ltr; }
   .status { font-size:.85rem; color:var(--gold); min-height:1.4em; margin-top:.5rem; }
@@ -89,7 +92,7 @@
   const viewport = document.getElementById("viewport"), stage = document.getElementById("stage");
   let z = 1, tx = 0, ty = 0, pan = null, space = false;
   viewport.style.height = stage.getBoundingClientRect().height + "px";
-  const applyZ = () => { stage.style.transform = `translate(${tx}px, ${ty}px) scale(${z})`; document.getElementById("zl").textContent = Math.round(z * 100) + "%"; };
+  const applyZ = () => { stage.style.transform = `translate(${tx}px, ${ty}px) scale(${z})`; svg.style.setProperty("--hz", 1 / z); document.getElementById("zl").textContent = Math.round(z * 100) + "%"; };
   const clampPan = () => { const w = viewport.clientWidth, h = viewport.clientHeight; tx = Math.min(0, Math.max(w - w * z, tx)); ty = Math.min(0, Math.max(h - h * z, ty)); };
   const zoomAt = (factor, cx, cy) => { const nz = Math.min(8, Math.max(1, z * factor)); const r = viewport.getBoundingClientRect(); const px = cx - r.left, py = cy - r.top; tx = px - (px - tx) * (nz / z); ty = py - (py - ty) * (nz / z); z = nz; clampPan(); applyZ(); };
   viewport.addEventListener("wheel", (e) => { e.preventDefault(); zoomAt(e.deltaY < 0 ? 1.15 : 1 / 1.15, e.clientX, e.clientY); }, { passive: false });
