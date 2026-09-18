@@ -226,3 +226,37 @@
   window.addEventListener("resize", buildDots);
   buildDots();
 })();
+
+/* ---------- inventory hero: big letter of the selected building ---------- */
+(function () {
+  "use strict";
+  var box = document.getElementById("inv-building");
+  if (!box) return;
+  var letterEl = box.querySelector(".inv-hero__building-letter");
+  var current = null;
+  function show(letter) {
+    letter = (letter || "").trim();
+    if (letter === current) return;
+    var viewIsBuilding = !document.getElementById("list-view") || document.getElementById("list-view").style.display === "none";
+    if (!letter || !viewIsBuilding) { box.hidden = true; current = letter; return; }
+    box.classList.add("is-swap");
+    setTimeout(function () { letterEl.textContent = letter; box.hidden = false; requestAnimationFrame(function () { box.classList.remove("is-swap"); }); }, current === null ? 0 : 250);
+    current = letter;
+  }
+  var params = new URLSearchParams(location.search);
+  if ((params.get("view") || "building") === "building") show(params.get("bview_building") || "");
+  var tries = 0;
+  var wait = setInterval(function () {
+    var sel = document.getElementById("building-select");
+    if (!sel && ++tries < 100) return;
+    clearInterval(wait);
+    if (!sel) return;
+    var sync = function () { current = null; show(sel.value); };
+    sel.addEventListener("change", sync);
+    var bb = document.getElementById("building-view-btn"), lb = document.getElementById("list-view-btn");
+    if (bb) bb.addEventListener("click", function () { setTimeout(sync, 0); });
+    if (lb) lb.addEventListener("click", function () { setTimeout(function () { current = null; show(""); }, 0); });
+    window.addEventListener("popstate", function () { setTimeout(sync, 50); });
+    if (sel.value) sync(); else new MutationObserver(function () { if (sel.value) sync(); }).observe(sel, { childList: true });
+  }, 100);
+})();

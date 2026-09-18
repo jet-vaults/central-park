@@ -52,7 +52,16 @@ body.page-inventory .footer__powered { margin-block-start: var(--space-2); }
 .inv-hero__media, .inv-hero__media picture, .inv-hero__media img { position: absolute; inset: 0; width: 100%; height: 100%; }
 .inv-hero__media img { object-fit: cover; object-position: 50% 45%; }
 .inv-hero__scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(44,44,44,.82) 0%, rgba(44,44,44,.25) 55%, rgba(44,44,44,.1) 100%); }
-.inv-hero__rings { position: absolute; inset-block-start: -40%; left: 4%; width: min(60vh, 34vw); opacity: .8; pointer-events: none; }
+.inv-hero__building {
+  position: absolute; left: var(--gutter); bottom: var(--space-6); z-index: 2;
+  display: flex; align-items: baseline; gap: .35em; direction: rtl;
+  color: var(--c-gold); line-height: 1; pointer-events: none;
+  transition: opacity .6s var(--ease-out), transform .6s var(--ease-out);
+}
+.inv-hero__building[hidden] { display: none; }
+.inv-hero__building.is-swap { opacity: 0; transform: translateY(8px); }
+.inv-hero__building-word { font-size: clamp(1.25rem, 1rem + 1.2vw, 2rem); font-weight: var(--fw-regular); color: var(--c-paper-soft); }
+.inv-hero__building-letter { font-size: clamp(3.5rem, 2rem + 6vw, 8rem); font-weight: var(--fw-bold); letter-spacing: -0.02em; }
 .inv-hero__content { position: relative; z-index: 2; padding-block-end: var(--space-6); }
 .inv-hero__title { font-size: clamp(3rem, 2rem + 4.5vw, 6.5rem); font-weight: var(--fw-bold); line-height: 1; color: var(--c-paper); letter-spacing: -0.01em; }
 .inv-hero__sub { margin-block-start: var(--space-2); color: var(--c-paper-soft); font-size: var(--fs-body); }
@@ -157,7 +166,9 @@ body.page-inventory .footer__powered { margin-block-start: var(--space-2); }
 }
 @media (max-width: 767px) {
   .inv-hero { height: clamp(16rem, 40vh, 22rem); }
-  .inv-hero__rings { left: -20%; width: 70vw; inset-block-start: -30%; }
+  .inv-hero__building { bottom: var(--space-4); }
+  .inv-hero__building-letter { font-size: 3.25rem; }
+  .inv-hero__title { font-size: 2.5rem; }
   .page-inventory .jv-realestate-root .apartment-card { width: 100%; max-width: 22rem; }
   .page-inventory .jv-realestate-root .display-btn { min-width: 8.5rem; }
 }
