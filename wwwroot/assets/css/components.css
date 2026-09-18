@@ -657,7 +657,7 @@ body.menu-open {
 .arc__dot {
   position: absolute;
   left: -6%;
-  top: 22%;
+  top: 10%;
   width: 34%;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -893,7 +893,7 @@ body.menu-open {
   inset-block: 10% 0;
   inset-inline-start: 0;       /* RTL start = right */
   inset-inline-end: 34%;
-  background: #473c36;
+  background: #727272;
   opacity: 1;
   border-radius: var(--radius);
   z-index: 0;
