@@ -49,18 +49,22 @@
   </div>
 </header>
 
-<div class="menu" id="menu">
-  <div class="container">
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="תפריט">
+  <div class="menu__backdrop" data-close-menu></div>
+  <div class="menu__panel">
+    <button class="menu__close" type="button" data-close-menu aria-label="סגירת התפריט">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
     <ul>
       <li><a href="#project">על הפרויקט</a></li>
       <li><a href="#location">על המיקום</a></li>
       <li><a href="#developers">על היזמים</a></li>
       <li><a href="#gallery">גלריה</a></li>
       <li><a href="#contact">צור קשר</a></li>
-      <li><a href="/apartments.html">מלאי דירות</a></li>
     </ul>
+    <hr class="rule menu__rule">
+    <a class="btn btn--solid menu__cta" href="/apartments.html">מלאי דירות</a>
   </div>
-  {{rings class="menu__rings rings--gold" n=4 r0=40 r1=196 sw=2}}
 </div>
 
 <main id="main">

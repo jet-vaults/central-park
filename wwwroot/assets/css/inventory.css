@@ -22,6 +22,7 @@ body.page-inventory .container {
 }
 body.page-inventory .rule { border: 0; opacity: 1; margin: 0; }
 body.page-inventory .footer .rule { margin: var(--space-6) auto var(--space-4); }
+body.page-inventory .menu__rule { margin-block: var(--space-4); }
 body.page-inventory .site-header .btn {
   display: inline-flex; align-items: center; justify-content: center;
   min-height: 2.75rem; padding: 0 1.5rem; line-height: 1;
@@ -33,6 +34,7 @@ body.page-inventory .site-header .btn.is-current,
 body.page-inventory .site-header .btn:hover { background: var(--c-gold); color: var(--c-charcoal); }
 body.page-inventory .nav ul { padding: 0; margin: 0; }
 body.page-inventory .menu ul, body.page-inventory .partners { padding: 0; margin: 0; }
+body.page-inventory .menu__cta { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; border: 1px solid var(--c-gold); border-radius: var(--radius); background: var(--c-gold); color: var(--c-charcoal); font-weight: var(--fw-medium); }
 body.page-inventory .footer__logo svg, body.page-inventory .brand svg { vertical-align: top; }
 body.page-inventory h1 { margin: 0; }
 body.page-inventory p { margin: 0; }

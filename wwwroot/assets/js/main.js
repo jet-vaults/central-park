@@ -34,7 +34,7 @@
     menu.classList.toggle("is-open", open);
     document.body.classList.toggle("menu-open", open);
     if (open) {
-      var first = menu.querySelector("a");
+      var first = menu.querySelector(".menu__close");
       if (first) first.focus();
     }
   }
@@ -43,7 +43,7 @@
       setMenu(toggle.getAttribute("aria-expanded") !== "true");
     });
     menu.addEventListener("click", function (e) {
-      if (e.target.closest("a")) setMenu(false);
+      if (e.target.closest("a") || e.target.closest("[data-close-menu]")) setMenu(false);
     });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && menu.classList.contains("is-open")) {
