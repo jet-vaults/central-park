@@ -989,3 +989,60 @@ body.menu-open {
 /* closing image: no gradient */
 .closing::after { display: none; }
 .section-apartments .h2 { margin-block-end: var(--space-4); }
+
+/* ================= review 7: textures, stretch, arrows ================= */
+.section-apartments, .section-location, .section-contact { overflow: hidden; }
+.deco { position: absolute; pointer-events: none; }
+.deco--apartments {           /* soft charcoal rings low on the physical left */
+  left: -14%;
+  bottom: -18%;
+  width: min(46vw, 40rem);
+  opacity: 0.16;
+}
+.deco--disc {                 /* solid black circle half off the left edge */
+  left: -8rem;
+  top: 6%;
+  width: 16rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--c-charcoal);
+}
+.deco--location {
+  left: -4%;
+  top: 22%;
+  width: min(30vw, 26rem);
+  opacity: 0.22;
+}
+.deco--contact {              /* whisper-thin paper rings, top-right */
+  right: -10%;
+  top: -30%;
+  width: min(44vw, 38rem);
+  opacity: 0.12;
+}
+.section-contact::before {    /* soft radial glow behind the heading */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 30%, rgba(198, 175, 123, 0.08), transparent 70%);
+  pointer-events: none;
+}
+.section-contact .container { position: relative; }
+
+/* project split: image height = title + text + button */
+.split--stretch { align-items: stretch; }
+.split--stretch .frame--rings-topleft { margin-top: 0; height: 100%; }
+.split--stretch .frame .media { height: 100%; aspect-ratio: auto; }
+.split--stretch .frame .media picture { height: 100%; }
+.split--stretch .frame__rings--behind-topleft { top: -18%; }
+
+/* arrows */
+.carousel__arrow svg, .modal__nav svg { width: 1.4rem; height: 1.4rem; }
+.carousel__arrow { font-size: 0; border: 1px solid var(--c-gold); background: var(--c-cream); box-shadow: none; }
+.carousel__arrow:hover { background: var(--c-gold); color: var(--c-charcoal); }
+.modal__nav { font-size: 0; }
+
+@media (max-width: 1023px) {
+  .deco--disc, .deco--location { display: none; }
+  .deco--apartments { width: 60vw; left: -30%; }
+  .split--stretch .frame .media { aspect-ratio: 4 / 3; height: auto; }
+}

@@ -89,7 +89,7 @@
   <!-- ============ על הפרויקט ============ -->
   <section id="project" class="section theme-dark section-project">
     <div class="container">
-      <div class="split">
+      <div class="split split--stretch">
         <div class="split__text" data-stagger="110">
           <h2 class="h2 reveal">על הפרויקט</h2>
           <div class="prose">
@@ -118,10 +118,10 @@
   </div>
 
   <section id="apartments" class="section theme-light has-paper section-apartments">
+    {{rings class="deco deco--apartments rings--ink" n=5 r0=30 r1=197 sw=2}}
     <div class="container">
       <div class="split split--reverse">
         <div class="split__text" data-stagger="110">
-          <h2 class="h2 reveal">הדירות</h2>
           <div class="prose">
             <p class="reveal">הדירות מרווחות וכוללת מרפסות סוכה, מפרט טכני עשיר, לובי כניסה מעוצב, מעליות מהירות ושקטות, חניה תת־קרקעית פרטית ושטחים ירוקים לרווחת הדיירים.</p>
             <p class="reveal">מתחם המגורים תוכנן באופן המאפשר הפרדה בין אזורי המגורים למרחבים הציבוריים, לצד מרחבים בטוחים לילדים, שטחים ירוקים ופינות ישיבה המאפשרות ליהנות מהסביבה הפתוחה.</p>
@@ -169,6 +169,8 @@
 
   <!-- ============ על המיקום ============ -->
   <section id="location" class="section theme-light has-paper section-location">
+    <div class="deco deco--disc" aria-hidden="true"></div>
+    {{rings class="deco deco--location rings--ink" n=4 r0=60 r1=197 sw=2}}
     <div class="container">
       <div class="centered" data-stagger="110">
         <h2 class="h2 reveal">על המיקום</h2>
@@ -266,7 +268,7 @@
         <h2 class="h2 reveal">גלריה</h2>
       </div>
       <div class="carousel reveal" data-carousel>
-        <button class="carousel__arrow carousel__arrow--prev" type="button" data-carousel-prev aria-label="התמונה הקודמת">&#8250;</button>
+        <button class="carousel__arrow carousel__arrow--prev" type="button" data-carousel-prev aria-label="התמונה הקודמת"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
         <ul class="carousel__track" aria-label="הדמיות הפרויקט">
           <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/aerial-skyline-1920.webp" data-alt="מבט אווירי על המתחם ואופק תל אביב">{{img name=aerial-skyline widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=7033 h=3956 alt="מבט אווירי על המתחם ואופק תל אביב"}}</button></li>
           <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/elevation-1920.webp" data-alt="חזית בנייני המגורים">{{img name=elevation widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3840 h=2160 alt="חזית בנייני המגורים"}}</button></li>
@@ -285,15 +287,15 @@
           <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/boulevard-shops-1600.webp" data-alt="חנויות השדרה">{{img name=boulevard-shops widths=640,1024,1600 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3840 h=2160 alt="חנויות השדרה"}}</button></li>
           <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/bedroom-1600.webp" data-alt="חדר שינה">{{img name=bedroom widths=640,1024,1600 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=2156 h=2156 alt="חדר שינה"}}</button></li>
         </ul>
-        <button class="carousel__arrow carousel__arrow--next" type="button" data-carousel-next aria-label="התמונה הבאה">&#8249;</button>
+        <button class="carousel__arrow carousel__arrow--next" type="button" data-carousel-next aria-label="התמונה הבאה"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
       </div>
       <ol class="carousel__dots" aria-hidden="true"></ol>
     </div>
     <dialog id="gallery-modal" class="modal modal--gallery">
       <button class="modal__close" type="button" data-close aria-label="סגירה">&times;</button>
-      <button class="modal__nav modal__nav--prev" type="button" data-prev aria-label="התמונה הקודמת">&#8250;</button>
+      <button class="modal__nav modal__nav--prev" type="button" data-prev aria-label="התמונה הקודמת"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
       <img src="" alt="">
-      <button class="modal__nav modal__nav--next" type="button" data-next aria-label="התמונה הבאה">&#8249;</button>
+      <button class="modal__nav modal__nav--next" type="button" data-next aria-label="התמונה הבאה"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
     </dialog>
   </section>
 
@@ -307,6 +309,7 @@
 
   <!-- ============ צור קשר ============ -->
   <section id="contact" class="section theme-dark section-contact">
+    {{rings class="deco deco--contact rings--paper" n=6 r0=20 r1=197 sw=1.5}}
     <div class="container container--narrow">
       <div class="centered" data-stagger="110">
         <h2 class="h2 reveal">צור קשר</h2>
@@ -316,7 +319,6 @@
           <li><span class="contact__label">דוא"ל</span><a class="contact__value" href="mailto:info@centralpark.co.il" dir="ltr">info@centralpark.co.il</a></li>
           <li><span class="contact__label">משרד מכירות</span><span class="contact__value">אלעד</span></li>
         </ul>
-        <a class="btn btn--inline reveal" href="#apartments">מלאי דירות</a>
       </div>
     </div>
   </section>
