@@ -904,3 +904,80 @@ body.menu-open {
 @media (max-width: 767px) {
   .arc { padding-inline-start: 7%; padding-block-end: 6%; }
 }
+
+/* ================= review 5 ================= */
+.prose--xwide { max-width: 62rem; }
+.dev-intro .prose { max-width: 56rem; }
+
+/* shorter full-width bands */
+.bleed--21-9 { aspect-ratio: auto; height: clamp(18rem, 42vw, 34rem); }
+.closing .bleed { aspect-ratio: auto; height: clamp(16rem, 36vw, 30rem); }
+.closing__rings { inset-block-start: -40%; width: min(70vh, 40vw); }
+
+/* carousel */
+.carousel { position: relative; margin-block-start: var(--space-5); }
+.carousel__track {
+  display: flex;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.carousel__track::-webkit-scrollbar { display: none; }
+.carousel__slide {
+  flex: 0 0 calc((100% - 2 * var(--space-3)) / 3);
+  scroll-snap-align: start;
+}
+.carousel__slide .gallery__item { aspect-ratio: 3 / 2; }
+.carousel__arrow {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 2;
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--c-charcoal);
+  background: rgba(246, 241, 232, 0.92);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+.carousel__arrow:hover { background: var(--c-gold); }
+.carousel__arrow--prev { right: -1.5rem; }
+.carousel__arrow--next { left: -1.5rem; }
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  list-style: none;
+  margin: var(--space-4) 0 0;
+  padding: 0;
+}
+.carousel__dots li {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--c-gold);
+  transition: background-color var(--dur-fast) var(--ease-out);
+}
+.carousel__dots li.is-active { background: var(--c-gold); }
+
+@media (max-width: 1023px) {
+  .carousel__slide { flex-basis: calc((100% - var(--space-3)) / 2); }
+  .carousel__arrow { width: 2.5rem; height: 2.5rem; }
+  .carousel__arrow--prev { right: 0.5rem; }
+  .carousel__arrow--next { left: 0.5rem; }
+}
+@media (max-width: 767px) {
+  .carousel__slide { flex-basis: 86%; }
+  .bleed--21-9 { height: clamp(14rem, 60vw, 20rem); }
+  .closing .bleed { height: clamp(14rem, 60vw, 20rem); }
+}

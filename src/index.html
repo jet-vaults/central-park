@@ -171,7 +171,7 @@
     <div class="container">
       <div class="centered" data-stagger="110">
         <h2 class="h2 reveal">על המיקום</h2>
-        <div class="prose prose--center prose--wide">
+        <div class="prose prose--center prose--xwide">
           <p class="reveal"><span class="latin">Central Park</span>  ממוקם בלב אלעד, על עורק התחבורה הראשי של העיר,  במיקום מרכזי ונגיש המשלב בין חיי קהילה, נוחות יומיומית וחיבור מהיר למרכז הארץ.</p>
           <p class="reveal">הפרויקט נהנה מקרבה לצירי תנועה מרכזיים, בהם כביש 6 וכביש 471 ומאפשר נגישות נוחה לפתח תקווה, בני ברק, תל אביב, ירושלים ויישובי האזור. לצד התחבורה הציבורית והנגישות הגבוהה, הפרויקט ממוקם בסמיכות לפארק אלעד החדש ולמגוון מוסדות חינוך, בתי כנסת, גינות ציבוריות ושירותים קהילתיים כך שכל צורכי המשפחה נמצאים במרחק קצר מהבית.</p>
           <p class="reveal">מיקומו של הפרויקט הופך אותו לאטרקטיבי לא רק עבור תושבי אלעד, אלא גם עבור משפחות וקהלים מכל האזור, בהם תושבי ראש העין, שוהם, פתח תקווה, יישובי השומרון והסביבה.</p>
@@ -186,14 +186,14 @@
         <button class="map__zoom" type="button" data-open="map-modal" aria-label="הגדלת תכנית המתחם">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
         </button>
-        <figure class="plan">
+        <figure class="plan" data-lens-src="/assets/img/site-plan-3200.webp">
           {{img name=site-plan widths=640,1024,1600 sizes="(min-width: 1400px) 1240px, 92vw" w=2872 h=2320 alt="תכנית המתחם: שנים־עשר בנייני המגורים A עד L, מרכז המסחר, בית הכנסת, בניין העירייה והכיכר העירונית, עם כיווני הגישה מכביש 444 ומכביש 6"}}
         </figure>
         <div class="map__lens" aria-hidden="true"></div>
       </div>
       <dialog id="map-modal" class="modal">
         <button class="modal__close" type="button" data-close aria-label="סגירה">&times;</button>
-        <img src="/assets/img/site-plan-1600.webp" width="1600" height="1292" alt="תכנית המתחם בהגדלה" loading="lazy">
+        <img src="/assets/img/site-plan-4800.webp" width="4800" height="3877" alt="תכנית המתחם בהגדלה" loading="lazy">
       </dialog>
 
       <!-- spread 4: four ring circles. Phrases are lifted from the location copy above. -->
@@ -264,24 +264,29 @@
       <div class="centered" data-stagger="110">
         <h2 class="h2 reveal">גלריה</h2>
       </div>
-      <ul class="gallery" data-stagger="70" aria-label="הדמיות הפרויקט">
-        <li><button type="button" class="gallery__item fade" data-full="/assets/img/aerial-skyline-1920.webp" data-alt="מבט אווירי על המתחם ואופק תל אביב">{{img name=aerial-skyline widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=7033 h=3956 alt="מבט אווירי על המתחם ואופק תל אביב"}}</button></li>
-        <li><button type="button" class="gallery__item fade" data-full="/assets/img/elevation-1920.webp" data-alt="חזית בנייני המגורים">{{img name=elevation widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3840 h=2160 alt="חזית בנייני המגורים"}}</button></li>
-        <li><button type="button" class="gallery__item fade" data-full="/assets/img/boulevard-1920.webp" data-alt="שדרת המסחר">{{img name=boulevard widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3840 h=2160 alt="שדרת המסחר"}}</button></li>
-        <li><button type="button" class="gallery__item fade" data-full="/assets/img/plaza-1920.webp" data-alt="הרחבה הציבורית וגן המשחקים">{{img name=plaza widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3840 h=2160 alt="הרחבה הציבורית וגן המשחקים"}}</button></li>
-        <li><button type="button" class="gallery__item fade" data-full="/assets/img/aerial-top-1920.webp" data-alt="מבט על על המתחם">{{img name=aerial-top widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=8000 h=3841 alt="מבט על על המתחם"}}</button></li>
-        <li><button type="button" class="gallery__item fade" data-full="/assets/img/balconies-1920.webp" data-alt="מרפסות הדירות">{{img name=balconies widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3840 h=2160 alt="מרפסות הדירות"}}</button></li>
-        <li><button type="button" class="gallery__item fade" data-full="/assets/img/aerial-hills-1920.webp" data-alt="המתחם על רקע הרי השומרון">{{img name=aerial-hills widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=7033 h=3956 alt="המתחם על רקע הרי השומרון"}}</button></li>
-        <li><button type="button" class="gallery__item fade" data-full="/assets/img/panorama-1920.webp" data-alt="פנורמת המתחם">{{img name=panorama widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=9000 h=3000 alt="פנורמת המתחם"}}</button></li>
-        <li><button type="button" class="gallery__item fade" data-full="/assets/img/hero-terrace-1920.webp" data-alt="מרפסת פנטהאוז">{{img name=hero-terrace widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=4015 h=2837 alt="מרפסת פנטהאוז"}}</button></li>
-        <li><button type="button" class="gallery__item fade" data-full="/assets/img/living-room-1600.webp" data-alt="סלון עם נוף פתוח">{{img name=living-room widths=640,1024,1600 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3584 h=2160 alt="סלון עם נוף פתוח"}}</button></li>
-        <li><button type="button" class="gallery__item fade" data-full="/assets/img/terrace-pool-1600.webp" data-alt="מרפסת עם בריכה פרטית">{{img name=terrace-pool widths=640,1024,1600 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3059 h=2160 alt="מרפסת עם בריכה פרטית"}}</button></li>
-        <li><button type="button" class="gallery__item fade" data-full="/assets/img/terrace-jacuzzi-1600.webp" data-alt="מרפסת גג עם ג׳קוזי">{{img name=terrace-jacuzzi widths=640,1024,1600 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3063 h=2160 alt="מרפסת גג עם ג׳קוזי"}}</button></li>
-        <li><button type="button" class="gallery__item fade" data-full="/assets/img/garden-pool-1600.webp" data-alt="דירת גן עם בריכה">{{img name=garden-pool widths=640,1024,1600 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=4352 h=3072 alt="דירת גן עם בריכה"}}</button></li>
-        <li><button type="button" class="gallery__item fade" data-full="/assets/img/sunset-terrace-1920.webp" data-alt="מרפסת גג בשקיעה">{{img name=sunset-terrace widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3063 h=2160 alt="מרפסת גג בשקיעה"}}</button></li>
-        <li><button type="button" class="gallery__item fade" data-full="/assets/img/boulevard-shops-1600.webp" data-alt="חנויות השדרה">{{img name=boulevard-shops widths=640,1024,1600 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3840 h=2160 alt="חנויות השדרה"}}</button></li>
-        <li><button type="button" class="gallery__item fade" data-full="/assets/img/bedroom-1600.webp" data-alt="חדר שינה">{{img name=bedroom widths=640,1024,1600 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=2156 h=2156 alt="חדר שינה"}}</button></li>
-      </ul>
+      <div class="carousel reveal" data-carousel>
+        <button class="carousel__arrow carousel__arrow--prev" type="button" data-carousel-prev aria-label="התמונה הקודמת">&#8250;</button>
+        <ul class="carousel__track" aria-label="הדמיות הפרויקט">
+          <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/aerial-skyline-1920.webp" data-alt="מבט אווירי על המתחם ואופק תל אביב">{{img name=aerial-skyline widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=7033 h=3956 alt="מבט אווירי על המתחם ואופק תל אביב"}}</button></li>
+          <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/elevation-1920.webp" data-alt="חזית בנייני המגורים">{{img name=elevation widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3840 h=2160 alt="חזית בנייני המגורים"}}</button></li>
+          <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/boulevard-1920.webp" data-alt="שדרת המסחר">{{img name=boulevard widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3840 h=2160 alt="שדרת המסחר"}}</button></li>
+          <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/plaza-1920.webp" data-alt="הרחבה הציבורית וגן המשחקים">{{img name=plaza widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3840 h=2160 alt="הרחבה הציבורית וגן המשחקים"}}</button></li>
+          <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/aerial-top-1920.webp" data-alt="מבט על על המתחם">{{img name=aerial-top widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=8000 h=3841 alt="מבט על על המתחם"}}</button></li>
+          <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/balconies-1920.webp" data-alt="מרפסות הדירות">{{img name=balconies widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3840 h=2160 alt="מרפסות הדירות"}}</button></li>
+          <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/aerial-hills-1920.webp" data-alt="המתחם על רקע הרי השומרון">{{img name=aerial-hills widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=7033 h=3956 alt="המתחם על רקע הרי השומרון"}}</button></li>
+          <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/panorama-1920.webp" data-alt="פנורמת המתחם">{{img name=panorama widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=9000 h=3000 alt="פנורמת המתחם"}}</button></li>
+          <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/hero-terrace-1920.webp" data-alt="מרפסת פנטהאוז">{{img name=hero-terrace widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=4015 h=2837 alt="מרפסת פנטהאוז"}}</button></li>
+          <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/living-room-1600.webp" data-alt="סלון עם נוף פתוח">{{img name=living-room widths=640,1024,1600 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3584 h=2160 alt="סלון עם נוף פתוח"}}</button></li>
+          <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/terrace-pool-1600.webp" data-alt="מרפסת עם בריכה פרטית">{{img name=terrace-pool widths=640,1024,1600 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3059 h=2160 alt="מרפסת עם בריכה פרטית"}}</button></li>
+          <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/terrace-jacuzzi-1600.webp" data-alt="מרפסת גג עם ג׳קוזי">{{img name=terrace-jacuzzi widths=640,1024,1600 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3063 h=2160 alt="מרפסת גג עם ג׳קוזי"}}</button></li>
+          <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/garden-pool-1600.webp" data-alt="דירת גן עם בריכה">{{img name=garden-pool widths=640,1024,1600 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=4352 h=3072 alt="דירת גן עם בריכה"}}</button></li>
+          <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/sunset-terrace-1920.webp" data-alt="מרפסת גג בשקיעה">{{img name=sunset-terrace widths=768,1280,1920 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3063 h=2160 alt="מרפסת גג בשקיעה"}}</button></li>
+          <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/boulevard-shops-1600.webp" data-alt="חנויות השדרה">{{img name=boulevard-shops widths=640,1024,1600 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=3840 h=2160 alt="חנויות השדרה"}}</button></li>
+          <li class="carousel__slide"><button type="button" class="gallery__item" data-full="/assets/img/bedroom-1600.webp" data-alt="חדר שינה">{{img name=bedroom widths=640,1024,1600 sizes="(min-width: 1024px) 24vw, (min-width: 768px) 46vw, 92vw" w=2156 h=2156 alt="חדר שינה"}}</button></li>
+        </ul>
+        <button class="carousel__arrow carousel__arrow--next" type="button" data-carousel-next aria-label="התמונה הבאה">&#8249;</button>
+      </div>
+      <ol class="carousel__dots" aria-hidden="true"></ol>
     </div>
     <dialog id="gallery-modal" class="modal modal--gallery">
       <button class="modal__close" type="button" data-close aria-label="סגירה">&times;</button>
@@ -294,7 +299,7 @@
   <!-- ============ closing image ============ -->
   <div class="closing">
     <div class="bleed parallax">
-      {{img name=elevation widths=768,1280,1920,2560 sizes="100vw" w=3840 h=2160 alt="חזית בנייני המגורים של Central Park על רקע שמיים פתוחים"}}
+      {{img name=balconies widths=768,1280,1920,2560 sizes="100vw" w=3840 h=2160 alt="מרפסות הדירות ב-Central Park"}}
     </div>
     {{rings class="closing__rings rings--paper" n=3 r0=110 r1=197 sw=3}}
   </div>

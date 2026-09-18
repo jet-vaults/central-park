@@ -146,7 +146,7 @@
   if (map && fine.matches) {
     var img = map.querySelector("img");
     var lens = map.querySelector(".map__lens");
-    var ZOOM = 2.6, LENS = 180;
+    var ZOOM = 3, LENS = 200;
     function move(e) {
       var r = img.getBoundingClientRect(), wr = map.getBoundingClientRect();
       var x = e.clientX - r.left, y = e.clientY - r.top;
@@ -154,7 +154,7 @@
       y = Math.max(LENS / 2, Math.min(y, r.height - LENS / 2));
       lens.style.left = (x - LENS / 2 + r.left - wr.left) + "px";
       lens.style.top = (y - LENS / 2 + r.top - wr.top) + "px";
-      lens.style.backgroundImage = "url(" + img.currentSrc + ")";
+      lens.style.backgroundImage = "url(" + (map.querySelector(".plan").getAttribute("data-lens-src") || img.currentSrc) + ")";
       lens.style.backgroundSize = (r.width * ZOOM) + "px " + (r.height * ZOOM) + "px";
       lens.style.backgroundPosition = (-(x * ZOOM - LENS / 2)) + "px " + (-(y * ZOOM - LENS / 2)) + "px";
     }
@@ -193,4 +193,36 @@
       if (e.key === "ArrowLeft") show(cur + 1);
     });
   }
+})();
+
+/* ---------- gallery carousel ---------- */
+(function () {
+  "use strict";
+  var c = document.querySelector("[data-carousel]");
+  if (!c) return;
+  var track = c.querySelector(".carousel__track");
+  var slides = Array.prototype.slice.call(track.children);
+  var dots = document.querySelector(".carousel__dots");
+  function perView() { return Math.max(1, Math.round(track.clientWidth / slides[0].getBoundingClientRect().width)); }
+  function pages() { return Math.ceil(slides.length / perView()); }
+  function current() { return Math.round(Math.abs(track.scrollLeft) / track.clientWidth); }
+  function go(page) {
+    var n = pages(); page = (page + n) % n;
+    var x = page * track.clientWidth;
+    track.scrollTo({ left: getComputedStyle(track).direction === "rtl" ? -x : x, behavior: "smooth" });
+  }
+  function buildDots() {
+    dots.innerHTML = "";
+    for (var i = 0; i < pages(); i++) { dots.appendChild(document.createElement("li")); }
+    paint();
+  }
+  function paint() {
+    var cur = current();
+    Array.prototype.forEach.call(dots.children, function (d, i) { d.classList.toggle("is-active", i === cur); });
+  }
+  c.querySelector("[data-carousel-prev]").addEventListener("click", function () { go(current() - 1); });
+  c.querySelector("[data-carousel-next]").addEventListener("click", function () { go(current() + 1); });
+  track.addEventListener("scroll", function () { requestAnimationFrame(paint); }, { passive: true });
+  window.addEventListener("resize", buildDots);
+  buildDots();
 })();
