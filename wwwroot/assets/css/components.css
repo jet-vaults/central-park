@@ -162,13 +162,15 @@
   transition: transform .45s var(--ease-out);
 }
 .menu.is-open .menu__panel { transform: none; }
+.menu__brand { display: inline-flex; align-self: flex-end; color: var(--c-paper); margin-block: var(--space-2) var(--space-5); }
+.menu__brand svg { height: 2.5rem; width: auto; }
 .menu__close {
   align-self: flex-end;
   width: 2.5rem; height: 2.5rem;
   display: grid; place-items: center;
   border: 1px solid var(--c-hair-dark); border-radius: 50%;
   color: var(--c-paper);
-  margin-block-end: var(--space-4);
+  margin-block-end: var(--space-2);
 }
 .menu__close svg { width: 1.1rem; height: 1.1rem; }
 .menu ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .25rem; text-align: right; }

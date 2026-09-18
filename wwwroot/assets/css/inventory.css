@@ -35,7 +35,8 @@ body.page-inventory .site-header .btn:hover { background: var(--c-gold); color: 
 body.page-inventory .nav ul { padding: 0; margin: 0; }
 body.page-inventory .menu ul, body.page-inventory .partners { padding: 0; margin: 0; }
 body.page-inventory .menu__cta { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; border: 1px solid var(--c-gold); border-radius: var(--radius); background: var(--c-gold); color: var(--c-charcoal); font-weight: var(--fw-medium); }
-body.page-inventory .footer__logo svg, body.page-inventory .brand svg { vertical-align: top; }
+body.page-inventory .footer__logo svg, body.page-inventory .brand svg, body.page-inventory .menu__brand svg { vertical-align: top; }
+body.page-inventory .menu__brand svg { height: 2.5rem; width: auto; }
 body.page-inventory h1 { margin: 0; }
 body.page-inventory p { margin: 0; }
 body.page-inventory .footer__note, body.page-inventory .footer__powered { margin: 0; }
@@ -168,9 +169,11 @@ body.page-inventory .footer__powered { margin-block-start: var(--space-2); }
 }
 @media (max-width: 767px) {
   .inv-hero { height: clamp(16rem, 40vh, 22rem); }
-  .inv-hero__building { bottom: var(--space-4); }
-  .inv-hero__building-letter { font-size: 3.25rem; }
-  .inv-hero__title { font-size: 2.5rem; }
+  .inv-hero__content { padding-block-end: var(--space-4); }
+  .inv-hero__building { bottom: var(--space-4); align-items: baseline; }
+  .inv-hero__building-letter { font-size: 2.5rem; line-height: 1; }
+  .inv-hero__building-word { font-size: 1rem; }
+  .inv-hero__title { font-size: 2.5rem; line-height: 1; }
   .page-inventory .jv-realestate-root .apartment-card { width: 100%; max-width: 22rem; }
   .page-inventory .jv-realestate-root .display-btn { min-width: 8.5rem; }
 }
