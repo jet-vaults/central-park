@@ -328,7 +328,8 @@ body.menu-open {
 /* ---------------- spread 11: photo inside a tall arc (D shape, curve on the physical left) ---------------- */
 .arc {
   position: relative;
-  padding-inline-end: 4%;
+  padding-inline-start: 9%;    /* RTL start = right: room for the grey panel to show */
+  padding-block-end: 7%;
 }
 .arc__clip .media {
   border-radius: 50% 0 0 50% / 50% 0 0 50%;   /* physical: left corners only */
@@ -884,4 +885,22 @@ body.menu-open {
   .map__lens { display: none !important; }
   .map { cursor: default; }
   .modal__nav { width: 2.25rem; height: 2.25rem; }
+}
+
+/* grey panel behind the arc photo, showing along its straight right edge */
+.arc__panel {
+  position: absolute;
+  inset-block: 10% 0;
+  inset-inline-start: 0;       /* RTL start = right */
+  inset-inline-end: 34%;
+  background: var(--c-grey);
+  opacity: 0.6;
+  border-radius: var(--radius);
+  z-index: 0;
+  pointer-events: none;
+}
+.js .arc__panel { transform: translateX(-6%); opacity: 0; transition: transform 1400ms var(--ease-out), opacity 1400ms var(--ease-out); }
+.js .arc__panel.is-in { transform: none; opacity: 0.6; }
+@media (max-width: 767px) {
+  .arc { padding-inline-start: 7%; padding-block-end: 6%; }
 }
