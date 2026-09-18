@@ -1046,3 +1046,28 @@ body.menu-open {
   .deco--apartments { width: 60vw; left: -30%; }
   .split--stretch .frame .media { aspect-ratio: 4 / 3; height: auto; }
 }
+
+/* ================= choose a building (interactive aerial) ================= */
+.section-pick { padding-block: var(--section-y); }
+.pick__hint { color: var(--c-paper-soft); font-size: var(--fs-small); margin-block: calc(-1 * var(--space-2)) var(--space-5); }
+.pick { position: relative; border-radius: var(--radius); overflow: hidden; background: var(--c-charcoal-2); }
+.pick picture, .pick img { display: block; width: 100%; height: auto; }
+.pick__map { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pick__b polygon {
+  fill: rgba(198, 175, 123, 0);
+  stroke: rgba(246, 241, 232, 0);
+  stroke-width: 0.25;
+  vector-effect: non-scaling-stroke;
+  transition: fill .35s var(--ease-out), stroke .35s var(--ease-out);
+  cursor: pointer;
+}
+.pick__b:hover polygon, .pick__b:focus-visible polygon { fill: rgba(198, 175, 123, .42); stroke: rgba(246, 241, 232, .9); stroke-width: 1.5; }
+.pick__b:focus-visible { outline: none; }
+.pick__tag { opacity: 0; transition: opacity .3s var(--ease-out); pointer-events: none; }
+.pick__b:hover .pick__tag, .pick__b:focus-visible .pick__tag { opacity: 1; }
+.pick__tag rect { fill: var(--c-charcoal); }
+.pick__tag text { fill: var(--c-gold); font-family: var(--font-sans); font-weight: 700; font-size: 3.1px; }
+@media (hover: none) {
+  .pick__b polygon { fill: rgba(198, 175, 123, .18); stroke: rgba(246, 241, 232, .55); stroke-width: 1; }
+  .pick__tag { opacity: 1; }
+}
