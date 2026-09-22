@@ -201,7 +201,7 @@ body.page-inventory .footer__links { margin-block-start: var(--space-3); }
 .page-inventory .jv-realestate-root .apartments-row,
 .page-inventory .jv-realestate-root .apartments-row-filter {
   display: grid !important;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(22%, 1fr));   /* max 4 per row; fewer cards stretch to fill */
   gap: var(--space-3);
   justify-content: stretch;
 }
@@ -211,7 +211,7 @@ body.page-inventory .footer__links { margin-block-start: var(--space-3); }
 .page-inventory .jv-realestate-root .apartment-card { height: 100%; }
 @media (max-width: 1023px) {
   .page-inventory .jv-realestate-root .apartments-row,
-  .page-inventory .jv-realestate-root .apartments-row-filter { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .page-inventory .jv-realestate-root .apartments-row-filter { grid-template-columns: repeat(auto-fit, minmax(45%, 1fr)); }
 }
 @media (max-width: 599px) {
   .page-inventory .jv-realestate-root .apartments-row,
