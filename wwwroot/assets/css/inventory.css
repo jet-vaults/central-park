@@ -217,3 +217,4 @@ body.page-inventory .footer__links { margin-block-start: var(--space-3); }
   .page-inventory .jv-realestate-root .apartments-row,
   .page-inventory .jv-realestate-root .apartments-row-filter { grid-template-columns: 1fr; }
 }
+.page-inventory .jv-realestate-root .apartment-card:has(.free-market) .apartment-details { justify-content: flex-start; }
