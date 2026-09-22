@@ -51,7 +51,7 @@
   justify-self: start;
   color: var(--c-paper);
 }
-.brand svg {
+.brand svg, .brand__img {
   height: 2.75rem;
   width: auto;
 }
@@ -164,6 +164,7 @@
 .menu.is-open .menu__panel { transform: none; }
 .menu__brand { display: inline-flex; align-self: center; color: var(--c-paper); margin-block: var(--space-2) var(--space-5); }
 .menu__brand svg { height: 2.5rem; width: auto; }
+.menu__brand .logo-stack { width: min(11rem, 60%); height: auto; }
 .menu__close {
   align-self: flex-end;
   width: 2.5rem; height: 2.5rem;
@@ -517,6 +518,7 @@ body.menu-open { overflow: hidden; }
   height: clamp(3.5rem, 6vw, 5rem);
   width: auto;
 }
+.footer__logo .logo-stack { width: clamp(10rem, 16vw, 14rem); height: auto; }
 .footer__motif {
   width: min(22rem, 64vw);
   margin: var(--space-6) auto;
@@ -589,7 +591,7 @@ body.menu-open { overflow: hidden; }
 }
 
 @media (max-width: 767px) {
-  .brand svg {
+  .brand svg, .brand__img {
     height: 2.25rem;
   }
   .site-header__inner {
