@@ -80,6 +80,12 @@
       { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
     );
     targets.forEach(function (t) { io.observe(t); });
+    /* safety net: at the very bottom of the page, reveal whatever is left */
+    window.addEventListener("scroll", function () {
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+        targets.forEach(function (t) { t.classList.add("is-in"); });
+      }
+    }, { passive: true });
   } else {
     targets.forEach(function (t) { t.classList.add("is-in"); });
   }
