@@ -186,3 +186,13 @@ body.page-inventory .a11y-title, body.page-inventory .a11y-statement, body.page-
 body.page-inventory .a11y-title { margin-block-end: .8rem; }
 body.page-inventory .a11y-statement { margin-block-start: .8rem; }
 body.page-inventory .footer__links { margin-block-start: var(--space-3); }
+
+/* free-market units: number + "שוק חופשי" only, no specs or price */
+.page-inventory .jv-realestate-root .apartment-card:has(.free-market) .apartment-type,
+.page-inventory .jv-realestate-root .apartment-card:has(.free-market) .apartment-info,
+.page-inventory .jv-realestate-root .apartment-card:has(.free-market) .apartment-price,
+.page-inventory .jv-realestate-root .apartment-card:has(.free-market) .apartment-plan { display: none !important; }
+.page-inventory .jv-realestate-root .apartment-card:has(.free-market) { justify-content: flex-start; }
+.page-inventory .jv-realestate-root .apartment-card:has(.free-market) .free-market {
+  font-size: .95rem; font-weight: var(--fw-medium); color: var(--c-ink-soft); margin-top: .25rem;
+}
