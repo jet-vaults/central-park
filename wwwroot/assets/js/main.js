@@ -308,3 +308,34 @@
   new MutationObserver(relabel).observe(host, { childList: true, subtree: true });
   relabel();
 })();
+
+/* ---------- inventory: physical floor order (widget cannot read קק / קג) ---------- */
+(function () {
+  "use strict";
+  var host = document.getElementById("inventory");
+  if (!host) return;
+  function key(label) {
+    var s = label.replace(/[\u2066-\u2069]/g, "").trim();
+    if (/^קק/.test(s) || /קרקע/.test(s)) return 0;      /* ground */
+    if (/^קג/.test(s) || /גן/.test(s)) return 0.5;      /* garden level, just above ground */
+    var m = s.match(/-?\d+(\.\d+)?/);
+    return m ? parseFloat(m[0]) : -1e6;
+  }
+  var busy = false;
+  function reorder() {
+    if (busy) return;
+    var sections = Array.prototype.slice.call(host.querySelectorAll(".floor-section"));
+    if (sections.length < 2) return;
+    var parent = sections[0].parentNode;
+    if (!sections.every(function (s) { return s.parentNode === parent; })) return;
+    var sorted = sections.slice().sort(function (a, b) {
+      return key(b.querySelector(".floor-title").textContent) - key(a.querySelector(".floor-title").textContent);  /* highest first */
+    });
+    if (sorted.every(function (s, i) { return s === sections[i]; })) return;
+    busy = true;
+    sorted.forEach(function (s) { parent.appendChild(s); });
+    busy = false;
+  }
+  new MutationObserver(reorder).observe(host, { childList: true, subtree: true });
+  reorder();
+})();
