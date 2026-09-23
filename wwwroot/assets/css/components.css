@@ -856,9 +856,9 @@ body.menu-open { overflow: hidden; }
   margin: 0 auto;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-4);
-  max-width: 56rem;
+  max-width: 48rem;
 }
 .contact li {
   display: grid;
