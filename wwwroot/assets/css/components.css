@@ -212,19 +212,19 @@ body.menu-open { overflow: hidden; }
 }
 .hero__media img {
   object-fit: cover;
-  object-position: 50% 42%;
+  object-position: 50% 60%;
 }
 .hero__scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(44, 44, 44, 0.3) 0%, rgba(44, 44, 44, 0) 28%, rgba(44, 44, 44, 0) 62%, rgba(44, 44, 44, 0.6) 100%);
+  background: linear-gradient(to bottom, rgba(44, 44, 44, 0.42) 0%, rgba(44, 44, 44, 0.12) 35%, rgba(44, 44, 44, 0) 60%, rgba(44, 44, 44, 0.6) 100%);
   pointer-events: none;
 }
 .hero__rings {
   position: absolute;
-  inset-block-start: -14%;
-  left: 40%;
-  width: min(88vh, 62vw);
+  inset-block-start: 2%;
+  left: -9%;
+  width: min(70vh, 40vw);
   pointer-events: none;
 }
 .hero__content {
@@ -233,14 +233,14 @@ body.menu-open { overflow: hidden; }
   display: flex;
   width: 100%;
 }
-/* the cover lock-up lives on the left half of the frame, exactly like the printed cover */
+/* Hebrew lock-up on the right half; rings on the left */
 .hero__title {
-  direction: ltr;
-  margin-right: auto;
-  margin-left: 0;
-  color: var(--c-charcoal);
-  text-align: left;
-  transform: translateY(-8vh);
+  margin-inline-start: 0;
+  margin-inline-end: auto;
+  color: var(--c-paper);
+  text-align: right;
+  text-shadow: 0 2px 24px rgba(44, 44, 44, .35);
+  transform: translateY(-24vh);
 }
 .hero__title-a {
   display: block;
@@ -253,9 +253,10 @@ body.menu-open { overflow: hidden; }
   display: block;
   font-size: var(--fs-display);
   font-weight: var(--fw-bold);
-  line-height: 0.95;
-  letter-spacing: -0.005em;
-  margin-inline-start: 0.55em;
+  line-height: 1;
+  letter-spacing: 0;
+  margin-inline-start: 0;
+  color: var(--c-gold);
 }
 .hero__cue {
   position: absolute;
@@ -609,15 +610,15 @@ body.menu-open { overflow: hidden; }
     min-height: 520px;
   }
   .hero__media img {
-    object-position: 34% 50%;
+    object-position: 45% 62%;
   }
   .hero__rings {
-    left: 22%;
-    width: 96vw;
-    inset-block-start: -8%;
+    left: -40%;
+    width: 110vw;
+    inset-block-start: -12%;
   }
   .hero__title {
-    transform: translateY(-6vh);
+    transform: translateY(-14vh);
   }
   .hero__cue {
     inset-block-end: var(--space-3);
@@ -996,7 +997,7 @@ body.menu-open { overflow: hidden; }
 
 /* hero rings: 270° arcs at rest, gap toward the top-right */
 .hero__rings circle { stroke-dasharray: 0.75 1; }
-.hero__rings { transform: rotate(-20deg); }
+.hero__rings { transform: rotate(160deg); }
 
 /* closing image: no gradient */
 .closing::after { display: none; }

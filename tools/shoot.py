@@ -12,7 +12,10 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 WWW = os.path.join(ROOT, "wwwroot")
 OUT = os.path.join(ROOT, "qa")
 WIDTHS = [1920, 1680, 1440, 1366, 1280, 1024, 768, 430, 390]
-PORT = 8765
+import socket
+def _free_port():
+    s = socket.socket(); s.bind(("127.0.0.1", 0)); p = s.getsockname()[1]; s.close(); return p
+PORT = _free_port()
 
 
 class Quiet(http.server.SimpleHTTPRequestHandler):
@@ -22,7 +25,7 @@ class Quiet(http.server.SimpleHTTPRequestHandler):
 
 def serve():
     handler = functools.partial(Quiet, directory=WWW)
-    socketserver.TCPServer.allow_reuse_address = True
+    socketserver.TCPServer.allow_reuse_address = False
     httpd = socketserver.TCPServer(("127.0.0.1", PORT), handler)
     threading.Thread(target=httpd.serve_forever, daemon=True).start()
     return httpd
