@@ -339,3 +339,31 @@
   new MutationObserver(reorder).observe(host, { childList: true, subtree: true });
   reorder();
 })();
+
+/* ---------- steps accordion ---------- */
+(function () {
+  "use strict";
+  var root = document.querySelector(".steps");
+  if (!root) return;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function setOpen(btn, open) {
+    var panel = document.getElementById(btn.getAttribute("aria-controls"));
+    btn.setAttribute("aria-expanded", String(open));
+    if (reduce || !panel.animate) { panel.hidden = !open; return; }
+    if (open) {
+      panel.hidden = false;
+      var h = panel.scrollHeight;
+      panel.animate([{ height: "0px", opacity: 0 }, { height: h + "px", opacity: 1 }], { duration: 420, easing: "cubic-bezier(.2,.7,.2,1)" });
+    } else {
+      var a = panel.animate([{ height: panel.scrollHeight + "px", opacity: 1 }, { height: "0px", opacity: 0 }], { duration: 320, easing: "cubic-bezier(.65,0,.35,1)" });
+      a.onfinish = function () { panel.hidden = true; };
+    }
+  }
+  root.querySelectorAll(".steps__btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var open = btn.getAttribute("aria-expanded") !== "true";
+      root.querySelectorAll('.steps__btn[aria-expanded="true"]').forEach(function (b) { if (b !== btn) setOpen(b, false); });
+      setOpen(btn, open);
+    });
+  });
+})();

@@ -1167,3 +1167,33 @@ html.a11y-cursor, html.a11y-cursor * { cursor: url("data:image/svg+xml;utf8,<svg
 .pos-elev { object-position: 62% 50%; }
 
 .bleed--sky img { object-position: 50% 70%; }
+
+/* ================= steps accordion (מחיר מטרה) ================= */
+.section-steps .centered .h2 { margin-block-end: var(--space-5); }
+.section-steps .eyebrow { margin-block-end: var(--space-2); }
+.steps { list-style: none; margin: 0 auto; padding: 0; max-width: 52rem; border-block-start: 1px solid var(--c-hair-light); }
+.steps__item { border-block-end: 1px solid var(--c-hair-light); }
+.steps__title { margin: 0; font-size: inherit; font-weight: inherit; }
+.steps__btn {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--space-3);
+  width: 100%; padding: 1.25rem 0; text-align: start;
+  color: var(--c-ink); font-size: var(--fs-h3); font-weight: var(--fw-medium); line-height: 1.3;
+  transition: color .3s var(--ease-out);
+}
+.steps__btn:hover, .steps__btn[aria-expanded="true"] { color: var(--c-gold); }
+.steps__num { font-size: var(--fs-small); font-weight: var(--fw-regular); color: var(--c-gold); letter-spacing: .06em; direction: ltr; min-width: 2ch; }
+.steps__icon { position: relative; width: 1.5rem; height: 1.5rem; border-radius: 50%; border: 1px solid var(--c-gold); flex: none; }
+.steps__icon::before, .steps__icon::after { content: ""; position: absolute; inset-block-start: 50%; inset-inline-start: 50%; width: .65rem; height: 1px; background: var(--c-gold); translate: -50% -50%; transition: transform .35s var(--ease-out); }
+.steps__icon::after { transform: rotate(90deg); }
+.steps__btn[aria-expanded="true"] .steps__icon::after { transform: rotate(0deg); }
+.steps__panel { overflow: hidden; }
+.steps__body { padding: 0 0 var(--space-4); padding-inline-start: calc(2ch + var(--space-3)); color: var(--c-ink); max-width: 46rem; }
+.steps__body p + p, .steps__body ol + p, .steps__body p + ol { margin-block-start: 1em; }
+.steps__body ol { padding-inline-start: 1.25rem; margin: 0; }
+.steps__body li + li { margin-block-start: .5rem; }
+.steps__body a { color: var(--c-gold); border-block-end: 1px solid var(--c-gold-soft); }
+.steps__note { font-size: var(--fs-small); color: var(--c-ink-soft); }
+@media (max-width: 767px) {
+  .steps__btn { gap: var(--space-2); padding: 1rem 0; font-size: 1.1rem; }
+  .steps__body { padding-inline-start: 0; }
+}
