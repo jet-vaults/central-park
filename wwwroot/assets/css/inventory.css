@@ -152,7 +152,14 @@ body.page-inventory .footer__powered { margin-block-start: var(--space-2); }
 .page-inventory .jv-realestate-root .floor-info { color: var(--c-gold) !important; font-weight: var(--fw-medium) !important; }
 .page-inventory .jv-realestate-root .floor-info i { color: var(--c-gold); }
 .page-inventory .jv-realestate-root .apartment-card.sold::before { background: var(--c-rose); }
-.page-inventory .jv-realestate-root .apartment-plan { background: transparent; border: 1px solid var(--c-gold); border-radius: var(--radius); color: var(--c-ink); }
+.page-inventory .jv-realestate-root .apartment-details > a { display: block; margin-top: .75rem; }
+.page-inventory .jv-realestate-root .apartment-plan {
+  background: var(--c-gold-faint); border: 0; border-radius: var(--radius); color: var(--c-ink);
+  margin: 0; padding: .45rem .9rem; font-size: var(--fs-small); font-weight: var(--fw-medium); line-height: 1.2;
+  transition: background-color .3s var(--ease-out), color .3s var(--ease-out);
+}
+.page-inventory .jv-realestate-root .apartment-plan div { margin: 0; }
+.page-inventory .jv-realestate-root .apartment-details > a:hover .apartment-plan { background: var(--c-gold); color: var(--c-charcoal); }
 
 /* pagination */
 .page-inventory .jv-realestate-root .pagination { margin-top: var(--space-4); gap: .25rem; }
