@@ -38,5 +38,8 @@ Only the `wwwroot/` directory is served. Everything else stays in the repo.
 - `python tools/shoot.py` screenshots every target width into `qa/` (gitignored); `tools/shoot-states.py` covers
   the hero entrance, scrolled header and mobile menu.
 - Design tokens and the rationale for every value are in `DESIGN.md`.
+- Downloadable documents (`#documents` section) go in `wwwroot/docs/`. Each row in `src/index.html` starts as a
+  "בקרוב" placeholder; when an approved PDF arrives, drop it into `wwwroot/docs/` and swap the row for the link
+  markup shown in the HTML comment above the section.
 - Fonts: the prospectus uses Ploni + Almoni Tzar (Fontef, commercial). Heebo is the interim stand-in; drop licensed
   `woff2` files into `wwwroot/assets/fonts/` and update the `@font-face` rules in `assets/css/base.css`.
