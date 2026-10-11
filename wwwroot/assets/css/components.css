@@ -1191,8 +1191,8 @@ html.a11y-cursor, html.a11y-cursor * { cursor: url("data:image/svg+xml;utf8,<svg
 .steps__btn[aria-expanded="true"] .steps__icon::after { transform: rotate(0deg); }
 .steps__panel { overflow: hidden; }
 .steps__body { padding: 0 0 var(--space-4); padding-inline-start: calc(2ch + var(--space-3)); color: var(--c-ink); max-width: 46rem; }
-.steps__body p + p, .steps__body ol + p, .steps__body p + ol { margin-block-start: 1em; }
-.steps__body ol { padding-inline-start: 1.25rem; margin: 0; }
+.steps__body p + p, .steps__body ol + p, .steps__body p + ol, .steps__body ul + p, .steps__body p + ul { margin-block-start: 1em; }
+.steps__body ol, .steps__body ul { padding-inline-start: 1.25rem; margin: 0; }
 .steps__body li + li { margin-block-start: .5rem; }
 .steps__body a { color: var(--c-gold); border-block-end: 1px solid var(--c-gold-soft); }
 .steps__note { font-size: var(--fs-small); color: var(--c-ink-soft); }
