@@ -1182,7 +1182,7 @@ html.a11y-cursor, html.a11y-cursor * { cursor: url("data:image/svg+xml;utf8,<svg
 .steps__btn {
   display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--space-3);
   width: 100%; padding: 1.5rem 0; text-align: start;
-  color: var(--c-ink); font-size: clamp(1.5rem, 1.2rem + 1.1vw, 2.125rem); font-weight: var(--fw-bold); line-height: 1.25;
+  color: var(--c-ink); font-size: clamp(1.375rem, 1.15rem + 0.7vw, 1.75rem); font-weight: var(--fw-bold); line-height: 1.25;
   transition: color .3s var(--ease-out);
 }
 .steps__btn:hover, .steps__btn[aria-expanded="true"] { color: var(--c-gold); }
@@ -1206,7 +1206,7 @@ html.a11y-cursor, html.a11y-cursor * { cursor: url("data:image/svg+xml;utf8,<svg
 .steps__callout { padding: 1.1rem 1.4rem; border: 1px solid var(--c-gold); border-radius: var(--radius); background: rgba(198, 175, 123, .08); margin-block-start: 1.6em !important; }
 .steps__note { font-size: 0.9375rem; color: var(--c-ink-soft); line-height: 1.6; }
 @media (max-width: 767px) {
-  .steps__btn { gap: var(--space-2); padding: 1.1rem 0; font-size: 1.35rem; }
+  .steps__btn { gap: var(--space-2); padding: 1.1rem 0; font-size: 1.25rem; }
   .steps__num { font-size: 1.375rem; min-width: 2ch; }
   .steps__body { padding-inline-start: 0; }
   .steps__callout { padding: .9rem 1rem; }
