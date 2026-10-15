@@ -115,6 +115,17 @@
   background: var(--c-gold);
   color: var(--c-charcoal);
 }
+/* header button: solid gold at rest, not only on hover */
+.site-header__end .btn {
+  background: var(--c-gold);
+  color: var(--c-charcoal);
+}
+.site-header__end .btn:hover,
+.site-header__end .btn:focus-visible {
+  background: #d4be8c;
+  border-color: #d4be8c;
+  color: var(--c-charcoal);
+}
 
 .nav-toggle {
   display: none;
