@@ -1216,6 +1216,37 @@ html.a11y-cursor, html.a11y-cursor * { cursor: url("data:image/svg+xml;utf8,<svg
 .steps__sub + ol, .steps__sub + ul { margin-block-start: .6em; }
 .steps__callout { padding: 1.1rem 1.4rem; border: 1px solid var(--c-gold); border-radius: var(--radius); background: rgba(198, 175, 123, .08); margin-block-start: 1.6em !important; }
 .steps__note { font-size: 0.9375rem; color: var(--c-ink-soft); line-height: 1.6; }
+
+/* Financing step: title + two cards, after the brochure page */
+.fin { --fin-rose: #e9d3cf; --fin-rose-ink: #7d3b32; --fin-gold-ink: #a8843f; }
+.fin__title {
+  margin: .25rem 0 1.6rem; text-align: center;
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); font-weight: var(--fw-bold); line-height: 1.2; color: var(--c-ink);
+}
+.fin__orn { display: flex; justify-content: center; gap: .45rem; margin-top: .55rem; }
+.fin__orn i { display: block; height: 3px; border-radius: 2px; background: var(--fin-rose); width: 1.4rem; }
+.fin__orn i:nth-child(2) { background: var(--c-gold); width: 3.2rem; }
+.fin__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1rem, 2.5vw, 2rem); align-items: start; }
+.fin__card {
+  background: rgba(255, 255, 255, .55); border: 1px solid var(--c-gold-faint); border-radius: 14px;
+  padding: clamp(1.1rem, 2vw, 1.8rem) clamp(1.1rem, 2.2vw, 2rem);
+  font-size: var(--fs-body); line-height: 1.7;
+}
+.fin__card p { margin: 0 0 .85em; }
+.fin__card p:last-child { margin-bottom: 0; }
+.fin__h {
+  margin: 0 0 1rem; padding-bottom: .55rem; border-bottom: 2px solid var(--c-gold);
+  font-size: clamp(1.25rem, 1.05rem + .7vw, 1.6rem); font-weight: var(--fw-bold); line-height: 1.25; color: var(--c-ink);
+}
+.fin__q { margin: 1.1em 0 .3em; font-size: var(--fs-lead); font-weight: var(--fw-bold); line-height: 1.3; color: var(--fin-gold-ink); }
+.fin__q:first-of-type { margin-top: 0; }
+.fin__note {
+  margin-top: 1.2rem; padding: .9rem 1.1rem; border-radius: 10px;
+  background: var(--fin-rose); color: var(--c-ink); font-size: .95rem; line-height: 1.6;
+}
+.fin__note strong { display: block; margin-bottom: .25rem; color: var(--fin-rose-ink); font-weight: var(--fw-bold); font-size: 1rem; }
+.fin__note p { margin: 0; }
+@media (max-width: 900px) { .fin__grid { grid-template-columns: 1fr; } }
 @media (max-width: 767px) {
   .steps__btn { gap: var(--space-2); padding: 1.1rem 0; font-size: 1.25rem; }
   .steps__num { font-size: 1.375rem; min-width: 2ch; }
