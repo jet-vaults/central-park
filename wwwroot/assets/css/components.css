@@ -106,22 +106,13 @@
   border-radius: var(--radius);
   font-size: var(--fs-small);
   font-weight: var(--fw-medium);
-  color: var(--c-gold);
+  background: var(--c-gold);
+  color: var(--c-charcoal);
   white-space: nowrap;
-  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+  transition: background-color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
 }
 .btn:hover,
 .btn:focus-visible {
-  background: var(--c-gold);
-  color: var(--c-charcoal);
-}
-/* header button: solid gold at rest, not only on hover */
-.site-header__end .btn {
-  background: var(--c-gold);
-  color: var(--c-charcoal);
-}
-.site-header__end .btn:hover,
-.site-header__end .btn:focus-visible {
   background: #d4be8c;
   border-color: #d4be8c;
   color: var(--c-charcoal);
